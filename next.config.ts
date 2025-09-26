@@ -1,15 +1,14 @@
 import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === "production";
-const repo = "trust-calculator";
+const repo = "airdrop_calculator"; // <- your repo name
 
-export default {
-  output: "export",
-  images: { unoptimized: true },
+const nextConfig: NextConfig = {
+  output: "export",               // generates /out for GitHub Pages
+  images: { unoptimized: true },  // required on Pages
   basePath: isProd ? `/${repo}` : "",
-  assetPrefix: isProd ? `/${repo}` : "",
-  trailingSlash: true,
-  env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? `/${repo}` : "",
-  },
-} satisfies NextConfig;
+  assetPrefix: isProd ? `/${repo}/` : "",
+  trailingSlash: true,            // avoids 404s on Pages
+};
+
+export default nextConfig;
