@@ -356,11 +356,11 @@ export default function TrustAirdropCalculator() {
                                     src={`/images/relics/${r}.png`} 
                                     alt={`${LABELS[r]} relic`}
                                     className="w-full h-full object-cover"
-                                    onError={(e) => {
-                                      e.currentTarget.style.display = 'none';
-                                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                                      if (fallback) fallback.style.display = 'block';
-                                    }}
+                                      onError={(e) => {
+                                        e.currentTarget.style.display = 'none';
+                                        const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                                        if (fallback) fallback.style.display = 'block';
+                                      }}
                                   />
                                   <span className="text-2xl hidden">💎</span>
                                 </div>
@@ -404,11 +404,11 @@ export default function TrustAirdropCalculator() {
                               src={`/images/relics/${r}.png`} 
                               alt={`${LABELS[r]} relic`}
                               className="w-full h-full object-cover"
-                              onError={(e) => {
-                                e.currentTarget.style.display = 'none';
-                                const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                                if (fallback) fallback.style.display = 'block';
-                              }}
+                                      onError={(e) => {
+                                        e.currentTarget.style.display = 'none';
+                                        const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                                        if (fallback) fallback.style.display = 'block';
+                                      }}
                             />
                             <span className="text-3xl hidden">💎</span>
                           </div>
