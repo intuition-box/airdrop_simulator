@@ -160,9 +160,12 @@ export default function TrustAirdropCalculator() {
         <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 mb-2">
           IQ to $TRUST Calculator
         </h1>
-        <p className="text-white/60 text-sm md:text-base">
-          Simulate your airdrop rewards based on IQ points and relic multipliers
-        </p>
+            <p className="text-white/60 text-sm md:text-base">
+              Simulate your airdrop rewards based on IQ points and relic multipliers
+            </p>
+            <p className="text-white/40 text-xs md:text-sm mt-2">
+              ⚠️ This is an unofficial simulator for funny purposes only
+            </p>
       </div>
 
       <div className="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
