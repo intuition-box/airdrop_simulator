@@ -347,19 +347,29 @@ export default function TrustAirdropCalculator() {
               <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
                 {(Object.keys(LABELS) as Rarity[]).map((r) => {
                   return (
-                    <div key={r} className="snap-start shrink-0 w-[85%]">
-                          <RelicFrame rarity={r}>
+                    <div key={`mobile-${r}`} className="snap-start shrink-0 w-[85%]">
+                          <RelicFrame key={`mobile-frame-${r}`} rarity={r}>
                           <div className="p-4">
                               <div className="flex items-center gap-3 mb-4">
-                                <span 
-                                  className="h-2 w-2 rounded-full" 
-                                  style={{ 
-                                    background: r === "mystic" 
-                                      ? "linear-gradient(45deg, #7dd3fc, #c4b5fd, #fbb6ce, #fcd34d, #d9f99d, #60a5fa)"
-                                      : RARITY_COLORS[r] 
-                                  }} 
-                                />
-                                <span className="font-semibold text-lg">{LABELS[r]}</span>
+                                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center overflow-hidden">
+                                  <img 
+                                    src={`/images/relics/${r}.png`} 
+                                    alt={`${LABELS[r]} relic`}
+                                    className="w-full h-full object-cover"
+                                    onError={(e) => {
+                                      e.currentTarget.style.display = 'none';
+                                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                                      if (fallback) fallback.style.display = 'block';
+                                    }}
+                                  />
+                                  <span className="text-2xl hidden">💎</span>
+                                </div>
+                                <div>
+                                  <div className="font-semibold text-lg text-white">{LABELS[r]}</div>
+                                  <div className="text-xs text-white/60">
+                                    {normalCounts[r]} Normal • {genesisCounts[r]} Genesis
+                                </div>
+                              </div>
                             </div>
 
                               <RelicBody
@@ -386,18 +396,28 @@ export default function TrustAirdropCalculator() {
             <div className="mt-6 hidden md:grid md:grid-cols-3 gap-4">
               {(Object.keys(LABELS) as Rarity[]).map((r) => {
                 return (
-                    <RelicFrame key={r} rarity={r}>
+                    <RelicFrame key={`desktop-${r}`} rarity={r}>
                       <div className="p-4">
                         <div className="flex items-center gap-3 mb-4">
-                          <span 
-                            className="h-3 w-3 rounded-full" 
-                            style={{ 
-                              background: r === "mystic" 
-                                ? "linear-gradient(45deg, #7dd3fc, #c4b5fd, #fbb6ce, #fcd34d, #d9f99d, #60a5fa)"
-                                : RARITY_COLORS[r] 
-                            }} 
-                          />
-                          <span className="font-semibold text-lg">{LABELS[r]}</span>
+                          <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center overflow-hidden">
+                            <img 
+                              src={`/images/relics/${r}.png`} 
+                              alt={`${LABELS[r]} relic`}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                                const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                                if (fallback) fallback.style.display = 'block';
+                              }}
+                            />
+                            <span className="text-3xl hidden">💎</span>
+                          </div>
+                          <div>
+                            <div className="font-semibold text-lg text-white">{LABELS[r]}</div>
+                            <div className="text-xs text-white/60">
+                              {normalCounts[r]} Normal • {genesisCounts[r]} Genesis
+                            </div>
+                          </div>
                         </div>
 
                         <RelicBody
@@ -481,6 +501,17 @@ function RelicBody({
             <div className="min-w-[2.5rem] text-center font-bold tabular-nums">{normalCounts[rarity]}</div>
             <button className="h-8 w-8 rounded-lg border border-white/10 bg-white/10 hover:bg-white/20 active:scale-95 transition" onClick={() => stepNormal(rarity, +1)} aria-label={`Increase ${LABELS[rarity]} normal`}>+</button>
           </div>
+          <div className="mt-2 rounded-lg border border-white/10 bg-black/30 p-2">
+            <div className="text-xs text-white/75 mb-1 font-medium">+1 Normal</div>
+            <div className="text-xs font-bold text-white">+{fmt(marg.normal.diff)} $TRUST</div>
+            <div className="relative group mt-1">
+              <div className="text-xs text-white/70 cursor-help hover:text-white transition-colors">?</div>
+              <div className="absolute bottom-full right-0 mb-2 px-2 py-1 bg-gray-900/95 text-white text-xs rounded border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap z-20 shadow-lg">
+                <div className="font-medium">{marg.normal.pctVs1.toFixed(2)}% bonus</div>
+                <div className="text-[10px] text-white/70 mt-0.5">vs baseline</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="rounded-xl border border-white/10 bg-black/40 p-3">
           <div className="text-xs text-white/75 mb-2 font-medium">Genesis</div>
@@ -489,30 +520,12 @@ function RelicBody({
             <div className="min-w-[2.5rem] text-center font-bold tabular-nums">{genesisCounts[rarity]}</div>
             <button className="h-8 w-8 rounded-lg border border-white/10 bg-white/10 hover:bg-white/20 active:scale-95 transition" onClick={() => stepGenesis(rarity, +1)} aria-label={`Increase ${LABELS[rarity]} genesis`}>+</button>
           </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 gap-2">
-        <div className="rounded-lg border border-white/10 bg-black/40 p-2">
-          <div className="text-[10px] text-white/75 mb-1 font-medium">+1 Normal</div>
-          <div className="flex items-baseline justify-between">
-            <div className="text-xs font-medium">+{fmt(marg.normal.diff)} $TRUST</div>
-            <div className="relative group">
-              <div className="text-[10px] text-white/70 cursor-help hover:text-white transition-colors">?</div>
-              <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900/95 text-white text-[11px] rounded-lg border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap z-20 shadow-lg">
-                <div className="font-medium">{marg.normal.pctVs1.toFixed(2)}% bonus</div>
-                <div className="text-[10px] text-white/70 mt-0.5">vs baseline</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="rounded-lg border border-white/10 bg-black/40 p-2">
-          <div className="text-[10px] text-white/75 mb-1 font-medium">+1 Genesis</div>
-          <div className="flex items-baseline justify-between">
-            <div className="text-xs font-medium">+{fmt(marg.genesis.diff)} $TRUST</div>
-            <div className="relative group">
-              <div className="text-[10px] text-white/70 cursor-help hover:text-white transition-colors">?</div>
-              <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-900/95 text-white text-[11px] rounded-lg border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap z-20 shadow-lg">
+          <div className="mt-2 rounded-lg border border-white/10 bg-black/30 p-2">
+            <div className="text-xs text-white/75 mb-1 font-medium">+1 Genesis</div>
+            <div className="text-xs font-bold text-white">+{fmt(marg.genesis.diff)} $TRUST</div>
+            <div className="relative group mt-1">
+              <div className="text-xs text-white/70 cursor-help hover:text-white transition-colors">?</div>
+              <div className="absolute bottom-full right-0 mb-2 px-2 py-1 bg-gray-900/95 text-white text-xs rounded border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap z-20 shadow-lg">
                 <div className="font-medium">{marg.genesis.pctVsNormal.toFixed(2)}% bonus</div>
                 <div className="text-[10px] text-white/70 mt-0.5">vs Normal relic</div>
               </div>
