@@ -31,6 +31,8 @@ const RARITY_COLORS: Record<Rarity, string> = {
   mystic: "#c4b5fd",
 };
 
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const fmt = (n: number, digits = 2) =>
   Number.isFinite(n) ? n.toLocaleString(undefined, { maximumFractionDigits: digits }) : "—";
 
@@ -353,7 +355,7 @@ export default function TrustAirdropCalculator() {
                               <div className="flex items-center gap-3 mb-4">
                                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center overflow-hidden">
                                   <img 
-                                    src={`/images/relics/${r}.png`} 
+                                    src={`${prefix}/images/relics/${r}.png`} 
                                     alt={`${LABELS[r]} relic`}
                                     className="w-full h-full object-cover"
                                       onError={(e) => {
@@ -401,7 +403,7 @@ export default function TrustAirdropCalculator() {
                         <div className="flex items-center gap-3 mb-4">
                           <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center overflow-hidden">
                             <img 
-                              src={`/images/relics/${r}.png`} 
+                              src={`${prefix}/images/relics/${r}.png`} 
                               alt={`${LABELS[r]} relic`}
                               className="w-full h-full object-cover"
                                       onError={(e) => {
