@@ -16,9 +16,9 @@ import ShowcaseSearchBar from '@site/src/pages/showcase/_components/ShowcaseSear
 import ShowcaseCards from './_components/ShowcaseCards';
 import ShowcaseFilters from './_components/ShowcaseFilters';
 
-const TITLE = translate({message: 'Docusaurus Site Showcase'});
+const TITLE = translate({message: 'Community Airdrop Simulators'});
 const DESCRIPTION = translate({
-  message: 'List of websites people are building with Docusaurus',
+  message: 'List of awesome airdrop simulators built by the community',
 });
 const SUBMIT_URL = 'https://github.com/facebook/docusaurus/discussions/7826';
 

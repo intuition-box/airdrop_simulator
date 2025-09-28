@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
+  title: 'Airdrop Simulator',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
@@ -85,7 +85,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'Airdrop Simulator',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
@@ -113,8 +113,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Intuition Airdrop Checker',
+              to: '/docs/intuition-airdrop-checker',
             },
           ],
         },
