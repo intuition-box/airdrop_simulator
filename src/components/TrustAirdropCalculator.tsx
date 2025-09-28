@@ -1,5 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 type Rarity = "common" | "rare" | "epic" | "legendary" | "ancient" | "mystic";
 
@@ -31,7 +32,7 @@ const RARITY_COLORS: Record<Rarity, string> = {
   mystic: "#c4b5fd",
 };
 
-const prefix = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+// Use Docusaurus baseUrl helper for static assets
 
 const fmt = (n: number, digits = 2) =>
   Number.isFinite(n) ? n.toLocaleString(undefined, { maximumFractionDigits: digits }) : "—";
@@ -94,6 +95,22 @@ export default function TrustAirdropCalculator() {
   const [multG, setMultG] = useState<Record<Rarity, number>>({ ...DEFAULT_GENESIS_MULTIPLIERS });
 
   const [showAdvanced, setShowAdvanced] = useState<boolean>(false);
+
+  // Resolve asset URLs unconditionally to respect hooks rules
+  const commonUrl = useBaseUrl('/images/relics/common.png');
+  const rareUrl = useBaseUrl('/images/relics/rare.png');
+  const epicUrl = useBaseUrl('/images/relics/epic.png');
+  const legendaryUrl = useBaseUrl('/images/relics/legendary.png');
+  const ancientUrl = useBaseUrl('/images/relics/ancient.png');
+  const mysticUrl = useBaseUrl('/images/relics/mystic.png');
+  const relicImageSrc: Record<Rarity, string> = {
+    common: commonUrl,
+    rare: rareUrl,
+    epic: epicUrl,
+    legendary: legendaryUrl,
+    ancient: ancientUrl,
+    mystic: mysticUrl,
+  };
 
   const trustBefore = useMemo(() => (iqPerTrust > 0 ? iq / iqPerTrust : 0), [iq, iqPerTrust]);
 
@@ -355,12 +372,12 @@ export default function TrustAirdropCalculator() {
                               <div className="flex items-center gap-3 mb-4">
                                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center overflow-hidden">
                                   <img 
-                                    src={`${prefix}/images/relics/${r}.png`} 
+                                    src={relicImageSrc[r]} 
                                     alt={`${LABELS[r]} relic`}
                                     className="w-full h-full object-cover"
                                       onError={(e) => {
-                                        e.currentTarget.style.display = 'none';
-                                        const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                                        (e.currentTarget as HTMLImageElement).style.display = 'none';
+                                        const fallback = (e.currentTarget.nextElementSibling as HTMLElement);
                                         if (fallback) fallback.style.display = 'block';
                                       }}
                                   />
@@ -403,12 +420,12 @@ export default function TrustAirdropCalculator() {
                         <div className="flex items-center gap-3 mb-4">
                           <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center overflow-hidden">
                             <img 
-                              src={`${prefix}/images/relics/${r}.png`} 
+                              src={relicImageSrc[r]} 
                               alt={`${LABELS[r]} relic`}
                               className="w-full h-full object-cover"
                                       onError={(e) => {
-                                        e.currentTarget.style.display = 'none';
-                                        const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                                        (e.currentTarget as HTMLImageElement).style.display = 'none';
+                                        const fallback = (e.currentTarget.nextElementSibling as HTMLElement);
                                         if (fallback) fallback.style.display = 'block';
                                       }}
                             />
@@ -559,3 +576,5 @@ function RelicBody({
     </div>
   );
 }
+
+
