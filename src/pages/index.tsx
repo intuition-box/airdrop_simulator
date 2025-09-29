@@ -33,6 +33,9 @@ function HomepageHeader() {
             Explore Community Builds ↗
           </Link>
         </div>
+        <div className={styles.heroCalculator}>
+          <TrustAirdropCalculator />
+        </div>
       </div>
     </header>
   );
@@ -45,11 +48,7 @@ export default function Home(): ReactNode {
       title={siteConfig.title}
       description={siteConfig.tagline}>
       <HomepageHeader />
-      <main style={{padding: '2rem 0'}}>
-        <div className="container">
-          <TrustAirdropCalculator />
-        </div>
-      </main>
+      <main />
     </Layout>
   );
 }

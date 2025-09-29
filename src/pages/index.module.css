@@ -49,9 +49,19 @@
   padding: 4rem 1rem;
 }
 
+.heroCalculator {
+  margin-top: 2rem;
+  width: min(1100px, 100%);
+}
+
 @media screen and (max-width: 996px) {
   .heroContent {
     padding: 3rem 1rem;
+  }
+
+  .heroCalculator {
+    margin-top: 1.5rem;
+    width: 100%;
   }
 }
 
