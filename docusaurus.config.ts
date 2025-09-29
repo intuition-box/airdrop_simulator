@@ -104,28 +104,19 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Intuition Airdrop Checker',
-              to: '/docs/intuition-airdrop-checker',
-            },
-          ],
-        },
-        {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Intuition',
+              href: 'https://intuiton.systems',
             },
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'https://discordapp.com/invite/0xintuition',
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'Intuiton Box',
+              href: 'https://intuition.box',
             },
           ],
         },

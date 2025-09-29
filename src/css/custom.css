@@ -28,3 +28,23 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Footer and navbar external link icon alignment
+   Tailwind's preflight sets svg { display: block; }, which causes
+   Docusaurus external-link icons to wrap to the next line. Force
+   them inline and align visually with text. */
+.footer a.footer__link-item svg {
+  display: inline;
+  width: 0.9em;
+  height: 0.9em;
+  margin-left: 0.25rem;
+  vertical-align: text-bottom;
+}
+
+.navbar__link svg {
+  display: inline;
+  width: 0.9em;
+  height: 0.9em;
+  margin-left: 0.25rem;
+  vertical-align: text-bottom;
+}
