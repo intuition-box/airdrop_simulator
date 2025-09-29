@@ -4,15 +4,49 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 6rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  color: var(--ifm-font-color-base-inverse);
+}
+
+.heroVideo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 120%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateX(-50%);
+  z-index: 0;
+  filter: brightness(0.6);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 9, 20, 0.75) 0%,
+    rgba(4, 9, 20, 0.6) 40%,
+    rgba(4, 9, 20, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
+  }
+
+  .heroVideo {
+    width: 160%;
   }
 }
 

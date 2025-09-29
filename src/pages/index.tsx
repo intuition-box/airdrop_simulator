@@ -12,16 +12,25 @@ function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
+      <video
+        className={styles.heroVideo}
+        src="https://res.cloudinary.com/dfpwy9nyv/video/upload/v1755013447/Portal%20Assets/video/hero-loop_mlllaj.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        poster="/img/docusaurus-social-card.jpg"
+      />
+      <div className={styles.heroOverlay} />
+      <div className={clsx('container', styles.heroContent)}>
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+          <Link className="button button--secondary button--lg" to="/showcase">
+            Explore Community Builds ↗
           </Link>
         </div>
       </div>
@@ -35,6 +44,7 @@ export default function Home(): ReactNode {
     <Layout
       title={siteConfig.title}
       description={siteConfig.tagline}>
+      <HomepageHeader />
       <main style={{padding: '2rem 0'}}>
         <div className="container">
           <TrustAirdropCalculator />

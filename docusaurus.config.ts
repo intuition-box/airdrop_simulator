@@ -104,7 +104,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Community',
+          title: 'Official Intuition Links',
           items: [
             {
               label: 'Intuition',
@@ -114,6 +114,11 @@ const config: Config = {
               label: 'Discord',
               href: 'https://discordapp.com/invite/0xintuition',
             },
+          ],
+        },
+        {
+          title: 'Community Links',
+          items: [
             {
               label: 'Intuiton Box',
               href: 'https://intuition.box',
@@ -126,10 +131,6 @@ const config: Config = {
             {
               label: 'Blog',
               to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/intuition-box/airdrop_simulator',
             },
           ],
         },
