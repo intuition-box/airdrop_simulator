@@ -20,7 +20,7 @@ const TITLE = translate({message: 'Community Airdrop Simulators'});
 const DESCRIPTION = translate({
   message: 'List of awesome airdrop simulators built by the community',
 });
-const SUBMIT_URL = 'https://github.com/facebook/docusaurus/discussions/7826';
+const SUBMIT_URL = 'https://github.com/intuition-box/airdrop_simulator';
 
 function ShowcaseHeader() {
   return (
@@ -29,7 +29,7 @@ function ShowcaseHeader() {
       <p>{DESCRIPTION}</p>
       <Link className="button button--primary" to={SUBMIT_URL}>
         <Translate id="showcase.header.button">
-          🙏 Please add your site
+          🙏 Please add yours
         </Translate>
       </Link>
     </section>

@@ -20,6 +20,8 @@ export type User = {
   preview: string | null; // null = use the remote screenshot service
   website: string;
   source: string | null;
+  avatar: string | null;
+  xHandle: string | null;
   tags: TagType[];
 };
 
@@ -91,6 +93,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://intuitionchecker.vercel.app/',
     source: null,
+    avatar: null,
+    xHandle: null,
     tags: ['favorite', 'community'],
   },
   {
@@ -99,6 +103,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://jade-m22.github.io/airdrop_calculator/',
     source: null,
+    avatar: 'img/showcase/avatars/jademichel_.png',
+    xHandle: 'jademichel_',
     tags: ['favorite', 'community'],
   },
   {
@@ -107,6 +113,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-points-and-nft-calculator.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/0xpandus.png',
+    xHandle: '0xpandus',
     tags: ['favorite', 'community'],
   },
   {
@@ -115,7 +123,9 @@ const Users: User[] = [
     preview: null,
     website: 'https://trust-allocation.replit.app/',
     source: null,
-    tags: ['community'],
+    avatar: 'img/showcase/avatars/0xxnuel.png',
+    xHandle: '0xxnuel',
+    tags: ['community','favorite'],
   },
   {
     title: 'yunji15',
@@ -123,7 +133,9 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-trust-airdrop-simulator.vercel.app/',
     source: null,
-    tags: ['community'],
+    avatar: 'img/showcase/avatars/Yunji_TV.png',
+    xHandle: 'Yunji_TV',
+    tags: ['community','favorite'],
   },
   {
     title: 'lutin_75',
@@ -131,6 +143,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://alexandretedesco.github.io/Trust-airdrop-simulator/',
     source: null,
+    avatar: 'img/showcase/avatars/Cryptdsco.png',
+    xHandle: 'Cryptdsco',
     tags: ['community'],
   },
   {
@@ -139,6 +153,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://check-trust.vercel.app',
     source: null,
+    avatar: 'img/showcase/avatars/oddsgibs.png',
+    xHandle: 'oddsgibs',
     tags: ['community'],
   },
   {
@@ -147,6 +163,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://intuitionfunchecker.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/NewbieXBT.png',
+    xHandle: 'NewbieXBT',
     tags: ['community'],
   },
   {
@@ -155,6 +173,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-intuition-checker-website.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/Novasko17.png',
+    xHandle: 'Novasko17',
     tags: ['community'],
   },
   {
@@ -163,6 +183,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://trustairdropchecker.vercel.app/',
     source: null,
+    avatar: null,
+    xHandle: null,
     tags: ['community'],
   },
   {
@@ -171,6 +193,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-trust-airdrop-simulator-tau.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/Babalandlord2.png',
+    xHandle: 'Babalandlord2',
     tags: ['community'],
   },
   {
@@ -179,6 +203,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://checker-intuition.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/ttteardrops.png',
+    xHandle: 'ttteardrops',
     tags: ['community'],
   },
   {
@@ -187,6 +213,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://intuition-calculator.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/airdropdavee.png',
+    xHandle: 'airdropdavee',
     tags: ['community'],
   },
   {
@@ -195,6 +223,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-airdrop-simulator-rho.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/i2playy.png',
+    xHandle: 'i2playy',
     tags: ['community'],
   },
   {
@@ -203,6 +233,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-airdrop-checker-simulator-delta.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/u4believe.png',
+    xHandle: 'u4believe',
     tags: ['community'],
   },
   {
@@ -211,6 +243,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://trustlayerbyintuition.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/xybersam.png',
+    xHandle: 'xybersam',
     tags: ['community'],
   },
   {
@@ -219,6 +253,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://trusttothemoon.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/BlitzBunny2.png',
+    xHandle: 'BlitzBunny2',
     tags: ['community'],
   },
   {
@@ -227,6 +263,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-airdrop-checker-simulator-nine.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/LoadedCT.png',
+    xHandle: 'LoadedCT',
     tags: ['community'],
   },
   {
@@ -235,6 +273,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://intuition-airdrop-checker.netlify.app/',
     source: null,
+    avatar: 'img/showcase/avatars/play_crypt.png',
+    xHandle: 'play_crypt',
     tags: ['community'],
   },
   {
@@ -243,6 +283,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-airdrop-checker-refinement.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/OluwaTammie.png',
+    xHandle: 'OluwaTammie',
     tags: ['community'],
   },
   {
@@ -251,6 +293,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://trust-airdrop-checker.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/Samoris4.png',
+    xHandle: 'Samoris4',
     tags: ['community'],
   },
   {
@@ -259,6 +303,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-airdrop-calculator-ui.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/i_write_codes.png',
+    xHandle: 'i_write_codes',
     tags: ['community'],
   },
   {
@@ -267,6 +313,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://intuitionlivechecker.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/onlykraft.png',
+    xHandle: 'onlykraft',
     tags: ['community'],
   },
   {
@@ -275,6 +323,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://trust-token.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/kobkpokpor.png',
+    xHandle: 'kobkpokpor',
     tags: ['community'],
   },
   {
@@ -283,6 +333,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://bigace-trust.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/Munachike.png',
+    xHandle: 'Munachike',
     tags: ['community'],
   },
   {
@@ -291,6 +343,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-airdrop-simulator-trust.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/javier_tuerca.png',
+    xHandle: 'javier_tuerca',
     tags: ['community'],
   },
   {
@@ -299,6 +353,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://the-trust-checker.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/wolf_de_web3.png',
+    xHandle: 'wolf_de_web3',
     tags: ['community'],
   },
   {
@@ -307,6 +363,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-airdrop-checker-page-plum.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/maxwellll_.png',
+    xHandle: 'maxwellll_',
     tags: ['community'],
   },
   {
@@ -315,6 +373,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://trustcheker.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/Yevnnefer.png',
+    xHandle: 'Yevnnefer',
     tags: ['community'],
   },
   {
@@ -323,6 +383,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-airdrop-simulator-ten.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/Web3ree_Xplorer.png',
+    xHandle: 'Web3ree_Xplorer',
     tags: ['community'],
   },
   {
@@ -331,6 +393,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-hello-five-psi.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/0xPhotogod.png',
+    xHandle: '0xPhotogod',
     tags: ['community'],
   },
   {
@@ -339,6 +403,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://intuition-trust-airdrop.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/Brightstarworl1.png',
+    xHandle: 'Brightstarworl1',
     tags: ['community'],
   },
   {
@@ -347,6 +413,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://trust-pourmehopium.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/uchiha_od.png',
+    xHandle: 'uchiha_od',
     tags: ['community'],
   },
   {
@@ -355,6 +423,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-trust-reactor-ui.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/TheeWhitte_wolf.png',
+    xHandle: 'TheeWhitte_wolf',
     tags: ['community'],
   },
   {
@@ -363,6 +433,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://intuitiontrust.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/savvy_canny.png',
+    xHandle: 'savvy_canny',
     tags: ['community'],
   },
   {
@@ -371,6 +443,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://baboev0.github.io/trust-checker/',
     source: null,
+    avatar: 'img/showcase/avatars/Alastor_Aligned.png',
+    xHandle: 'Alastor_Aligned',
     tags: ['community'],
   },
   {
@@ -379,6 +453,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-trust-airdrop-simulator-two.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/CapalotRE.png',
+    xHandle: 'CapalotRE',
     tags: ['community'],
   },
   {
@@ -387,6 +463,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-airdrop-checker.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/GrandRyuma.png',
+    xHandle: 'GrandRyuma',
     tags: ['community'],
   },
   {
@@ -395,6 +473,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-trust-graph-explorer.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/adisaailes.png',
+    xHandle: 'adisaailes',
     tags: ['community'],
   },
   {
@@ -403,6 +483,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0.app/chat/pyramid-simulation-hoodie-h5saCz6021j',
     source: null,
+    avatar: 'img/showcase/avatars/ioannisf94.png',
+    xHandle: 'ioannisf94',
     tags: ['community'],
   },
   {
@@ -411,6 +493,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://checker-intuition.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/SupriYa49265575.png',
+    xHandle: 'SupriYa49265575',
     tags: ['community'],
   },
   {
@@ -419,6 +503,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-airdrop-checker-app.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/Eghosa1a.png',
+    xHandle: 'Eghosa1a',
     tags: ['community'],
   },
   {
@@ -427,6 +513,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-token-claim-portal.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/MDSozibIslam7.png',
+    xHandle: 'MDSozibIslam7',
     tags: ['community'],
   },
   {
@@ -435,6 +523,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-airdrop-simulator-azure.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/kachilarry.png',
+    xHandle: 'kachilarry',
     tags: ['community'],
   },
   {
@@ -443,6 +533,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0-omiaydin.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/omiaydin.png',
+    xHandle: 'omiaydin',
     tags: ['community'],
   },
   {
@@ -451,6 +543,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0.app/chat/intuition-allocation-calculator-ptLhN58rdcT',
     source: null,
+    avatar: 'img/showcase/avatars/OyeleyeDolapo2.png',
+    xHandle: 'OyeleyeDolapo2',
     tags: ['community'],
   },
   {
@@ -459,6 +553,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://v0.app/chat/trust-token-eligibility-checker-jtJjFfso1Co',
     source: null,
+    avatar: 'img/showcase/avatars/Impulse_84.png',
+    xHandle: 'Impulse_84',
     tags: ['community'],
   },
   {
@@ -467,6 +563,8 @@ const Users: User[] = [
     preview: null,
     website: 'https://0xintuition-trust-checker.vercel.app/',
     source: null,
+    avatar: 'img/showcase/avatars/Mmapule_.png',
+    xHandle: 'Mmapule_',
     tags: ['community'],
   },
 ];

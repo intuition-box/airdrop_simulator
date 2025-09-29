@@ -11,6 +11,7 @@ import Link from '@docusaurus/Link';
 import Translate from '@docusaurus/Translate';
 import Image from '@theme/IdealImage';
 import {Tags, TagList, type TagType, type User} from '@site/src/data/users';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import {sortBy} from '@site/src/utils/jsUtils';
 import Heading from '@theme/Heading';
 import FavoriteIcon from '../FavoriteIcon';
@@ -62,18 +63,57 @@ function getCardImage(user: User): string {
 
 function ShowcaseCard({user}: {user: User}) {
   const image = getCardImage(user);
+  const avatarUrl = user.avatar ? useBaseUrl(user.avatar) : null;
+  const xProfileUrl = user.xHandle ? `https://x.com/${user.xHandle}` : null;
+
   return (
-    <li key={user.title} className="card shadow--md">
+    <li key={user.title} className={clsx('card shadow--md', styles.showcaseCard)}>
+      <Link
+        href={user.website}
+        className={styles.cardOverlay}
+        aria-label={`Open ${user.title}`}
+      />
       <div className={clsx('card__image', styles.showcaseCardImage)}>
         <Image img={image} alt={user.title} />
       </div>
-      <div className="card__body">
+      <div className={clsx('card__body', styles.cardContent)}>
         <div className={clsx(styles.showcaseCardHeader)}>
-          <Heading as="h4" className={styles.showcaseCardTitle}>
-            <Link href={user.website} className={styles.showcaseCardLink}>
-              {user.title}
-            </Link>
-          </Heading>
+          <div className={styles.showcaseCardTitleGroup}>
+            {avatarUrl && (
+              xProfileUrl ? (
+                <Link
+                  href={xProfileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={clsx(styles.showcaseCardAvatarLink, styles.cardInteractive)}>
+                  <img
+                    className={styles.showcaseCardAvatar}
+                    src={avatarUrl}
+                    alt={`${user.title} avatar`}
+                  />
+                </Link>
+              ) : (
+                <img
+                  className={styles.showcaseCardAvatar}
+                  src={avatarUrl}
+                  alt={`${user.title} avatar`}
+                />
+              )
+            )}
+            <Heading as="h4" className={styles.showcaseCardTitle}>
+              {xProfileUrl ? (
+                <Link
+                  href={xProfileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={clsx(styles.showcaseCardNameLink, styles.cardInteractive)}>
+                  {user.title}
+                </Link>
+              ) : (
+                user.title
+              )}
+            </Heading>
+          </div>
           {user.tags.includes('favorite') && (
             <FavoriteIcon size="medium" style={{marginRight: '0.25rem'}} />
           )}
@@ -83,6 +123,7 @@ function ShowcaseCard({user}: {user: User}) {
               className={clsx(
                 'button button--secondary button--sm',
                 styles.showcaseCardSrcBtn,
+                styles.cardInteractive,
               )}>
               <Translate id="showcase.card.sourceLink">source</Translate>
             </Link>
@@ -90,7 +131,7 @@ function ShowcaseCard({user}: {user: User}) {
         </div>
         <p className={styles.showcaseCardBody}>{user.description}</p>
       </div>
-      <ul className={clsx('card__footer', styles.cardFooter)}>
+      <ul className={clsx('card__footer', styles.cardFooter, styles.cardContent)}>
         <ShowcaseCardTag tags={user.tags} />
       </ul>
     </li>

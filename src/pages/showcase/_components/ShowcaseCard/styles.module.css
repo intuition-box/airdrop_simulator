@@ -5,10 +5,45 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+.showcaseCard {
+  position: relative;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.showcaseCard:hover,
+.showcaseCard:focus-within {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 1;
+  display: block;
+}
+
+.cardOverlay:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 4px;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cardInteractive {
+  pointer-events: auto;
+}
+
 .showcaseCardImage {
   overflow: hidden;
   height: 150px;
   border-bottom: 2px solid var(--ifm-color-emphasis-200);
+  pointer-events: none;
 }
 
 .showcaseCardHeader {
@@ -17,11 +52,34 @@
   margin-bottom: 12px;
 }
 
+.showcaseCardTitleGroup {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 0.75rem;
+}
+
 .showcaseCardTitle {
   margin-bottom: 0;
   flex: 1 1 auto;
 }
 
+.showcaseCardAvatarLink {
+  display: inline-flex;
+  border-radius: 50%;
+}
+
+.showcaseCardAvatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.showcaseCardNameLink,
 .showcaseCardTitle a {
   text-decoration: none;
   background: linear-gradient(
@@ -32,6 +90,8 @@
   transition: background-size ease-out 200ms;
 }
 
+.showcaseCardNameLink:hover,
+.showcaseCardNameLink:focus-visible,
 .showcaseCardTitle a:not(:focus):hover {
   background-size: 100% 1px;
 }
