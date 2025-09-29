@@ -20,8 +20,8 @@ const DEFAULT_GENESIS_MULTIPLIERS: Record<Rarity, number> = {
   common: 1.02 * 1.05, rare: 1.05 * 1.08, epic: 1.12 * 1.06, legendary: 1.25 * 1.07, ancient: 1.5 * 1.08, mystic: 2.0 * 1.06,
 };
 
-const PRESET_IQ_PER_TRUST = [33, 333, 3333];
-const PRESET_TRUST_USD = [0.15, 0.2, 0.25];
+const PRESET_IQ_PER_TRUST = [400, 500, 600];
+const PRESET_TRUST_USD = [0.15, 0.2, 0.25,0.50];
 
 const RARITY_COLORS: Record<Rarity, string> = {
   common: "#d1d5db",
@@ -83,8 +83,8 @@ function RelicFrame({
 }
 
 export default function TrustAirdropCalculator() {
-  const [iq, setIq] = useState<number>(50000);
-  const [iqPerTrust, setIqPerTrust] = useState<number>(333);
+  const [iq, setIq] = useState<number>(500000);
+  const [iqPerTrust, setIqPerTrust] = useState<number>(500);
   const clampIqPerTrust = (v: number) => Math.max(1, Math.floor(v || 1));
 
   const [trustUsd, setTrustUsd] = useState<number>(0.15);
@@ -248,8 +248,8 @@ export default function TrustAirdropCalculator() {
               <div className="flex items-center gap-3">
                 <input
                   type="range"
-                  min={1}
-                  max={100000}
+                  min={400}
+                  max={600}
                   step={1}
                   value={iqPerTrust}
                   onChange={(e) => setIqPerTrust(clampIqPerTrust(parseInt(e.target.value, 10)))}
