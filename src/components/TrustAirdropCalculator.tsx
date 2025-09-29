@@ -197,7 +197,7 @@ export default function TrustAirdropCalculator() {
             Simulate your airdrop rewards based on IQ points and relic multipliers
           </h1> */}
             <p className="text-white/60 text-sm md:text-base">
-              Simulate your airdrop rewards based on IQ points and Relic
+              Simulate your $TRUST airdrop rewards based on IQ points and Relic
             </p>
             <p className="text-white/40 text-xs md:text-sm mt-2 back">
               ⚠️ This is an unofficial simulator -- for fun only! ⚠️
