@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 type Rarity = "common" | "rare" | "epic" | "legendary" | "ancient" | "mystic";
@@ -37,18 +37,25 @@ const RARITY_COLORS: Record<Rarity, string> = {
 const fmt = (n: number, digits = 2) =>
   Number.isFinite(n) ? n.toLocaleString(undefined, { maximumFractionDigits: digits }) : "—";
 
+const formatThousands = (value: number): string =>
+  Number.isFinite(value)
+    ? Math.trunc(value)
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+    : '';
+
 function RelicFrame({
   children,
   rarity,
   radius = 20,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   rarity: Rarity;
   radius?: number;
 }) {
   const rarityColor = RARITY_COLORS[rarity];
   
-  const cardStyle: React.CSSProperties = {
+  const cardStyle: CSSProperties = {
     borderRadius: radius,
     background: "rgba(0, 0, 0, 0.8)",
     border: "1px solid rgba(255, 255, 255, 0.1)",
@@ -56,7 +63,7 @@ function RelicFrame({
     overflow: "hidden",
   };
 
-  const topBorderStyle: React.CSSProperties = {
+  const topBorderStyle: CSSProperties = {
     position: "absolute",
     top: 0,
     left: 0,
@@ -173,29 +180,44 @@ export default function TrustAirdropCalculator() {
   };
 
 
+  const shellStyle: CSSProperties = {
+    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05))',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    boxShadow: '0 25px 70px rgba(3, 10, 24, 0.45)',
+    backdropFilter: 'blur(24px)',
+    WebkitBackdropFilter: 'blur(24px)',
+  };
+
   return (
-    <div className="mx-auto max-w-6xl p-6 md:p-10 bg-black text-white rounded-3xl">
+    <div
+      className="mx-auto max-w-6xl p-6 md:p-10 text-white rounded-3xl"
+      style={shellStyle}>
       <div className="text-center mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 mb-2">
-          IQ to $TRUST Calculator
-        </h1>
+          {/* <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 mb-2">
+            Simulate your airdrop rewards based on IQ points and relic multipliers
+          </h1> */}
             <p className="text-white/60 text-sm md:text-base">
-              Simulate your airdrop rewards based on IQ points and relic multipliers
+              Simulate your airdrop rewards based on IQ points and Relic
             </p>
-            <p className="text-white/40 text-xs md:text-sm mt-2">
-              ⚠️ This is an unofficial simulator for funny purposes only
+            <p className="text-white/40 text-xs md:text-sm mt-2 back">
+              ⚠️ This is an unofficial simulator -- for fun only! ⚠️
             </p>
       </div>
 
       <div className="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
         <div className="mb-6">
-          <label className="flex flex-col gap-2">
+          <label className="flex flex-col gap-2 ">
             <span className="text-sm font-medium">IQ points</span>
             <input
-              type="number"
-              value={iq}
-              onChange={(e) => setIq(Math.max(0, parseInt(e.target.value || "0", 10) || 0))}
-              className="border border-white/10 rounded-2xl px-3 py-2 bg-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+              type="text"
+              inputMode="numeric"
+              value={formatThousands(iq)}
+              onChange={(e) => {
+                const clean = e.currentTarget.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
+                const next = clean === '' ? 0 : Math.max(0, parseInt(clean, 10) || 0);
+                setIq(next);
+              }}
+              className="border border-white/10 rounded-2xl px-4 py-3 bg-black/60 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 shadow-[0_14px_35px_rgba(0,0,0,0.45)] transition"
               placeholder="e.g. 1200"
             />
             <span className="text-xs text-white/60">Your current IQ total</span>
@@ -264,7 +286,7 @@ export default function TrustAirdropCalculator() {
           <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
             <div className="mb-6">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium">$TRUST price (USD)</span>
+                <span className="text-sm font-medium">$TRUST price</span>
                 <div className="flex gap-2">
                   {PRESET_TRUST_USD.map((p) => (
                     <button
@@ -576,5 +598,3 @@ function RelicBody({
     </div>
   );
 }
-
-
