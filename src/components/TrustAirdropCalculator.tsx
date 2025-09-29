@@ -21,7 +21,6 @@ const DEFAULT_GENESIS_MULTIPLIERS: Record<Rarity, number> = {
 };
 
 const PRESET_IQ_PER_TRUST = [400, 500, 600];
-const PRESET_TRUST_USD = [0.15, 0.2, 0.25,0.50];
 
 const RARITY_COLORS: Record<Rarity, string> = {
   common: "#d1d5db",
@@ -43,6 +42,11 @@ const formatThousands = (value: number): string =>
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
     : '';
+
+const formatUsd = (value: number): string =>
+  Number.isFinite(value)
+    ? value.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})
+    : '—';
 
 function RelicFrame({
   children,
@@ -224,8 +228,8 @@ export default function TrustAirdropCalculator() {
           </label>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+        <div className="grid md:grid-cols-2 gap-6 items-stretch">
+          <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] h-full flex flex-col">
             <div className="mb-6">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm font-medium">IQ per 1 $TRUST</span>
@@ -283,63 +287,40 @@ export default function TrustAirdropCalculator() {
             </div>
           </div>
 
-          <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+          <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] h-full flex flex-col">
             <div className="mb-6">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium">$TRUST price</span>
-                <div className="flex gap-2">
-                  {PRESET_TRUST_USD.map((p) => (
-                    <button
-                      key={p}
-                      type="button"
-                      onClick={() => setTrustUsd(p)}
-                      className={`text-xs px-3 py-1.5 rounded-full border transition ${
-                        Math.abs(trustUsd - p) < 1e-9 ? "bg-white text-black border-white" : "bg-white/10 text-white border-white/10 hover:bg-white/20"
-                      }`}
-                      title={`1 $TRUST = $${p.toFixed(2)}`}
-                    >
-                      ${p.toFixed(2)}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <input
-                  type="range"
-                  min={0}
-                  max={5}
-                  step={0.01}
-                  value={trustUsd}
-                  onChange={(e) => setTrustUsd(Math.max(0, parseFloat(e.target.value || "0") || 0))}
-                  className="w-full accent-white"
-                />
-                <input
-                  type="number"
-                  step={0.01}
-                  value={trustUsd}
-                  onChange={(e) => setTrustUsd(Math.max(0, parseFloat(e.target.value || "0") || 0))}
-                  className="w-28 border border-white/10 rounded-2xl px-2 py-2 bg-white/10 text-white text-right placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
-                />
-              </div>
-              <p className="text-xs text-white/60 mt-1">
-                1 $TRUST = <span className="text-white font-semibold">${trustUsd.toFixed(2)}</span>
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-black/30 px-6 py-5 shadow-[0_8px_32px_rgba(0,0,0,0.2)] backdrop-blur-sm">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-2 h-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-400"></div>
-                <div className="text-[11px] tracking-wider uppercase text-white/60 font-medium">Estimated</div>
+                <div className="text-[11px] tracking-wider uppercase text-white/60 font-medium">TRUST price</div>
               </div>
               <div className="text-4xl md:text-5xl font-extrabold tabular-nums bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 mb-1">
-                <span className="text-2xl md:text-3xl">${Math.floor(usdAfter).toLocaleString()}</span>
-                <span className="text-lg md:text-xl text-white/60">.{Math.floor((usdAfter % 1) * 100).toString().padStart(2, '0')}</span>
+                ${formatUsd(usdAfter)}
               </div>
-              <div className="text-[11px] text-white/60 font-medium mb-3">USD</div>
+              <div className="text-[11px] text-white/60 font-medium mb-3">USD @ ${trustUsd.toFixed(2)}</div>
               <div className="text-[11px] text-white/60">
-                Without relic: <span className="text-white font-medium">${Math.floor(trustBefore * trustUsd).toLocaleString()}</span>
-          </div>
-        </div>
+                Without relic: <span className="text-white font-medium">${formatUsd(trustBefore * trustUsd)}</span>
+              </div>
+            </div>
+            <div className="mt-auto">
+              <label className="block text-xs font-semibold uppercase text-white/50 tracking-widest mb-2">
+                TRUST price (USD)
+              </label>
+              <div className="flex items-center gap-3">
+                <input
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  value={trustUsd}
+                  onChange={(e) => {
+                    const next = Math.max(0, parseFloat(e.target.value || '0') || 0);
+                    setTrustUsd(next);
+                  }}
+                  className="flex-1 border border-white/15 rounded-2xl px-4 py-3 bg-black/60 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 shadow-[0_14px_35px_rgba(0,0,0,0.45)]"
+                  placeholder="0.00"
+                />
+                <span className="text-sm font-medium text-white/60">USD</span>
+              </div>
+            </div>
           </div>
         </div>
 
