@@ -1,5 +1,12 @@
 "use client";
-import { useMemo, useState, type CSSProperties, type ReactNode } from "react";
+import {
+  useCallback,
+  useMemo,
+  useState,
+  useRef,
+  type CSSProperties,
+  type ReactNode,
+} from "react";
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 type Rarity = "common" | "rare" | "epic" | "legendary" | "ancient" | "mystic";
@@ -12,6 +19,7 @@ const LABELS: Record<Rarity, string> = {
   ancient: "Ancient",
   mystic: "Mystic",
 };
+const RARITY_LIST = Object.keys(LABELS) as Rarity[];
 
 const DEFAULT_NORMAL_BONUS: Record<Rarity, number> = {
   common: 50_000,
@@ -38,6 +46,7 @@ const FDV_PRESETS = [50_000_000, 500_000_000, 1_000_000_000];
 const TOTAL_SUPPLY = 1_000_000_000;
 const VESTING_TGE = new Date('2025-10-15T00:00:00Z');
 const VESTING_MONTHS = 24;
+const DEFAULT_OPENSEA_API_KEY = '5b48b7551702441ebdc46d3b47b30a1c';
 
 const RARITY_COLORS: Record<Rarity, string> = {
   common: "#d1d5db",
@@ -90,6 +99,12 @@ const formatDate = (date: Date): string =>
     year: 'numeric',
   });
 
+const createEmptyCounts = (): Record<Rarity, number> =>
+  RARITY_LIST.reduce((acc, key) => {
+    acc[key] = 0;
+    return acc;
+  }, {} as Record<Rarity, number>);
+
 function RelicFrame({
   children,
   rarity,
@@ -136,13 +151,13 @@ export default function TrustAirdropCalculator() {
   const [fdvUsd, setFdvUsd] = useState<number>(150_000_000);
 
   const [isRelicHolder, setIsRelicHolder] = useState<boolean>(false);
+  const [walletAddress, setWalletAddress] = useState<string>('');
+  const [isFetchingWallet, setIsFetchingWallet] = useState<boolean>(false);
+  const [walletError, setWalletError] = useState<string | null>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
-  const [normalCounts, setNormalCounts] = useState<Record<Rarity, number>>({
-    common: 0, rare: 0, epic: 0, legendary: 0, ancient: 0, mystic: 0,
-  });
-  const [genesisCounts, setGenesisCounts] = useState<Record<Rarity, number>>({
-    common: 0, rare: 0, epic: 0, legendary: 0, ancient: 0, mystic: 0,
-  });
+  const [normalCounts, setNormalCounts] = useState<Record<Rarity, number>>(createEmptyCounts);
+  const [genesisCounts, setGenesisCounts] = useState<Record<Rarity, number>>(createEmptyCounts);
 
   const [bonusN, setBonusN] = useState<Record<Rarity, number>>({ ...DEFAULT_NORMAL_BONUS });
   const [bonusG, setBonusG] = useState<Record<Rarity, number>>({ ...DEFAULT_GENESIS_BONUS });
@@ -156,6 +171,7 @@ export default function TrustAirdropCalculator() {
   const legendaryUrl = useBaseUrl('/images/relics/legendary.png');
   const ancientUrl = useBaseUrl('/images/relics/ancient.png');
   const mysticUrl = useBaseUrl('/images/relics/mystic.png');
+  const relicHoldersUrl = useBaseUrl('/relics-snapshot/relic-holders.json');
   const relicImageSrc: Record<Rarity, string> = {
     common: commonUrl,
     rare: rareUrl,
@@ -181,10 +197,11 @@ export default function TrustAirdropCalculator() {
     }, 0);
   }, [isRelicHolder, normalCounts, genesisCounts, bonusN, bonusG]);
 
+  const totalIq = useMemo(() => Math.max(0, iq + relicBonusIq), [iq, relicBonusIq]);
+
   const trustAfter = useMemo(() => {
-    const bonusTrust = relicBonusIq / iqPerTrust;
-    return Math.max(0, trustBefore + bonusTrust);
-  }, [trustBefore, relicBonusIq, iqPerTrust]);
+    return iqPerTrust > 0 ? Math.max(0, totalIq / iqPerTrust) : 0;
+  }, [totalIq, iqPerTrust]);
 
   const usdAfter = useMemo(() => Math.max(0, trustAfter * Math.max(0, trustPrice)), [trustAfter, trustPrice]);
 
@@ -226,6 +243,195 @@ export default function TrustAirdropCalculator() {
       };
     });
   }, [bonusN, bonusG, iqPerTrust]);
+
+  const totalRelicsOwned = useMemo(() => {
+    return (Object.keys(LABELS) as Rarity[]).reduce((acc, r) => {
+      return acc + Math.max(0, normalCounts[r] ?? 0) + Math.max(0, genesisCounts[r] ?? 0);
+    }, 0);
+  }, [normalCounts, genesisCounts]);
+
+  const fetchWalletData = useCallback(async () => {
+    const input = walletAddress.trim();
+    if (!input) {
+      setWalletError('Please enter a wallet address');
+      return;
+    }
+
+    abortControllerRef.current?.abort();
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
+    setIsFetchingWallet(true);
+    setWalletError(null);
+
+    try {
+      // Helper: detect hex address
+      const isHexAddress = (v: string) => /^0x[a-fA-F0-9]{40}$/.test(v);
+      // Helper: ENS resolution via public endpoint
+      const resolveEns = async (name: string, signal: AbortSignal): Promise<string | null> => {
+        try {
+          const resp = await fetch(`https://api.ensideas.com/ens/resolve/${encodeURIComponent(name)}`, {
+            signal,
+            headers: { accept: 'application/json' },
+          });
+          if (!resp.ok) return null;
+          const data = await resp.json();
+          const addr = data?.address ?? data?.resolvedAddress ?? null;
+          if (typeof addr === 'string' && isHexAddress(addr)) {
+            return addr.toLowerCase();
+          }
+          return null;
+        } catch (e) {
+          return null;
+        }
+      };
+
+      // Normalize input to an address (supports ENS)
+      let raw = input.toLowerCase();
+      if (!isHexAddress(raw)) {
+        if (raw.includes('.') || raw.endsWith('.eth')) {
+          const resolved = await resolveEns(raw, controller.signal);
+          if (!resolved) {
+            throw new Error('Unable to resolve ENS name to an address');
+          }
+          raw = resolved;
+        } else {
+          throw new Error('Invalid address or ENS name');
+        }
+      }
+
+      // Fetch IQ points
+      try {
+        const pointsResp = await fetch(
+          `https://portal.intuition.systems/resources/get-points?accountId=${encodeURIComponent(raw)}`,
+          {
+            signal: controller.signal,
+            headers: {accept: 'application/json'},
+          },
+        );
+        if (pointsResp.ok) {
+          const pointsData = await pointsResp.json();
+          const totalPoints =
+            pointsData?.points?.total_points ?? pointsData?.points?.totalPoints ?? pointsData?.total_points ?? 0;
+          if (Number.isFinite(totalPoints)) {
+            setIq(Math.max(0, Number(totalPoints)));
+          }
+        } else if (pointsResp.status !== 404) {
+          throw new Error('Failed to fetch IQ points');
+        }
+      } catch (err) {
+        if ((err as Error).name !== 'AbortError') {
+          setWalletError('Unable to fetch IQ points for this wallet');
+        }
+      }
+
+      // Try local relic holders snapshot first
+      let loadedFromLocal = false;
+      try {
+        const localResp = await fetch(relicHoldersUrl, { signal: controller.signal, headers: { accept: 'application/json' } });
+        if (localResp.ok) {
+          const holdersData: Record<string, any> = await localResp.json();
+          const targetLower = raw;
+          let entry: any = holdersData[raw] ?? holdersData[targetLower];
+          if (!entry) {
+            for (const key in holdersData) {
+              if (Object.prototype.hasOwnProperty.call(holdersData, key)) {
+                if (key.toLowerCase() === targetLower) {
+                  entry = holdersData[key];
+                  break;
+                }
+              }
+            }
+          }
+
+          if (entry && typeof entry === 'object') {
+            const nextNormal = createEmptyCounts();
+            const nextGenesis = createEmptyCounts();
+            (Object.keys(entry) as Array<string>).forEach((rarityKey) => {
+              const rarity = rarityKey.toLowerCase() as Rarity;
+              if (!RARITY_LIST.includes(rarity)) return;
+              const bucket = entry[rarityKey] || {};
+              const normalNum = Math.max(0, Number(bucket.normal || 0) || 0);
+              const genesisNum = Math.max(0, Number(bucket.genesis || 0) || 0);
+              nextNormal[rarity] += normalNum;
+              nextGenesis[rarity] += genesisNum;
+            });
+
+            setNormalCounts(nextNormal);
+            setGenesisCounts(nextGenesis);
+            setIsRelicHolder(
+              RARITY_LIST.some((key) => (nextNormal[key] ?? 0) + (nextGenesis[key] ?? 0) > 0),
+            );
+            loadedFromLocal = true;
+          }
+        }
+      } catch (err) {
+        // ignore local load errors, fallback to OpenSea
+      }
+
+      // Fallback to OpenSea NFT API when not found locally
+      if (!loadedFromLocal) try {
+        const headers: Record<string, string> = {accept: 'application/json'};
+        const apiKey = process.env.NEXT_PUBLIC_OPENSEA_API_KEY ?? process.env.OPENSEA_API_KEY ?? DEFAULT_OPENSEA_API_KEY;
+        if (apiKey) {
+          headers['x-api-key'] = apiKey;
+        }
+        const nftResp = await fetch(
+          `https://api.opensea.io/api/v2/chain/ethereum/account/${encodeURIComponent(raw)}/nfts?collection=relics-by-intuition`,
+          {
+            signal: controller.signal,
+            headers,
+          },
+        );
+        if (nftResp.ok) {
+          const nftData = await nftResp.json();
+          const assets = nftData?.nfts ?? nftData?.assets ?? [];
+          const nextNormal = createEmptyCounts();
+          const nextGenesis = createEmptyCounts();
+
+          assets.forEach((asset: any) => {
+            const traits = asset?.traits ?? asset?.metadata?.attributes ?? asset?.attributes ?? [];
+            if (!Array.isArray(traits)) {
+              return;
+            }
+            const getTrait = (name: string): string => {
+              const entry = traits.find((t: any) => {
+                const traitType = (t?.trait_type ?? t?.type ?? '').toString().toLowerCase();
+                return traitType === name.toLowerCase();
+              });
+              return (entry?.value ?? entry?.trait_value ?? '').toString();
+            };
+
+            const rarityRaw = getTrait('rarity');
+            const editionRaw = getTrait('edition');
+            const rarity = rarityRaw.toLowerCase();
+            if (!RARITY_LIST.includes(rarity as Rarity)) {
+              return;
+            }
+            const rarityKey = rarity as Rarity;
+            const isGenesis = editionRaw.toLowerCase().includes('genesis');
+            if (isGenesis) {
+              nextGenesis[rarityKey] += 1;
+            } else {
+              nextNormal[rarityKey] += 1;
+            }
+          });
+
+          setNormalCounts(nextNormal);
+          setGenesisCounts(nextGenesis);
+          setIsRelicHolder(
+            RARITY_LIST.some((key) => (nextNormal[key] ?? 0) + (nextGenesis[key] ?? 0) > 0),
+          );
+        }
+      } catch (err) {
+        if ((err as Error).name !== 'AbortError') {
+          setWalletError((prev) => prev ?? 'Unable to fetch relics for this wallet');
+        }
+      }
+    } finally {
+      setIsFetchingWallet(false);
+    }
+  }, [walletAddress, iqPerTrust]);
 
   const stepNormal = (r: Rarity, delta: number) =>
     setNormalCounts((prev) => ({ ...prev, [r]: Math.max(0, (prev[r] ?? 0) + delta) }));
@@ -271,24 +477,103 @@ export default function TrustAirdropCalculator() {
             </p>
       </div>
 
-      <div className="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
-        <div className="mb-6">
-          <label className="flex flex-col gap-2 ">
-            <span className="text-sm font-medium">IQ points</span>
+      <form
+        className="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-4 md:p-6 shadow-[0_12px_40px_rgba(0,0,0,0.35)] mb-6"
+        onSubmit={(e) => {
+          e.preventDefault();
+          fetchWalletData();
+        }}
+      >
+        <div className="flex flex-col md:flex-row md:items-end gap-4">
+          <div className="flex-1">
+            <label className="block text-xs font-semibold uppercase text-white/60 tracking-widest mb-2">
+              Wallet address
+            </label>
             <input
               type="text"
-              inputMode="numeric"
-              value={formatThousands(iq)}
-              onChange={(e) => {
-                const clean = e.currentTarget.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
-                const next = clean === '' ? 0 : Math.max(0, parseInt(clean, 10) || 0);
-                setIq(next);
-              }}
-              className="border border-white/10 rounded-2xl px-4 py-3 bg-black/60 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 shadow-[0_14px_35px_rgba(0,0,0,0.45)] transition"
-              placeholder="e.g. 1200"
+              autoComplete="off"
+              spellCheck={false}
+              value={walletAddress}
+              onChange={(e) => setWalletAddress(e.currentTarget.value)}
+              className="w-full border border-white/15 rounded-2xl px-4 py-3 bg-black/60 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 shadow-[0_14px_35px_rgba(0,0,0,0.45)]"
+              placeholder="0x..."
             />
-            <span className="text-xs text-white/60">Your current IQ total</span>
-          </label>
+          </div>
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <button
+              type="submit"
+              disabled={isFetchingWallet}
+              className={`text-sm px-4 py-2 rounded-full border transition ${
+                isFetchingWallet
+                  ? 'border-white/20 bg-white/10 text-white/40 cursor-not-allowed'
+                  : 'border-white/20 bg-white/10 hover:bg-white/20 text-white'
+              }`}
+            >
+              {isFetchingWallet ? 'Fetching…' : 'Fetch data'}
+            </button>
+            <button
+              type="button"
+              disabled={isFetchingWallet}
+              onClick={() => {
+                setWalletAddress('');
+                setWalletError(null);
+                abortControllerRef.current?.abort();
+              }}
+              className="text-xs text-white/40 underline underline-offset-2 hover:text-white/70"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+        {walletError && (
+          <p className="mt-3 text-xs text-rose-300">{walletError}</p>
+        )}
+      </form>
+
+      <div className="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+        <div className="mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <label className="flex flex-col gap-2 ">
+              <span className="text-sm font-medium">Portal IQ</span>
+              <input
+                type="text"
+                inputMode="numeric"
+                value={formatThousands(iq)}
+                onChange={(e) => {
+                  const clean = e.currentTarget.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
+                  const next = clean === '' ? 0 : Math.max(0, parseInt(clean, 10) || 0);
+                  setIq(next);
+                }}
+                className="border border-white/10 rounded-2xl px-4 py-3 bg-black/60 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 shadow-[0_14px_35px_rgba(0,0,0,0.45)] transition"
+                placeholder="e.g. 1200"
+              />
+              <span className="text-xs text-white/60">Fetched from Portal API (editable)</span>
+            </label>
+            <label className="flex flex-col gap-2 ">
+              <span className="text-sm font-medium">Relics bonus IQ</span>
+              <input
+                type="text"
+                inputMode="numeric"
+                value={formatThousands(Math.trunc(relicBonusIq))}
+                readOnly
+                disabled
+                className="border border-white/10 rounded-2xl px-4 py-3 bg-black/40 text-white/80 placeholder-white/40 focus:outline-none shadow-[0_14px_35px_rgba(0,0,0,0.45)] transition"
+              />
+              <span className="text-xs text-white/60">Computed from relics held</span>
+            </label>
+            <label className="flex flex-col gap-2 ">
+              <span className="text-sm font-medium">Total IQ</span>
+              <input
+                type="text"
+                inputMode="numeric"
+                value={formatThousands(Math.trunc(totalIq))}
+                readOnly
+                disabled
+                className="border border-white/10 rounded-2xl px-4 py-3 bg-black/40 text-white/90 placeholder-white/40 focus:outline-none shadow-[0_14px_35px_rgba(0,0,0,0.45)] transition"
+              />
+              <span className="text-xs text-white/60">Portal IQ + Relics bonus</span>
+            </label>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 items-stretch">
@@ -496,6 +781,10 @@ export default function TrustAirdropCalculator() {
 
           {isRelicHolder && (
             <div className="flex items-center gap-3">
+              <span className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10">
+                <span className="text-white/70">Total relics</span>
+                <span className="font-semibold text-white">{totalRelicsOwned}</span>
+              </span>
               <button
                 type="button"
                 className="text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10 hover:bg-white/20 transition"
