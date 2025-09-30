@@ -38,7 +38,7 @@ const DEFAULT_GENESIS_BONUS: Record<Rarity, number> = {
   mystic: 50_000_000,
 };
 
-const PRESET_IQ_PER_TRUST = [400, 500, 600];
+const PRESET_IQ_PER_TRUST = [500, 750, 1000];
 const FDV_MIN = 50_000_000;
 const FDV_MAX = 1_000_000_000;
 const FDV_MULTIPLIERS = [1, 2, 4, 8, 16, 32];
@@ -145,7 +145,7 @@ function RelicFrame({
 
 export default function TrustAirdropCalculator() {
   const [iq, setIq] = useState<number>(500000);
-  const [iqPerTrust, setIqPerTrust] = useState<number>(500);
+  const [iqPerTrust, setIqPerTrust] = useState<number>(750);
   const clampIqPerTrust = (v: number) => Math.max(1, Math.floor(v || 1));
 
   const [fdvUsd, setFdvUsd] = useState<number>(150_000_000);
@@ -614,10 +614,10 @@ export default function TrustAirdropCalculator() {
               </div>
               <input
                 type="range"
-                min={400}
-                max={600}
+                min={500}
+                max={1000}
                 step={1}
-                value={Math.min(Math.max(iqPerTrust, 400), 600)}
+                value={Math.min(Math.max(iqPerTrust, 500), 1000)}
                 onChange={(e) => setIqPerTrust(clampIqPerTrust(parseInt(e.target.value, 10)))}
                 className="w-full accent-white"
               />
