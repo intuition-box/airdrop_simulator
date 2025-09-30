@@ -172,6 +172,7 @@ export default function TrustAirdropCalculator() {
   const ancientUrl = useBaseUrl('/images/relics/ancient.png');
   const mysticUrl = useBaseUrl('/images/relics/mystic.png');
   const relicHoldersUrl = useBaseUrl('/relics-snapshot/relic-holders.json');
+  const iqSnapshotUrl = useBaseUrl('/relics-snapshot/iq-snapshot.json');
   const relicImageSrc: Record<Rarity, string> = {
     common: commonUrl,
     rare: rareUrl,
@@ -300,28 +301,45 @@ export default function TrustAirdropCalculator() {
         }
       }
 
-      // Fetch IQ points
+      // Load IQ from local snapshot first; fallback to API if not present
+      let iqLoadedFromLocal = false;
       try {
-        const pointsResp = await fetch(
-          `https://portal.intuition.systems/resources/get-points?accountId=${encodeURIComponent(raw)}`,
-          {
-            signal: controller.signal,
-            headers: {accept: 'application/json'},
-          },
-        );
-        if (pointsResp.ok) {
-          const pointsData = await pointsResp.json();
-          const totalPoints =
-            pointsData?.points?.total_points ?? pointsData?.points?.totalPoints ?? pointsData?.total_points ?? 0;
-          if (Number.isFinite(totalPoints)) {
-            setIq(Math.max(0, Number(totalPoints)));
+        const localIqResp = await fetch(iqSnapshotUrl, { signal: controller.signal, headers: { accept: 'application/json' } });
+        if (localIqResp.ok) {
+          const iqMap: Record<string, number> = await localIqResp.json();
+          // keys are lowercased addresses
+          const val = iqMap[raw] ?? iqMap[raw.toLowerCase()];
+          if (Number.isFinite(val)) {
+            setIq(Math.max(0, Number(val)));
+            iqLoadedFromLocal = true;
           }
-        } else if (pointsResp.status !== 404) {
-          throw new Error('Failed to fetch IQ points');
         }
-      } catch (err) {
-        if ((err as Error).name !== 'AbortError') {
-          setWalletError('Unable to fetch IQ points for this wallet');
+      } catch (_) {
+        // ignore snapshot errors
+      }
+      if (!iqLoadedFromLocal) {
+        try {
+          const pointsResp = await fetch(
+            `https://v0-airdrop-checker-design.vercel.app/api/get-points?address=${encodeURIComponent(raw)}&accountId=${encodeURIComponent(raw)}`,
+            {
+              signal: controller.signal,
+              headers: {accept: 'application/json'},
+            },
+          );
+          if (pointsResp.ok) {
+            const pointsData = await pointsResp.json();
+            const totalPoints =
+              pointsData?.points?.total_points ?? pointsData?.points?.totalPoints ?? pointsData?.total_points ?? 0;
+            if (Number.isFinite(totalPoints)) {
+              setIq(Math.max(0, Number(totalPoints)));
+            }
+          } else if (pointsResp.status !== 404) {
+            throw new Error('Failed to fetch IQ points');
+          }
+        } catch (err) {
+          if ((err as Error).name !== 'AbortError') {
+            setWalletError('Unable to fetch IQ points for this wallet');
+          }
         }
       }
 
