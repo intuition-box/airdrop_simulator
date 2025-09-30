@@ -1,0 +1,5952 @@
+{
+  "0xFF6C7d714eF5966394Bec71e2CaFc58bFe2E16d2": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xaC0CBF80E40f642BF9b4d6AA6679cDfb68c02328": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xf0D6999725115E3EAd3D927Eb3329D63AFAEC09b": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x6Dc43be93a8b5Fd37dC16f24872BaBc6dA5E5e3E": {
+    "epic": {
+      "normal": 1,
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    },
+    "legendary": {
+      "normal": 1,
+      "genesis": 3
+    },
+    "ancient": {
+      "normal": 1,
+      "genesis": 1
+    }
+  },
+  "0x58791B7d2CFC8310f7D2032B99B3e9DfFAAe4f17": {
+    "epic": {
+      "genesis": 5
+    },
+    "ancient": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 13
+    },
+    "legendary": {
+      "genesis": 2
+    }
+  },
+  "0xdB1f6E1ccBF72B4AB5346cAFa5da338Fd1683a17": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xcF40E9E324698e61261331b6bEf62203d9828529": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x69155E7cA2E688ccDc247f6c4DDF374b3ae77Bd6": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xefC5FF84594ebF147dCEAeB5c41079672CF0d85C": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x0aa0Bc25769C52e623D09A9764e079A221BeA2a1": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xC6bEBCb97251aE10d889038F6Cfe7BeA6a2F1629": {
+    "rare": {
+      "normal": 1,
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x199719351B43815a00Fa724C02E1CA0fBe9E6F67": {
+    "common": {
+      "normal": 1,
+      "genesis": 20
+    },
+    "rare": {
+      "normal": 2,
+      "genesis": 8
+    }
+  },
+  "0x82eB45562F991329ED2867F43fc60F0Ba52C3Dab": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x193C79aFa17967aE5D8140B0eE40807Bc6BbEbc3": {
+    "legendary": {
+      "genesis": 2
+    },
+    "common": {
+      "normal": 1
+    },
+    "rare": {
+      "genesis": 1
+    },
+    "ancient": {
+      "normal": 1,
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 2
+    }
+  },
+  "0x8Fa3acA9C712F3F582C8c6053E465C3F4db3cB83": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xdb656aE889306821Fcd8B0256B4F66BCeD538d43": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x1dDc50A8b8ef07c654B4ace65070B0E7acfF622B": {
+    "common": {
+      "genesis": 3
+    }
+  },
+  "0xF35AD2D4ef12204dD328E2C4B5C38E4713Fe29Fd": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x003F35595dce3187B4Fff2B5A2c4303f7158208a": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x78ff21cAe3254fbDCB799B0818597E5eFCC0CBc5": {
+    "epic": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 4
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x79126b2006A1FFe2adb722e999fFB1D741E33c04": {
+    "common": {
+      "genesis": 10
+    },
+    "rare": {
+      "genesis": 4
+    },
+    "legendary": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 3
+    }
+  },
+  "0x951f4c00254dC8547bA1f2C5C398B5a07762cF2B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0BC91edE1C95d1e5A11e86eEaA2a873070eE571c": {
+    "common": {
+      "genesis": 26
+    },
+    "epic": {
+      "genesis": 6
+    },
+    "rare": {
+      "genesis": 17
+    },
+    "legendary": {
+      "genesis": 1
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0xeE448D190a01Cb7896C3D8009f98F478fe659a81": {
+    "rare": {
+      "genesis": 3
+    },
+    "common": {
+      "genesis": 7
+    },
+    "epic": {
+      "genesis": 2
+    }
+  },
+  "0x9234dA5B588A8FE47DfEb9a7852d49399CfB5a94": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xc54b97800454ca7FC81a3716a7DB6962A40f4aEa": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x970e4763cC9b17Dd90095d27Ca2EFBf16Ea54E36": {
+    "ancient": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 4
+    },
+    "common": {
+      "genesis": 4
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x1112c9c86aba7EDcC60c15A8616aD9c164b25b33": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xe322d58545817f09b294f2F6E4D3e31c768A76bc": {
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 3
+    },
+    "rare": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x5f44Fe1C8B5D0802edA2A9B638c6163aD52D633B": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xC0f957b48d98bC7e2Cc4D2206A1C391138843eF2": {
+    "common": {
+      "genesis": 12
+    },
+    "rare": {
+      "genesis": 3
+    },
+    "legendary": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 3
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0xb3D329d2a43ABfeF91FEac62DBd4210Ea4B158c8": {
+    "rare": {
+      "genesis": 7
+    },
+    "epic": {
+      "genesis": 3
+    },
+    "ancient": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x02a904E90adcbb2AECF6dAFb396f95a06d71B51a": {
+    "rare": {
+      "genesis": 5
+    },
+    "common": {
+      "genesis": 7
+    },
+    "epic": {
+      "genesis": 2
+    }
+  },
+  "0x04599A7cba2AFfda145D61337bcaFa614ACf882a": {
+    "common": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 2
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xB8823F6D8AFA8Ff6680ff8B45384e0D204173475": {
+    "common": {
+      "normal": 1
+    },
+    "legendary": {
+      "normal": 1
+    }
+  },
+  "0xf7Eda0BAa33B4aA8C2f6CB4E87a95274A487905D": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x4f22B857B1B18E60C0020bC984311f148D2511eC": {
+    "common": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xd9324472061f8A770B6E29CA31A7722210236dA0": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xf4Ea736D2Cdf5c876c7edb7d0117425cA98B5C91": {
+    "common": {
+      "genesis": 16
+    },
+    "epic": {
+      "genesis": 5
+    },
+    "rare": {
+      "genesis": 12
+    },
+    "legendary": {
+      "genesis": 2
+    }
+  },
+  "0x0547E469e982FF5075fBbCf7593a68fB153DABEd": {
+    "common": {
+      "genesis": 6
+    },
+    "ancient": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 2
+    }
+  },
+  "0x4DCfaE96596673305E1f65A89eD71858b263F90D": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x94587a95917188B338C822de2D1e77074131589f": {
+    "epic": {
+      "normal": 1,
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xCCd2CF155f5BBC3931A06dCEBC661Ed4A9E390C7": {
+    "common": {
+      "genesis": 5
+    },
+    "epic": {
+      "genesis": 2
+    }
+  },
+  "0x5a654583d41b84c30B569a9b8029d54FFFd76769": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xC23Fdb28fD5312aFB130A7146f898136D013442B": {
+    "rare": {
+      "genesis": 2
+    },
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0xEEd7e1c7c9c68611584e8f6230178Ce0A48Eef7F": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x4899fE9586a7321eC999DE3A18066a438Fe0623E": {
+    "rare": {
+      "genesis": 3
+    },
+    "common": {
+      "genesis": 3
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x05c2974d048D90EC5Bfa124B6369396727B900fd": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xfE00888ff72E11B00437A13FF96965b44cBF7D47": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x05fB97B91ffb92344D782C7Bb77184083e22950B": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xE8646799D0FCccE3bc1a9084CeA53998b788EaeB": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x6d3A97448829acD2670BC979b063B99405861fa5": {
+    "rare": {
+      "genesis": 3
+    }
+  },
+  "0xe0E18Ee7da8B3967faaF75CfdE1CB0d4bB9e3698": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xdBfAdB1c177F42aC09Ab9A7294B6356ba0891EE6": {
+    "epic": {
+      "normal": 1
+    }
+  },
+  "0xE64c1B589dc1a421c930a4dfaC2748E00aa02a87": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x25FB6a2730570702f9B2b5EbA96a3Cbb5e5b7FC3": {
+    "epic": {
+      "normal": 1
+    }
+  },
+  "0xeBB3ed11C3F45C1704c9a973E5A71E831c026122": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x30C50bEe7a6FbB90Ec6Ac81D046DDce4AA9Dd981": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0x86D7933192B1fAccb62dB1e893dfe25D1e2104A7": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x5C127CcDD428AC57A1ffF2ec4BC1cD00dbBC9Eed": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xdF9BB9a0F16b659Da4474c28236B38F6808f1497": {
+    "epic": {
+      "normal": 1
+    }
+  },
+  "0x704e77a88Fc557576B65C2807be354133813a02C": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xa2d4066BD91584dE56B0B800801CD18F3461E93F": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xEA9493c12b1edbAcD8Eb06Fc502Cc56354979AdA": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xA58D59941814eb96d9D252f3Eb8dC726e5D81345": {
+    "rare": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x6b671cfa2619790c861Fd3b4B3cb3aE5A78ee3fC": {
+    "rare": {
+      "normal": 2
+    }
+  },
+  "0xF9567F184dE6B1fcF617850dE093F78f6c78b0f6": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x75536CF4f01c2bFa528F5c74DdC1232Db3aF3Ee5": {
+    "rare": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0xAd19351f62F63e95fFC6d938295D6849825c2827": {
+    "ancient": {
+      "normal": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x8Ba4c65D4864074B7DF30ccAC98B766e6aa49E67": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5c82185a70b321E54e2938F3a2AbEF2639e0E646": {
+    "common": {
+      "genesis": 9
+    },
+    "ancient": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x9025317B78D50c3CA3A72f5C29DdDBa989175e55": {
+    "epic": {
+      "normal": 1
+    },
+    "legendary": {
+      "normal": 1
+    }
+  },
+  "0xB57B0713B72CB43a089dce420db9aAfAAa91be8d": {
+    "legendary": {
+      "normal": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x2aBD9bc4C2D22a8754e82684Ab1C04b9CD85cd73": {
+    "common": {
+      "genesis": 2
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x887C3599c4826F7b3cDe82003b894430F27d5b92": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x8752465D35Da87F696b0d3D298b2eE848dEEd504": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xe15EBB6573496FD6860f7194285375FB94C9A7C2": {
+    "common": {
+      "normal": 1,
+      "genesis": 1
+    }
+  },
+  "0x6F58f37E1a6cdC2cdf1ba85C706923B9D5F8EFb0": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xb09aFD96b82EE59096914473ac48AAb709BDA91a": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x47a2A0934E054094d6b36DB18dEd0EE98C0bCb1F": {
+    "epic": {
+      "genesis": 2
+    },
+    "common": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0xa94E02F969DA35D50EF26f27987b37F8C0593a09": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6BD0aED047Ff94Fe451931ccd24f6c6a9fF54868": {
+    "epic": {
+      "normal": 1
+    },
+    "common": {
+      "normal": 2
+    }
+  },
+  "0x25d5C9DbC1E12163B973261A08739927E4F72BA8": {
+    "common": {
+      "normal": 1,
+      "genesis": 12
+    },
+    "ancient": {
+      "normal": 1,
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 3
+    },
+    "legendary": {
+      "genesis": 3
+    },
+    "rare": {
+      "normal": 1,
+      "genesis": 9
+    }
+  },
+  "0x10bF4EEE91b88B1D350c56Eee8686985E7d5CbaF": {
+    "rare": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x10682eEb5297bda89060964CBB481B979C938147": {
+    "epic": {
+      "genesis": 3
+    },
+    "common": {
+      "genesis": 3
+    },
+    "ancient": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x39ad78dA51850E74340d44cbDf01E29DFa24f8a4": {
+    "epic": {
+      "normal": 1
+    }
+  },
+  "0x6A5848b47f5810281a2c225F70C9450000C63147": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0x0f7bb67574FfA689a3C1F1CF75ab8ED6e23b490f": {
+    "common": {
+      "genesis": 10
+    },
+    "rare": {
+      "genesis": 6
+    },
+    "epic": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 3
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x5f19095AA27B9ee4c5b337ae4e868CFe6708cdd7": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xb1d4792f43098535Da6B589AfDd762DF94490C66": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xc99a6a397aE1959cE511a14EC5EC97e26461EC74": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x20AB1219a7f917D52975483ca4a6321A5c1d34AC": {
+    "legendary": {
+      "normal": 1
+    }
+  },
+  "0x7405Fe24003A50e4f4117D35E9b5a9f5E512fEdE": {
+    "rare": {
+      "genesis": 1
+    },
+    "common": {
+      "normal": 1,
+      "genesis": 1
+    }
+  },
+  "0xC0eA3aFEb9A83EF8f83A5Df7C563a3b7c4A5fAe4": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x5B1899D88b4Ff0Cf5A34651e7CE7164398211C66": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x41B4B977856F4706DD83eA15836B91BFaDa1e28d": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xd7613B407A9eB751F7e391aA2588063EE4E883d1": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x757a9D479F15ecd09F18D06b6131306DA4eD2dEf": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x131aA683891C534828aE98c4f743ABa334769371": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x68b2ee1348cE409492E2C954a62DE887A57ae14A": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x1521D0132C3B309E086f6e9e17BBbf98a2Fcbe55": {
+    "rare": {
+      "genesis": 3
+    },
+    "common": {
+      "genesis": 4
+    },
+    "legendary": {
+      "genesis": 1
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x36Cd4e5766e09c4e86D04a8f8812021E84644ED6": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x556A66d7670975536ffbdCa38eC01B969224FD7c": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x8B97066FfE92e889bD53d4dCe2b13461b8EA7Ea2": {
+    "epic": {
+      "normal": 1
+    },
+    "common": {
+      "normal": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x8869c925799dB9ba4E60BdC07308dd63D37C3C1E": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xdC49838921C8690e1eBFb4f17568caF7B1Ad566C": {
+    "common": {
+      "normal": 2
+    }
+  },
+  "0x0B5f5a722Ac5E8EcEDf4da39A656fe5f1e76b34C": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x7f70E30c726880049e9271BFf94486bD0C9C92b8": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0x859127496b4bfDA3F753e25FFaDb0e9246Cb301A": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x5cac19C98996C0c49fDE6B7b3C30dC9094A4E553": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x6e75CE1B6211a3aAbCaCE63D99326dCD6a441095": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x52c36a6ea28fF827b6e66bdCC4c8649ab0FE4bfE": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x0dF68Ee531DaB63d651132C7F56C6cDFE2689D19": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xd12A16Aaa884eb84303074811001b8eB087ead3c": {
+    "rare": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 2
+    }
+  },
+  "0xc37e705f34801896121B2Da24327332Cb7DC2CA7": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x7DfE2cCFEFB78fda37166A2415ce3a9Bea5Fc83b": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xD240A9de14E78E9bd709dDca51F3a0063a96780D": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0913b387466057CE6487E7965fB8c005153D95D3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x4890ae58845CEE70b04f7b54dD2d4BbFd8b697D4": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xf45f9Bcab950067918c3c616606355AFD3525939": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x8e2e76eE7a87031a0eb701AF75DeABDa5253F4d7": {
+    "common": {
+      "normal": 1,
+      "genesis": 3
+    }
+  },
+  "0x251FED40B0AaCD4da7B4218ceb821C598266F8E6": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xcfAC75f34408D61635C6b48F5F26086a707AcA25": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x19692Becf1430C301F81b01e6CB4De6045E63a79": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x27fB0c7c08435Bd1B462B076cFc231458536615A": {
+    "legendary": {
+      "genesis": 2
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2864be4B616BCde06a635776DfB4CCcA3D2a0Ed0": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xF4dcC8993D097093303e3E50D7a27E36fB1A6eb5": {
+    "common": {
+      "normal": 2
+    }
+  },
+  "0x5bE04938A5d9539403065afDe12eC1c7F4CE723f": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xf59D09FD2c2f19237A69e6b232c16FB625F70b40": {
+    "rare": {
+      "genesis": 2
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xc612Ab4828A660f1E01ba26ccEEC32fC69bE5F26": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x121E1573B7C6c15Aa4C036d54BFd2974Cf38a163": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xd0C7a59e3Ce5a289b553ebF7659F5C3316eCFBB9": {
+    "legendary": {
+      "normal": 1
+    }
+  },
+  "0x7Eb84E42059F0D44269C50f4D3A280Fd307a6824": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x48Fe5c26E4153e8DC6C8f07bFC75Ecc605Edfdd3": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xf6B876c3C1cED17f948b507F28CEB67408A5DCe7": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x8CD2237235eb98d52441e2b3dc96276918910C3c": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x01fC87b0BbCe9e591F4a0C49457b75cD9d1F56f0": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xa0aE2B19d22D4d4394B3449a6c23fb9996034f94": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xc63fc0aE83555e2553762EdD887433573F77CFc2": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xDB527318e7c1eA0f4c94cCE484D2Df63cDe39503": {
+    "rare": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9a0F62b9A86187A03f4459D3130e9792eEE8aEB9": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xc7640913d277E505b7b763444540dA3DD1BF1cFb": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xCd9869d32d6C405a704FB0E9714C239f8F80c0c6": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x9a10586aA206a401Ba50A168a847686d1E500dC6": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x3167d620c97668D6B19F2C58Fec5f84cbb523dC8": {
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0xBB0e73B3e361188DEC0e53b61995bD8d70126523": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x525868063dfB084A3542e2DFeb60D81e21d79c31": {
+    "epic": {
+      "normal": 1
+    }
+  },
+  "0x42Bd0e90d13B0De72fD63007a204c93d1495d733": {
+    "common": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x5bA9811dfF37CA8639272D509dCADfe5BEc4BFF7": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x184861cf69bAE1DD8B6638eCcce0390c69469841": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x7d54b83ef90124876AaD86A5615DFdc4A7Bc99e4": {
+    "common": {
+      "genesis": 3
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xbA8D6600F02CD4Abd93eC63Eb99463a18aC75004": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xf490cb852741670675B30583d3039f2798883C45": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x79cf423DfD37ebc71a941d3D1Ae1980e6F8ab0CE": {
+    "common": {
+      "normal": 1
+    },
+    "ancient": {
+      "normal": 1
+    }
+  },
+  "0x885B68Ac1701884B5C94c1f7D864AE6403A31123": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xE08A68aBfBA02b4e66EE23ACbF583717ABb1eF56": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x498F119215f978B66886A4f905658E515F3724d5": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x3a6760599F8B91Dc58c21163E31c2b22d99B0124": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x959740D1608c4124CEE7d1319D413F3348f221Ae": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x81B912a8992Bd1F09aA23C1197dec6299Bb367ea": {
+    "rare": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x48eF30623568340cE9BaD6f470f82Cc02dCbC08F": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x024899F1b2E7c3CFc5E3db7F54Ecc284fd775d29": {
+    "epic": {
+      "normal": 1
+    }
+  },
+  "0x484558401f616AC03B3d7172bF610066284D9540": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xab1B8181FEdEEAF7e437C1721Ad28ef6282df746": {
+    "legendary": {
+      "normal": 1
+    }
+  },
+  "0xE4cf64E4109cC9B236710aF8Cb9693d19791ce18": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x8115AfD8DFfCE5579381AD27524b6Feeae917BEF": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x3021A59F56cAe360183C40965D7059a4a73A7Ba7": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x5f0895EDc43CE1E76f52C9F5f8bAF8F2c01CB1a1": {
+    "epic": {
+      "normal": 1
+    }
+  },
+  "0xbAA32387bd55553Ec806622d524b12BbB8242a19": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0497edeDbb17E27D200F9FC7fd2E4F727970246C": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xd73B4d093E3d8be30EB69c7aB0f1EEd9f82AAC01": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x7020D15dD9AC18dc0701f14aE32AD100efbB8Fd6": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x869eC00FA1DC112917c781942Cc01c68521c415e": {
+    "epic": {
+      "genesis": 2
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x7a95d923898cd8254D0B68467846ef7B61095900": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xb7243AC8d8ca7C174B1c78aA4a2Ef3eB69Ff6ce9": {
+    "legendary": {
+      "normal": 1
+    }
+  },
+  "0x2db74da362cAe3ff839502248e19Ea5E26Da5230": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xF1E4995D7E9ba3AcafD0c11A006f420Bea62dCcc": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x1f495304B32db10fd35082dE1BED150B87fE1968": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x4B710d3Ed4B1822658cb4498B485277bBf537d23": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x0D2349e291A9e0Bb755bFFA4097E6D378A72330B": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x8059a38AdE799FB2aaFc5eC40B71B33145472427": {
+    "legendary": {
+      "normal": 1
+    }
+  },
+  "0x0F32B059814A21CEE7111E74B1DDefEaA5849045": {
+    "epic": {
+      "normal": 1
+    }
+  },
+  "0xbaAc031B25A99BEbDe35F53dD16540b506796130": {
+    "common": {
+      "genesis": 19
+    },
+    "rare": {
+      "genesis": 7
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x35fdd992DfB8dA4FB770eA123135fBed93fA65Bb": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x30440526fF3Cc9c21E0F6e5fcf2087650E516D47": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x0f93CD27C7705c38c2B89839d4369c2Ecca7c5C5": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1f36ea4169cf7Cb67d25cAb6A576AfC1faccFA15": {
+    "rare": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x77b467EC4CBB0BC7146BF15745f063728E679beE": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x8BFfF78EdbFa534FE52Dd87d945DAC9A671957Ae": {
+    "rare": {
+      "normal": 1
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x24749AedF18208aB74A8110E07E820286Bb5acf8": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x44A2b9321f95Eb240971bA6aeA08464e3d2C3c63": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x475a1c0aCEAfE35a7c70a707cd35846542f8f052": {
+    "epic": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xc2f33415f742aC67aEA93038fCbA8a63dfE2f040": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x59AA30950270Ffd59e9A9166AD1d34Be151BeED7": {
+    "common": {
+      "genesis": 2
+    },
+    "epic": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 3
+    }
+  },
+  "0x606B24eb3F814ea5D7117a9bBc1431252f32245A": {
+    "common": {
+      "genesis": 4
+    },
+    "epic": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 3
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x354908C727BfBE01442489EEBCD01747256c9FD5": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x84e4a1c59b322b8151D8ebCB150266d1093539B9": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xD2defFe956C02635452C2d56bA4fD0A063186e00": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xf6e8B1054F9D3B825A10F4e7E9331090571BFA77": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x3065C42Adb689A651aE406834982Ea3c44AddE80": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x31636c3aBE970E05683A5e9Ad8D13A9635739eA3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x48CfFeaFfFFE5db18883DD82Bb88F13D2E8521aa": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xe4775ec96b072f77D613b6A9442dBba98237bc5b": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x18613C7C626d793eDc94f145BCa9fD6cCd9566Df": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xbB0681e131d704cb86bdA625A730c7866e262A3A": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x3D62C274a01EAa06C4C6ba5781dC1a39B58F41f3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x8B190A162E643760D91A02FB35Dcec858C4E51DC": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x54021E58aF1756dc70CE7034d7636De2D2f1fA74": {
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x09Ac192B7f3bB3c2fae3120bF7fe9f64401e5908": {
+    "legendary": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x685c99E8780e5a7f158617cC2E9acc0e45a66120": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xA4007e5dEED110FAC652323e607c5B8F7F88E5f6": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x2A757CCa22e46C4AAB252Fda8CFdb02d91aED1c7": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x27146Cd533760E0867db2647dad531FdE92d80EF": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xD49d9ca4A32802aD548601b03F7f3c543D14aF6c": {
+    "epic": {
+      "normal": 1
+    }
+  },
+  "0xc6Af47b30d8E4fe05339D5D89d75e4d7E545F96d": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xB439b0844D0D9aF237FF37dc2379f07B6CD06171": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x62C3f5C31bAE32955C8978d31A67a527Cfb8f0Eb": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xbA00D84Ddbc8cAe67C5800a52496E47A8CaFcd27": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xe2B97A355F7BbaFb265652557fb162d5C2AEf099": {
+    "legendary": {
+      "normal": 1
+    }
+  },
+  "0x043A95560D4C1b4e22237C09E96614B7b4774644": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x9cfDAd32f9127B87FFF03BA323bad8d2251B62bb": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xeD01F7e7ffe3Da5b73B4C7f8Fa964c5eBebCB0c4": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xC4130e106837730560b534D64D488a502096fDEd": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x9DBC895a81d06D61232087992e7693eC2549BbE0": {
+    "legendary": {
+      "normal": 1
+    }
+  },
+  "0xb300AA30dD33e1Ae849Cb69FA23D6Ddaf90a69BC": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x73E2E4F2049FDe6EE8e47b54f98831aefD7a1bF4": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xbe53e7eA3947aE69FaB85cfbBF06773E9eA717ca": {
+    "ancient": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 3
+    }
+  },
+  "0x3cB35A117CF6C718996589C2b74B92fD21D1Ec30": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xd1F67afbC9872c66361e8933A2755C12A09320d6": {
+    "rare": {
+      "genesis": 2
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x71D814Ebe70D226DAbfd8D17E011c65DEBFF205B": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x55C5d95237D4cB2950B1A8bddF5fA57908BC7Bcc": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0cD929079C60fdcb3af959C2Bd6aFC1D5cB0e0fC": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x363FEE947cDF5c398057CD0801b85550a7E77852": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x4bf0b743E2450c1BB196f445dEC8c25f34245986": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x3ECa5eEe06A42a11Ae1BF3AbA57f46a2906e9154": {
+    "rare": {
+      "normal": 1,
+      "genesis": 2
+    }
+  },
+  "0x5FEBa93c69db56DBe97406b7f10DCD390bB607e3": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x3CF282CD2DF98D8589598fdE938eEcD1Dac9671f": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x02e50D7A00523d3BB0A80A50D05fF263B9ce121c": {
+    "rare": {
+      "genesis": 2
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x34F9C0B11e67d72AD65C41Ff90A6989846f28c22": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x5d47e5D242a8F66a6286b0a2353868875F5d6068": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x343792A12d2aFfC4CEfD876db360109c2a909363": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x77b175d193a19378031F4a81393FC0CBD5cF4079": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x2F24B90090FC0f861eAefC05a7d15A3F5dDFdBf4": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xFC4fAb6003d5E2991B4eB69c3304d9dCF8C66380": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x76E9F195a9a4b8469D778d84Ccd0aDC12aF71D1D": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x830bc5551e429DDbc4E9Ac78436f8Bf13Eca8434": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xf9b386f4d5a0E8912e210c36BF3B957243dcC79f": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x7a0340409adf53f8CeDbDb57bCF51F13BfE8A43f": {
+    "legendary": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xD4C4B000fe8036b3399D1ab8757a19AC55a81C3b": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x268EF519eDBf507Ed9fF31a3EaE96c82cBE1bb0b": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xaDF0385585682c6825745dc54BD6817949DE5FC5": {
+    "common": {
+      "normal": 2,
+      "genesis": 1
+    }
+  },
+  "0x38430336153468dcf36Af5cea7D6bc472425633A": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x45934c9546322625df8bB7EB77Ef37B4ccB3076a": {
+    "common": {
+      "genesis": 2
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xA2Fa6144168751D116336B58C5288feaF8bb12C1": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x8501a6aC43BB7A41cCD5c4a51BB76380aD84708b": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x1bbdD40Dcb064b117d87A8AEE84250F3ac61fB98": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x05f154731D83B5959853B7BaF616F114d1579A01": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x863172aC92C92987bF6350fBee0887799e758381": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xaEE945d760ADBCaC2666Bc1BC5e7a0dF6a7dca67": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xa3f5D9FC9C73d8cbCdf446D3Ca45B0E31edE1Fa8": {
+    "ancient": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0x5583c1c655d6b4e2aa494019a56440fae8339B25": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xeEbeFF9E7C89803d1ceB3dF9703A26B3aCf86d45": {
+    "rare": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1bE8b8Bd3126F919245E3664887b762Db7546D2a": {
+    "common": {
+      "genesis": 5
+    },
+    "rare": {
+      "genesis": 2
+    },
+    "epic": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x4BF13507c798eDF0F6B2A1252c1B18e65ac1eA42": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0xA90A3581b3b68B6A457555100b200c81f7DF26d2": {
+    "rare": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x34E3f9567aee97397Ac7A002dF2ef4f30193F1A6": {
+    "rare": {
+      "genesis": 5
+    },
+    "common": {
+      "genesis": 5
+    }
+  },
+  "0xE394749B5E27E490E1b27b42b9C5ffb37daBf8D1": {
+    "epic": {
+      "genesis": 4
+    },
+    "common": {
+      "genesis": 2
+    },
+    "legendary": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x5AA27C6466AC6954c03E468932333D3E3e55e4b3": {
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0x80C9b91570728E3826A471E694EF514181205C5e": {
+    "ancient": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xA8e54b46ae93E14eedaE486a9EFCD4c7B5a5be20": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x99Fa48ccEa8a38CDE6B437450fF9bBdDAFAA4Fc8": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xdd6c3b5fDe786a21299fAeAcf00A10EDC2E8E7DA": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x2FeD211BE627c4a29af5518c24881BEe373A31Ab": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xDfd60a8E1e17FBb78E8CA332906A822D862f3D57": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0Cd4f5acba038cfBf100E9863be88fbD552756B9": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x4284D479869C7c2fbF3C54FA0a805473741f3570": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xD0dA87deB5D8c47b0d3006BAF2eB717f3C1BA274": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xF17b03b741bB7162bD5236203B59197d216b7F3D": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x4bFfFe2c5785dD8938A8bEe1e28ce1Ab22Efb811": {
+    "common": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x55E05E75d1f78DB464D94823FF2D2EDd10C45673": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x7443fdC32145a0E1A0Fe0560F1FC468c5dd4b798": {
+    "rare": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 2
+    },
+    "legendary": {
+      "genesis": 2
+    },
+    "epic": {
+      "genesis": 2
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x9A2d18EaF0D3120a3D196C26093020F3a17406e9": {
+    "common": {
+      "genesis": 6
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xf326cf4A8Bdc97ffD29e8A2BB2817cC0CEEF8C31": {
+    "rare": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x9Ae2D70D638cf38199c8f78EFa5A2f346fAC7c06": {
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xb25E0C08ed5F1739F92f963ede697FfC09b778A7": {
+    "epic": {
+      "genesis": 2
+    },
+    "common": {
+      "genesis": 2
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0xF65691FeC60D796Cb9b97afcaF4AF46ac94953eC": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x9CED5f42F2f8fEC2eddC7fBb360eE17ffd6bdc21": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x196b5312919B5779961705D77DD468De34F5C839": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x8240D77F25D5ECD2aC6202B06Bf99A24E8AAE298": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x913D83761Ff529f487623aB6EAdE611DDcda4790": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x6F280A7545280140f368676b9907CA0be2f1521F": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xbD5702BF3Cc4Acb4d0CC628B37F186559CAFe53C": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xDC3D069381cA88A4B216a7Ed7dbf509769d9838b": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xE53FeFBd1Ca8723490023cbaf6B13eD38Dae5D95": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xBbF3FA165f7532AA12b9875E35D4B5e68a0f6415": {
+    "rare": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6E393f0D0d3c997c8B3715aB77C48fAD6B9472d1": {
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0x3A6C32027401Cb6901F72b0adC4f415426feF99D": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1183f7BF59CFff1D6772663441BAb3aa6C27Fa99": {
+    "rare": {
+      "genesis": 2
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xA28A89C9d6A52F2F5a64E3f3b764ED686FBD76EB": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xdbfE5E94a0208C5324c7E4396DceBD312AF01B33": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x07564E717e8c771Fa5CDac7ab2651cdF59e4AF48": {
+    "common": {
+      "genesis": 11
+    },
+    "rare": {
+      "genesis": 5
+    }
+  },
+  "0x4B96ed995C83e2254389D3D6dD0EfA394BBAE421": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xc0a6EF74625A85ff434eD10988908079BD2EDd73": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xa4Fa29cB98003131c875e26B3620C91Ea956e751": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5D7fFC25496047ff0A6FAeF4516502d7412acb1D": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0BcB05eBEeeba9cF8D568f1c9E9413e7BC631Dc3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xBB879d84d69f4f5626531eA36D3124CE42fd6424": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9905213badb531932C5CF1283B78d8afC9108526": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1FF728873475f120ffbdFf30B5B0E53DF1b991A0": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1bbB4fed01eE4e47C155aC11e1dCBe2c60A6cE96": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xD6bB5A9961E9d2165017cd1e31DF458F4e14B980": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5851e166046243F02c6166833b301E3e2A6ADC54": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xb1032f6171a4112EfDe6E14504c1e9819b69A782": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x7bfa8F62939C938badd95BE7117C4622e9A55c18": {
+    "rare": {
+      "genesis": 6
+    },
+    "common": {
+      "genesis": 3
+    },
+    "epic": {
+      "genesis": 2
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x2e2a6f7BE2381798749e10660f8058Dabe77EEb2": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2Ec19e982172EaD28B312a07FAf25105fB3747d8": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x308A119F951ecc1bD42DD860E38ac8b5D67C515d": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x51e8EE96980c4c13aB225c992e9B8bD69B5c36Cc": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x2479493E18cb729e940443a5589c358Cef835647": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0xE84f05A482C8C872d0327C1E61C95b4F5a2aFB8c": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xcB5A96458d88775d7A8119B4E8b9c12cB653a030": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x5a27C4016A1cCBcFb55a24dE25a33220eb45245f": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0xEECCde5a2Dfd6492B685619BE650ccEcE3063cF5": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x19cDb95a4Ec9e9c433a0329d7376a242B38410E3": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xe2A824aa287F18c0Fd43aC91f24919E2f090aD65": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x47BAD4F59290c70a2EEC293370BbCd127850477e": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x8B596d47d9C26f48FEE1cD4E5d24dB38405FB3eA": {
+    "epic": {
+      "normal": 1
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x46eBa274E48a6ED893bDb36A70bf1Bd9103DB94D": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xeF5C2fd73e55ddE74334CeA3171Ce6CDC8824D52": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xfD959CCe828803cA5Ba462E20437Dd01979a5BA2": {
+    "rare": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0834AE125252C6e6f30A444fC91Ed7c1656088D2": {
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x650140c6e55E04aA93D6a83a52B85b9B419a68D6": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xA81B0eA7525b4D0493DC7Ff75A7C62e1b9A6a4A5": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x88e4ed76Ab146AB4F9fe9BF1DeB974AEF83e9293": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9A9b285e4Cde8Dd011aca0E74c9bB40c0b0abfde": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xb29006bB01F23fffC36b0dfc5c5b7D23e57cE729": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x0b7E5CB8AF3321a340075a4d69C001fb8F4a5c6e": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x02d9c84a495986b8b3C3347Ad16849DCB1b9793e": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x896655687c864A40B0773ad0777dA80DB623862d": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0xB5DafDc6016C026cA1D2e488Ccd19B2142C9c459": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x093ffE9E875B2A4fD1f0A556C684CA81E5928274": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x5AEdE5804D4F2bd4A14f61fea1F9C6ee72bA1725": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x973fe58c8253782234dC35a47e18FD1452FDE26C": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xb51A5a03B1C334263C7a611aC77536a3E745Dd0D": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x676A2326F49eb81A63ac0b87f84F779F456B7C9C": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x3d5e4AF8EF2Fb321f4Cf35475e75172155BdBfdf": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x767235CCEEf614F2B5653B41A9D120Af3a8bFF1e": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x9f0102F9ec384a1F972865Aac69e6F7f592C468B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1ec3473BB044f17Cd9F56a59e06e6d58e2cd4601": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0xd82fEd9213d7f2598F0B84D216B74d78394F3e68": {
+    "rare": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 3
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xcE45ee964a34aCB520Ac15eeb70d49911D5ccbb7": {
+    "rare": {
+      "genesis": 3
+    },
+    "ancient": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 2
+    },
+    "common": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x2BC754dD5A3Acb6600a6B6f84D25F0dE7Bd29189": {
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0xC078823B26CeC3b8859311e7E5D952548645e13a": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9C12E2863B83f0DCd65950e29e49E92e0Eaa0666": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xDef3c6EF183D7fe9E459a7F6E8CD7D18996858c6": {
+    "common": {
+      "genesis": 3
+    }
+  },
+  "0x9C362d99aFA3723CeD2BC6f9597Da1264e03a48b": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xFF9716f0e17da9870223b9279A0c28482eBa374B": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x67ac0f5bD81377e940e74758C8625Ac0319d36Be": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xc7f91e6650Fe21791B1f8af864eD019B6853294E": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x62a083C1CB9D3c6c3C3EcF767754560144A1C4e4": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xBdaeb56A7C81005027B08b29FB10c63ce47DdB84": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x0557b59Adc65De4553eaA9C380C19bdf1853c89d": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xB30a2B9E70b671Edf580B955B73888c5A59c9526": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x7828111452C375DD5B23bF315322fa389ed8d0e7": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x1F08214F05BDB691924090D823457FD1FBb657b8": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xf1466EBdd36d5e3638A12316477520bF3b2378A1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xaa2a9372b7FF8E64BF9153271B05646A7CE3e5D4": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x409Ba4dD548A90d05dCd8fe76B6d3EcD910866B4": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xFD9ce79FD7F62ca88acE958cD2716f4CCe25e2DF": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x72E79828468efD489C7a5F70DA50B6f50B2d9043": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x433159830430398E45107a6EBEc01263fa95528E": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x85F906fEB7F973bEE6a436d9F3527d15428fe3d1": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x7b3EeA56e673bb1E912BF053E2bA6Fe3Ff8db8d2": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x595A718Ac3a985f0078FED08534e5f67e1c7Fd1B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x703866ECde995d56f2bb19C61D168563EaBcc297": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x750991b991586b10883386a25c18862e895d39A4": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x5038B6cF62a31E1Dde8345FD903054b98473F568": {
+    "common": {
+      "genesis": 3
+    },
+    "epic": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x2ee901d6AAb21Aa32e50AD15779201C2D6637092": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x56De6e445d3181ca47825fAd343313abcA06D685": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x8d9CF2AdCf647D78809077E35870A2E3F50Bb113": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xDc633707253D118E32632E199a4F9d49720173D7": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x04C8CDdAb90113c6ae05c4C800012Ad9B5575062": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0eF85478aAc55ABdE7B9aADF1bB0d2e1432A261e": {
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x816DD99a4967Af5427fE37c85c41EeF8674B15A4": {
+    "common": {
+      "genesis": 5
+    }
+  },
+  "0x65BEA291633adCC5eC1A7175d4E7D8df6218Dc39": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xE42612119Acb19c8C9773e79E3530203B6C5f109": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x64Efa181839274dDd6F330Ed40059974089343eB": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xD6d13DB04E0cBA6714d5691556C5988d8124BAdD": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x4E04bE4a344Ff7BA10440c7b500406EAfA91909e": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x2B2493E84E5777228b74290Db704196d19a6AF0A": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xEfC86f5FAbe767daac9358D0ba2dfD9AC7d29948": {
+    "rare": {
+      "genesis": 2
+    },
+    "common": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x01640E6bb23Fc9d64335652e6892A1e0BF91F6AA": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x1e7dc43272a843aaB61EECaac5d12F484bd3C946": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xa2A2e3a702798227115159AfEc9DAaB2Be5Ce12A": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xa73e6920Ee88460E00033C7419F1237eEE866cAE": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x9A290F40ECD2D3A28ac5AB9Abccb014322045F5b": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x76aC0752f3116E580166B0636E785Dfc89ff7D4A": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xf8D8BB4017eaF29094371A0e929a6c1b173045bA": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x41d0641211DC67deA665ea0fFFbab52c993F7D2B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x57Da1ff32EE3daeAAB3264abf53864f759441131": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5F1F6C7ae6944Ef82966365946C1eeb2Ea7a9505": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x460F8517cd8B6D2f58f962dDDCbB6eEEb3a07fdB": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xA0aD8Ec9a90f03BaC404060F431102D0281FCF68": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6A5F3B0cE00d44AdE2286B1131F6a7e196364724": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xd73c819D927e8F851a69CE57c513B6C79280E56A": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x4D3c6a07657059Fe541f690fAaC9f76cc0f55147": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6b020DC9a5371b8e5421BdfB8Aa0d6F52D0ABC4A": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x22dF8f85AD9850151582F89E37237Bf0517f87DD": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5159dD11378Bd23d800198A7e2C3775861B0045b": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xa04d4cD3dDb0dbBFA55908e32f82dcE7FeaFb0F6": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xC9F0cf45117A630e0874DF221F93eF767d3bD1f7": {
+    "common": {
+      "genesis": 8
+    },
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0xe1bA9EEdf6B96049F380b2ea011258C6F9277ce7": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xc68ADF6b0C241813C9C5Bb1a0997760dA83cc38a": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xf75108bEA8Cf75db8d89Ac3120e5244FbdD3009A": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xF3c0ce43A91648bcb17465a325031Ddf90294109": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x74a8587391f082d9F90Ae5EcBdf1eD95Edc68AE5": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x310446cf95c7b96beF5b4D611F8b9EE01D638cc1": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x940e5bEDa70265b3891A1BD8bc8c74fcf342a033": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x427A33234FAacB6B3Acd1A5a27d9f8bec358e3C9": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x3d383C6861f8D9C88371F501D6603893da7F113B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x236812fF178F2DA418B8E238dFE068687cb2848b": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xDE29BfDC6863aAD5b97Eb9628fFFCf2622Ed7b26": {
+    "legendary": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x89a338ad0Fe6eF931b05b13b699130AB095c5Cf5": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xd6896C0A04eF9C169656383a8eB6f687a25Ed0Ae": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x63896d417ED01cC0259a3A61b9566556427D26f2": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xC19c83c73C10Ef32f41D0eB62bD5DB2ED6591E9E": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xe3D927F12Ded6d5CC048DA5Ac271300A7C016682": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x082784c86D4D6E9cA0E19e93da1F78B116bd8307": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xba48Dbb678Ea925CacE66bc23E86c0a5E32a29b3": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xc2eEd892cA7035D172572d0dD620399dFE773eEf": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xa270d2222d62500d2821f0c5dD2BC4fE4d497F08": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xFa6de915A7f535a3EFFCa2680B35ed9Ab9C2F2E7": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xa91614842Cc90Cebdd5a13b9f9E4CaB5c2baF5db": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0xb9700ab63D7e948E08b1D5a3CED342caA92C6e67": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xDc76A76620a5C87742f6C6199F5A5bd695ceF952": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5D37A71504411ECDa9b1Fb1920868e64EA7F33aa": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x614b7817fAFBF6Bd4D46F7F07Fa46A137c1C564B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xa83feD4cDe61F3646d62dfEbFd1583918DF47eEb": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9486f627d889a15859b2ccD6D937855791f14B6B": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x2D6f6D92e82eA2d8e59714d7B73823B4926EB209": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x9E38cbee5cc17fC9045BBE41Db57D634E440Ac6F": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xB58ac9e3a69ea746EE85EbD15fE14bcC61fD39D0": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x708b3082D47aC64d3A3cf9756d1c835DF483c5b0": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x230270d2D668f2750fA177E7A37a287f17a7014e": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x73B2E83fA1EE3057053350e830Ecc3b535672B62": {
+    "rare": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x2A746FC4669230aC3bd897c56DD772ea54814151": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xbCad75a1F1f429D26C4767dB9f48200deC3AEF27": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x6ABc3e55Adaae2D15F1308E75015f34a4697e079": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x62Dbaed207eaD03a5b054B7545d9B3f1a51FB26e": {
+    "rare": {
+      "genesis": 3
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x89FE190B97242805A79dfcb8BA96f890f631Df05": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xD91AdC30D4574BE2628920758DcB20369fEe9A03": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xFAE4482B7De34Ba7B83557ADCe1e134181c83e7B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x80BfB857770a802f7eF375921AD5E83c76214a2d": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x4A22b8110FDE3701991A18aF115ce00Ebc90f42c": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xdcB65006FE465855434cF07Ac8131894a4859BFd": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x6C2f4a1372852FAde28dFE6827740D4c34FF3F19": {
+    "rare": {
+      "genesis": 3
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xf9FeCCF8b2964FE703968FCe94a2841F3Bde62b0": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x3F1ab5E90d44FA44fD4DFDe1B8dB53282c7127b6": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x31009e07776D4E7F0e120a2F7df0dAaAE014b726": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xD6Cb029C2Ca2F6786d4ec8C1F64e350c427c7a2e": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0991f88a24fa2850266644A5a004192f5607BF67": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xB6320C032fAC4e09FEA2143d70C2C3C4ca54a831": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x3006d3CBc6C9E323bcBC0a43AA0C17a607c5EDdD": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x155aF0Af28165DD6d0537fdd3f958C78eB83F9b1": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x4055A36BD6F44e9BeE150e847231DDD72862DbB8": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x46b1589E796C1102F68e2889A3315e42e600a901": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xc8d1cbAe5dc3a0E2e6c68b375Ba0061eE86FFD23": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x64f8e38e19c1B6992969Dcd5769c149951018Af1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2dC869790fcD358a9B67d7a9f9A1A656ae0F57Ca": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6Ee2134DC15D8126190Bbae8413F0dA37517a4da": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x0106e09f7bf7Ee93EBE3f801cBE98CebA1D528c5": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x117e1EbB7D05545064850513021dF6ADe3C1690B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xE9bFe128b7F0F7486c206Aa87a2C2E796fc77BcD": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xA5401000d255dbb154deb756b82DD5105486d8C9": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5B9C57E6f873a8bF266407abFE76942b46b6E190": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xBaD705ed22FC63F13DA30c4c4b9Fd82f164DF0D0": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x127c07054947edc2B38f61c035aD698413ef81BA": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x1f916bBF39aB189A9E3d9E1823a7b1A8e9e5f204": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x29cb02180D8d689918cE2c50A3357798d6Fd9283": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xB2628D0ec82845C7d23954Edec195C586F016Ec7": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xDDc995735B2b40226154B050A07803B127c366bc": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xBEFD4652F8215A74eBcB3B0528b4a1F3f6565c9F": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xcdAD265f570b4C35Fb33aCd9BCf38892B3C1738d": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x89c1151cA988ca5372b569A30d24964A94Ad05FD": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x60e7BbA5851BA97A9e97F109d529857Ffd222c72": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xF0cddF473522Ae917935AA5c13A4801814428aef": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xfEBA3E0dEca2Ad4CE3Bc4fb0f56A1970ae3837f3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x538b1A49CdA5f9c9090Ffb78e8690843401B3836": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0xa38201Aef63D0f974aDbbCa810f0dD7b86fA5bFa": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x944e3661DA24cb81a6CD6F9ac4Bd821864cd2033": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x58379c2ee5C5ed68e7C89605c97eC946283463E2": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x8D4FE9cCdB32790fb0f02ceCb03b57c052813131": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2ACC58F479B6a521645a059549F63261feCfCe21": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xFfD81c85e715ce74D7E8035e260f6d87cb9088B0": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x8dA0a4579E539847F1C8325bfaD286CE40c567cd": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x174bb8172d23316C338DFB21FaF32eecbAa62Afe": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x6E52bF734f2672fE2f6838EC4050e6Db46f025ea": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x7d4b7e18E597F31021A10c07c70fE9C5f08B188f": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xbb9b252586a57b82E421f7A37a60A67C1071117c": {
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0fe6762Ac3180c2ce001BDD0BBd74f734AfD9FCC": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x120dEB222124899a1351C994662669ed798EA614": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xafE9b22112ca9B83975AFEAF905bcaCB57A2992D": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x8561BC27Fc219a7c152eD063631a2ef0348E8768": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xf019858d2Eb6261FF42690bb979ed4cB8A6EEe5E": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x22ae2fdc292E15f2E7aC31850d1E2F60fBdA07A1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xAcd54246EDa0c5638a247C4717a8782c21497eb6": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x5edc811ab8929e56b376a1e411a30BE8aB0db205": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1099Dee69872ABCc57397072782f111d8aFB7e9d": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xFfE6D9d29480D0673C4FC46da22D21E245C8E731": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xe655C22E88C7443F2CC1D76d6b83eb6bd2b15013": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x336E0f624CCf287Ebf71be2dc8C18FB5296c80CE": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x683C877f20248C15Cb979C6b90B1aACfdbA5613a": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xa6158c2C0F53f9EC2b61b10aA00995319aeBeE25": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xa68eC740166821aD35Bc272BFA1CD38615FF4FD6": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5e352395D2C4187C9dE99b38264Bd69b78DB540F": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xf431d090041E684fD7b801fe9916A58d1008d1F5": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x4dc1c68A940882FFe897f9867431500938a5F108": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xe196936b5d6580ee46D9f83ca07429B28bD4b51A": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9940048d0a2e62ccF34157161121E9C0EF2faA37": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x03Cf73F7E0CDCf9b57D8afA7E5AAFaE364F72A79": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xc26094c5c0B5465BAe76A317414EF25466E6d629": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x16219B3D23D1d7De04FDE90c3EC892DF6e08a331": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xB2ee4195De0265B758594cB425908D27CeDC6E84": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x18F3a61f65519b44a9e8265071Dc1787bcAE4EF3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2531Dac8784CC16b0F1047C5FB97A4a629c44566": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x3d8639C4214cb4f31142b95e24799b88B61F54dd": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x068748648DE1AFF79f8045a3E0B74b6f227f5837": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xd3c16620790cd6010B543f20Bb7d15EAc6756357": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x72F20d97f1A392Acf417494aE579C71041d55A07": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xdc73059CDbcaA830bF7Af29656e726Ff280779f9": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xC4D21aBd27D43008B7C3D680f24Bb62F00531Ec6": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x50Ae94A6e41f088C5C77c88c429E687Ef71124a0": {
+    "common": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x1ACB580874B0b00602A497b229b6f0BD7777C4F6": {
+    "common": {
+      "genesis": 3
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x5255ba61AA23d11859D219771201Fc8A85c8e9e9": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x0BdAC3Cbb73C0510d477952fFffd6B5FEE74A0a6": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6Ac5755992F781674853E49c6846bEbB89AfCBC7": {
+    "common": {
+      "genesis": 1
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x95eadCb87383B1203B0321b9F0F6914c63fA07b6": {
+    "epic": {
+      "genesis": 2
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xC881986B1f1F5b709d93dfbC2FFB725426F862cA": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x4aFB3d4B1abE14438dA81BBDad3c118c86F0A5b9": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x8B7bA1EA087c24AC6d87a646993E55c8F13dC9eC": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x664dC3b1F15c9917567292bfB2c4Bb8b1d350374": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xcF3481ec23bC274791f533cB146a71476457163E": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x8D4Fbf807AEfECFfc824AaEf7d738703B6CF24eb": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x1F41a778350F819A686625b506545242d1fcf418": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x09D107237befcfdB2FC94306aec9fCeF3e533F9d": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x7A60077a6Eca60Dec72d7D00A1f2818CD77b40E9": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x55e1188F05D766A397541B5AFf7be00d09602a33": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9Db5cFf024Bc2c24F66f09e16db0f63fcF28ce99": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xA322E3ea5028e9Cc5f6a3c1574c16D50f54902Ca": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0611bf5A24c05264A940DA19E98235C3b873eBAA": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x139F3D090a1f556Cc092616e5e040967107AD0a8": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x89d90865bB04D1D1a72F438bb214502a66e9b66f": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x544A26a52C8b6B20BBebb66d65fe1Fc4EaB93f17": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x81766f4EaD4D3b35d1A46FBFaaf0C557FF1a860b": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x706ce9eeC7d007272Dc4a0482d95C0615f721305": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x319bF7Cd09281A59F9575F8a82e5AFC9af493744": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x3b68a0a3344Ca5A7EE5988cC6dfb5538C3D1A4aa": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xdAf98Ca144c4bA4739eA237FA8735477FaFc6E53": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x4501182ED741CAAC0C9a13D3bE80C6455c2E8469": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x959dE2cDa8867216B52FAB825AFc77F32CEd258c": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xDdffF342CE2547338B0F689aA3eC86893340FBdf": {
+    "common": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x3A096FdC6BAa42De80B28e7367673E98EDAEfe1E": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x9AB1433913C1014e2166B3c7F039D9528B1Fc540": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xacF1B026BEF9214a7Ed68b35b52AeAe9765F3c79": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xB95ca3D3144e9d1DAFF0EE3d35a4488A4A5C9Fc5": {
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0xf25EB60E2F0b15755C4Da4958acE829C6368e3b1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x32a2C40637E179d305605B646eD339120e530d21": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2c85fCf9225fF86E0c01Fd89524FB7aca2d94917": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xCB2c21Fa5Ed13FD7FFcF9813C3703bc4F86C4142": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xd7512902999b34af2B2940Eb8827CC8345DC77C6": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x36CAe92ADA42c876b3123FaE2457AdE6dDCb52ca": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0xF15B1511616671469A533635A1966a5a81343015": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xBe14B9950dC61642a084EAB491FA516d8FE557e6": {
+    "common": {
+      "genesis": 3
+    }
+  },
+  "0x5469b14150Fa7687Df4E02B67C81e7974AF08163": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xeC44aA9632190B9e8F68E66E043e2A7A5697e9A7": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xf8621e8B829a010f333729F03B69700756F436Ba": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0b162525C5dc8c18F771E60fD296913030Bfe42c": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x28eC3e49a2309F068c670bD874aE64B52dE35120": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xF3936154fc93ecDA413de9f0A6E2cC20c56e9dcc": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xf2857004f08cbC17375f9D1d894c21C99f4f7Ce4": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x6Fe77b70F88748bFa53051607B44c47a4FE6E882": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x4e131D171ee1da0f9e9E109a7710786907A7c0c2": {
+    "epic": {
+      "genesis": 6
+    },
+    "common": {
+      "genesis": 19
+    },
+    "rare": {
+      "genesis": 11
+    }
+  },
+  "0x921272a7b552B76719B9DbEb5a8157A302D7bA0F": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1a65f97cF238BF26728b21D551b5D415587cd8Ff": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x88D0aF73508452c1a453356b3Fac26525aEc23A2": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xA85BA37bf5411f3Ac8675948061276d0dCcAD87E": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x68DA99D589d0F16816Df1de7a92f924ec32831F3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x7ebDEbe88ec46b316fdfb4e783364177c9D6bAc9": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xD2557f6eB5559AB39180c8F76B59B33A5401EB00": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x60C8c883AD586ddfA871C1A7Fa98Cf995f948E92": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x20D3B4D8aAe87815860b2B062545b3c79eE1371A": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x2af1C232C1f9a1359336c52C7E29D04e08267682": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x183bDB344A07Ee3D27f07AC4799A56E4A2fE5439": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x1Cfb47358E58956Ff7CA522f45107FDb00FbbA5a": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x3c99cfCc8f5823390578A2091EF2C0d07A53677F": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5A00023829D998602d0a6fe1F55D41946462945C": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x3F4afb08E6775e44c7302832df06c59bCD19D2f4": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xF4EdaAF70eE27C68364aAFb6f5C390b0f36fFaAC": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x83De1d546d0679d738802F359ffEa267780F46b6": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x00F59A01f434cf222222Bad41120C6d54F9C7472": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x3e2178CF851A0e5cbF84c0ff53f820ad7EAD703b": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xF5b5266F4E273C2418f3776964e95Bd96ae3c4F7": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x880b4adC022F8bf625193B6e8A1808c2F94a92cC": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x832A827E7BDB8Cb5e5F6b0983d59181F0aEd8303": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xEBfA5Bb9559A602f9775Cd62e753216eA63dC24c": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xdd6E63840800a08166E950F635b357B8d3F60a2E": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0xEE9b89df4D6565a7C22B0787DB62e00B0df1f6c7": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x107cC2BB791Fe46aa427947bCada133b373AFd74": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x59A9f07Bc3c3D3765e835e825C8f942232d017C0": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x52016079F88269d2Fed8ad9D9D0E10DA5a6f9316": {
+    "epic": {
+      "normal": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xCBE203901E2F3CA910558Efba39a48Af89e3c558": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x41DD1c6338e5b3cdF9Dc69e20DaD9834aE36A6D3": {
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0x76B687cF4E5a4e73Fa3950D6cC642bCC64e40B88": {
+    "common": {
+      "genesis": 2
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xA114B452fc65Cb0Ece11A251E974AC1a5d0baEdd": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xD6F7aF0285068E3745F39607b9AA5F81fed7A6BB": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xEAA547D5D1BdFF219b9dEcfFf698dB8BC3161E59": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x3e77fe1e72F93e891691831e684997e0dE75b35F": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xCD014Ca79877FDD03FFD1D6DF2067bB986520607": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5684d589FBC3eF36db91b228E1c6f950DEB97749": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1dF428833f2C9FB1eF098754e5D710432450d706": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xd095E0f8C72E22319846b643c4bac0caC1f67006": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x0Cac11a7D29aB8C87D8fedB9Cc736146f4fe8E84": {
+    "epic": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xA47E180545D54dDB367C459F3a91e9Dfa77f9c38": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x8046188bE32240f04c2a8F457D40fa9F29B33E6a": {
+    "rare": {
+      "genesis": 3
+    }
+  },
+  "0xd0B8809579D83Be1de9B655677B5278240688BA4": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x07Ed3E8e3Ce42087e825011c316e17f0051CC983": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x08138B361048b6a6B2DD2CCb95BF0F0dEAf090C2": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xd14BF29e486DFC3836757b9B8CCFc95a5160A56D": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x2C8627865373e75F86a56461B15DE0ABa1672400": {
+    "common": {
+      "genesis": 3
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x95B0cB330519DB2bCaf74B90C1BDe3D62f673718": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x24ef89092ddCAe34199774Ac4e3eC6F36D9FbE4c": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x9C5A5Bf1C40b50EAE0c0bdfA044427661AaC2CD0": {
+    "rare": {
+      "normal": 1
+    }
+  },
+  "0x53f3F5D1dA7aE9756D6C1fc38996e9E592ecb488": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x973a1833897Ba6D8375FCB1eC062835c0474A6b0": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0x9804cf118c7312f10Cff4b97403C0FF4E3d0e06E": {
+    "epic": {
+      "normal": 1
+    }
+  },
+  "0x91c39732b09C836978cAa74863de23F853e12440": {
+    "legendary": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0c183a861868c39Bf2cb2606D7111ac0E515AEBC": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6c5cF1B689F7286c94E02B07703B80623512196E": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xEb1A1FC6Bb31b8c4b006CA00024B0340a57a7070": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xDFe8beeE223412F316baf2968B17527D6EbA29F1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x49B5749f995f429465DDADC0A966fA341Eeea005": {
+    "legendary": {
+      "genesis": 2
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xfD6C0b8E12617855d9638a7008b7354D306c8eDf": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x1668E604E1E5DbdD3Fc4AaaB54E381a8d4B965Be": {
+    "common": {
+      "genesis": 3
+    }
+  },
+  "0xc57163caBf965112E170E9BddEA471d986B8CcD5": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xc05984a372958005ea7bE9c56f1FE5C36a783C91": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x654D9046070A51Af83fF692d367Faf8C1970C887": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x13071cEf274bD6AbDffD66A8D27B755Fb0012a81": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x47CcfD46e27eB2c49F430c803a0F69ae481E2917": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x59319c81C0cF3D02e3B68996C2Dfe47308A006dc": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x7d57441D0a9dd998c3FdFABaA0A2a6dCc8a92d1A": {
+    "rare": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 2
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x34bfcEf78cFBbba72E92D30EfEea33E36F7e6a22": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x887fA1C8EBd4b7645BA090fF6c51cc081c97a141": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xAB3991E50a0177E2719d0D9c1ddD973b32f648e2": {
+    "legendary": {
+      "genesis": 2
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x63cCD95b0592Eb4CbfE0D04150DAaC7E9686142c": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x6D245130Bd7AD4B88165919fA16284Fd7351544D": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0xAE653c472cf7Eb008329cF224157628D829fD97e": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0xba181DeB98AfC2202202C9AeBf26B18f46D70497": {
+    "mystic": {
+      "normal": 1
+    }
+  },
+  "0xEC3dcE7157F26949c790776821F75Cec7c4699BE": {
+    "rare": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 2
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0xA989211Afe9d26302588559565419092b81cDd4C": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xE46c821441771cf14F1d07602B27C64cA3341a12": {
+    "common": {
+      "genesis": 10
+    },
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xa6c4bd18b06a5726287aDdA507Dcc79b9E0E3eeB": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x634EA5142039756816418931AAB3A26e7a209f8c": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x00A11EA59f9C857c883f597C10353d9F257F7713": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9Bf9762dC965c724bea17294Ab8FFbdaE8719e97": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x69069926D6bd30894f3EA4160517f893760D2400": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x90AdD73C77d303f7A3Fd6eFeF6387DAce32790fc": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xC9C9745A26DE717A888B2C32ba2CFF024ffa31B1": {
+    "common": {
+      "genesis": 3
+    },
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0x073Df2dCb7eB129c53D6d7662b8dA32A70C2f821": {
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xCed7f6b019Af1914eF463729f99BFDA747a8c9Ae": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x4DB5E3b5Ce20Bd45fe1Da08a9B5D91B3a8C0E24D": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x44F3eC0f7B7ED53F7fA79d3B54D55bd2A98bc218": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x1378FeeB233AC7F991D721bc5C238578305B45CC": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x7bF5bb51A0136C2Befd52974c89ADBD4a46241aB": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2A3837b830FD55b0A4b62677d89F54410Cf5cbA2": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xb991175200A225f124C7BB820751411144D03552": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xaC8338996Ce9fbEbd4401d820c08D7fbF0C6D1D2": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xB6E477C29452d8D5e87C999AC664e6D245E5474A": {
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xe38B3806517671C470c2F2c389715f0442a36295": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xa10dF6c74E9a38A9291B4a391f3C457E0a02Bb04": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2C8D2e50Ee03f98A2f4CCFbe1A61552b79bDF6fa": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xe69BB64b92bc856BC53aa3745124f8c855dF07a6": {
+    "common": {
+      "genesis": 4
+    },
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0x91046A2926c02CA63e257DAD27048352dAb01f1f": {
+    "rare": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x557B4eF78FaBdaf4Aa9F760edBb45B3F9301776b": {
+    "epic": {
+      "genesis": 2
+    },
+    "common": {
+      "genesis": 3
+    }
+  },
+  "0xa2746b2A56F9886925C03AF1d1E10B8b3DfBBE29": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x529109d3E06f2aCfc520F27042274E8dCD44EddD": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9D6a39a39721264646b6B3984fE1b16875c71Da3": {
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    },
+    "ancient": {
+      "genesis": 2
+    }
+  },
+  "0xB69C720E24829C11d96f081Da2d6CFA32CFc62cb": {
+    "legendary": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0xBF496c6C77856C301f12876c65bDa19aFE9D289A": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x59f5D3575b377B3956a930236272BB11BC3f5c38": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x16ba2c4b8182e7f612f74676aF20EEA2DAB4C933": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xd5CfE96f3C33833775fBFC2c898A53E418ea3046": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xA5ddC432e5eD726d602bd61a7321E68C6738d8C6": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x0D666E2d7E0c8345C4fae3f97A8Fa4F52830AB1a": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x329A864FF991343C01ECdF477f2848c040bd75FF": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x99c9efcbAAc4F58e373B3fbB1E0A52B5d328B06B": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x325246bC08670f561c43c7E4F1CBCf574A846C3F": {
+    "common": {
+      "normal": 1
+    }
+  },
+  "0xA5F6cA1393CC766B62c45a6f663C8d69540bC2bb": {
+    "common": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xB4195Ec9b549A576C28fC5dCf3fF130db7030859": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xb94d0A0D70c4c9d28D72429A3b2513Fa927364f1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xB9d5Cf187530a331Cbf3d1b2a8AFE8E56D399BBd": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xe69F178B1A3Dd293139B9E8Ea881e3F2f96a311f": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x66988d536c108C1e55C969bb893118D5a94d93E8": {
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0x8824b4498df76f681E7aF53E947F0571C2f6941f": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xBC0D3BC1C6851CdEd49F02c4F95CFD4C24a4Cfa0": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x98BD994811A739Ad8FE7769b7c796d93f2e4c132": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xA62c869C59c6E4A10bf2114297c426868eEd3105": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x49E53Fb3d5bf1532fEBAD88a1979E33A94844d1d": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x2Cc5a915d693dD97b0Fb01D11a4CCCb077FD8102": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x29029BbE90540245c3d05CdD52f06730dECCac2F": {
+    "rare": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 1
+    },
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x4Dfa960e7C36c493B268D32051EDd63d019699F7": {
+    "common": {
+      "genesis": 2
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x78072457EEaCD6B89716afa3c2fFFF96E64F556D": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x6AB0646a7A55Fb569E4DA6b9305d9061ac4027e1": {
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6C52D274Ac246FB29657756941ad1c158004Bf99": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0d1426B38A68bd42Fb92e6ceE0D16C95729031e6": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xBA1a68C67EC1955f04A1C302DD13021D68a6FA39": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x202056C3f37FC2A2121261fcF971C807E7192a1f": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x4a86E7eFCe5f37583E6b7c4Db88D37EFF5812685": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xc2c3035f3983a7d915f44671d08f4e2e813268F8": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0000014ffa35ED6Ad0D5c9c079c908716c113EB8": {
+    "epic": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x3D53A62d73048DbC279c2C15f6009556f3dfE130": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x007a9C8099a026BCD32397bd0F14b1eCA72565E6": {
+    "legendary": {
+      "genesis": 1
+    },
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x341C51127e6c515a0251bD762a5C0C15002C85e1": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x77eb6203033a1deA9353dd257309E54A257692A4": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0x9A15342876e19052C3FAbceF9BAd8507B9623c12": {
+    "legendary": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2198a010055D46214c66cc6CaeC4f9Be1FDc0B92": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x3426862Cf088e733D62437ce9E29C73bcA04eb9E": {
+    "epic": {
+      "genesis": 1
+    },
+    "legendary": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xca2120771C8D294a3c8E52678a1101C47533DBD4": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xA4ca1b15fE81F57cb2d3f686c7B13309906cd37B": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x13EccC7EC8EF9C1A968136DD2d93b0Ad4126AA70": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x8471b2a8dd9a892C2855538D694A0ce2b30c036D": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xD68cb31e17cE6741cAaCe35Caf970Aac5C408F94": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x8C12768EE1F46D0906c4B040B2093921517237e8": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x809C9f8dd8CA93A41c3adca4972Fa234C28F7714": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x3148bd5842Dd71E8Bea0c6BB0C5bd4fAf946A6C7": {
+    "epic": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6858C3ED70e40279E60592f55C680243434B75d6": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x2E1552C1244C61FEeCf011F67a1f77Ab37af1F51": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x1278d185dcEfE9C97ffFc1b7A99D03C09bBB77d2": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x8415eF34C01B13c03f7f8748429A422500059Dd0": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x9F95B980199cefe80B25173bD2D0753d1dAa7AB0": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xe44c562cE82FD2C2FBCa4E78f85C10f8eF010895": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xf3bD51c003EAa9bf73226b0A5B09F10362Bfd838": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xB6b207E9Ff95a9648FfF4D91e8BB3aEC9F853a25": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x6eeF15c292A908e0984335E1d5596e17B94a7E64": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xA6f30B091fB772A84A6Fc80Ac8E3D020EB670A3d": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x555E8A0E3956D685552dd92b404377B1FA69126E": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xa33B24F0F74CDadE05Ab5B994898FB0438C88afa": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x6CE89C7500b140A962094B65F78c877e8B965a76": {
+    "common": {
+      "genesis": 2
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x78b15a7D322684441cc98f99DA74eD19a917af7B": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xAaa8450A8FB296b21f4EBE27598b40a750Fe3ad5": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xf2F5dA016955De491A614a81c557DB04De2d46A8": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x19711CD19e609FEBdBF607960220898268B7E24b": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x86C99caEAa45477cAF05aF18E6aa58b02f482986": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xeE9A0bbD2cE67fc008fE3f7f6a86F2c6dA5F7a65": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xdf8C014A6b68c66d5c774f3097EDbC917944bAA0": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x86C8a1375111E5503033eDc2495CC1c5f105dFac": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x7eA5f3378defC303cD94C37824d604F347d176E9": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x096Eb2ebd3D6908432DC092c38714E1969725f3D": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x64624080Cc909d7A3BEF25F4e9578663A749cB9b": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x1573718605Deec37245D0C2b6C32D790797862B2": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xb4e876A98c1655aEF3E2a368Bd7b22B24a9792cB": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xE375704FB397d225b2B9712fE4cCbbE9Bf37410b": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xD9dB98522Bc772415c3B6E110C36dd02BA258bAB": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x1bd2e0a0Bfbe96706eB865c1a0942D79659629bf": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xCAeE83681db909A36044FfF61E14eB4BF202Fa77": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xd589ED9fd5835D38d9Fdb77C2B1f775F0a15cc48": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xdCb3c2EeDdC9C164CCE8e7D1782Acf2B4a505228": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xF99917Eb97b5551F0Ce23466B6F00E5FadcdF97D": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xEA50b31682d0E5f77883B27a8d296EcC71a2B5Af": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x87cf2DD460bE20555be5fE0910C988D27D7c48f8": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1f1C1c52132aFA630E310f9E1d923e78a2D3f17B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xcc4F40B6cD7DeF8DD16659b965158fE403dD4711": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xDbd300Eba0F755Bb06DA769A4E1A84E4330068AF": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xe5a81738DCB83CBC73440F331659F362294Bb7f1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xa0ff0b3d5B4BF96AC285510775A93A7Df5524b9d": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xACeD916BCD068f0fEDDBA9c7D4BB2215637979DC": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1BA05170957642C0CF52592Cf98419809b029b88": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x7B3e330FAC8525baf096C7BC2F9Beafae0f8284B": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xa21b23e5f07E5E28cB42d09502227Eb75b0B64B5": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xDcd738BdE9EFA29cFa454202Ef0ffC7789Daa6d6": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5F43091645Ba88d914E440dE19B2d90E5107F4c0": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xFf05c7a253A83d6A37b5c1F5Bbd4f4Bd9Ef048c0": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x1684C382352FA8992E2d12264b08CBFd8E06b7b1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6027Bd0B1b33746E02d075DA20069FFF48794D54": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xdC4b2051cB106D5dE8601B36936A3DA99c634c29": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x58605D60E2964Aa36D6cB4da23d9f9dDeC9Bc4f7": {
+    "common": {
+      "genesis": 2
+    }
+  },
+  "0xA7164fED973EEE92417EB1483CB4bc92C70d1b1F": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xf8105d3a2a893151c81e21b7D1704C510c52BAF3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xb5392Ba615af8562fd6454Dcd9042f0B864d3526": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x14c3ac4ECfa1EFD991Fd7B2a9b79818f33228896": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x84d07f0829FfAC2D9023B10B889D6a3c67B97aF5": {
+    "common": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xad0fC6eC468B12a52B54f8C4DA32487Ee679B336": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x576Eb27cBf54518D3De5a38eA7746ef6A9b8b5E6": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xB081Cf2C0eAf9620876a2af970b68e55CE9EF1ca": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xEe34cEd4608C238be371D8c519d56F8D7190A445": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0786A24145Fef2c60A38237e8671332899cE7C1F": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x965ec2820727148b8B4bD5dA4a7B23EfA03D95CD": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x2994D0e8085d783C56F07f5d4276C0d577e9418E": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x21411e3ec19b2368D519224Df85B3d92E891c81E": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x114927F2e42368a48CA26cFd927a67D366C93Cf0": {
+    "rare": {
+      "genesis": 2
+    }
+  },
+  "0x648f65dcdf221c061C82C293AD6eD36991CAD562": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x962d4bf057258c0b76eBf665B284e395CFcF24ff": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x49379B497439ae122F4da8aDd767780c338A7d35": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x7e1C6738d5da931012E9970581d7bf89ce0fe8c6": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xC4335F5CF9975b953387cF0C741F260F881c7556": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x0a763e3d0d4f1a53b2Eb652dBcA77545dC3F15bA": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xdA41F045C2DA9Da4903D0f5EBC31Ff2e67037403": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x745d2706e96B8d263ec45FbD7e0abc1E6547f5d8": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x083C699cfeB6B4F0CE14daf60D5c90a059ca6021": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x23a369F8160a4c3f0F3BDf944D18001328d12B7D": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x61cd6F504CdB04145851309a05FDC8eeBfFE4c2d": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xbe2e8F6292D29c65F9BCd807bE387422857B4093": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x4B3966884563824f2Bcd3C4c7d4183b4842f1050": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x553F6D32Ac0eBebfE210d8235D9913acD35f152E": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x702580F7ab23Fd4F9D739180B852B8Ea7881a1FB": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xB036830D269D9dE1e1c3f9aF26C9aC90bBd20085": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xB537395aDF639315572470A3bfE220FB0d20b627": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xC9910fCd815A780E037411117AA13362854087Ff": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x4d477F1aabcFc2FC3FC9b802E861C013E0123AD9": {
+    "legendary": {
+      "genesis": 1
+    },
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x5e7deba4aCE96c50e817bd228bEF24A6811f3303": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xf066F863C1DaF9aF7f040C4684daAC144030987f": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x8B868268A756612582E82e8a2539D423a8c3F88A": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xECE67ac3e383a613315bcF85d9082eCABe8adA61": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xA8111288103Cfa7199300d4Fa83bFd8a8519669e": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xE78a6d993C5cfB68A52de7E0C54Cfdb967BF650F": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0Ee951Bc9d1B10aFbf073Bf246Cce7d14346F652": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xD464ACd1Fa11c9A08d64D4d07A6a82CD1e35a109": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xC698063124BF8140B711B5463e9d668Ed5656651": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x52E33438c3F2B438Fc14EeaA8b801d2d9377Ac9c": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x538d278E05A35c96bCDca1039e92C65b994256a0": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xBA3D4228b2Fc5b6751eEEcE88eae2Ebbb8008f42": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x82c8684f8406251d202BF21EC8fB0d9DC43B63e1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xcf4F0b41Ec79a1FCbc83599B60C031465732c5Ba": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x41B4454045A22919b5dEE1F2c0D8E0A577274519": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x930e7333Ea9Bd9Bc06175ED5446cB5Be83cB7c31": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x8844126cA5dEFEE105Ae50e5089933768cCf9999": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xaCe375eE831Cf31dCD89ef270B91dE53b02620bF": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x71AAD1110dFd8F60249cD45ce4fb05163b6f812B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x73295fdE32F96394FFDe723c7ef61B2bf421eb7A": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x7DB7ca58c73ed4CBC878b41a60128F9955F5099B": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x750d35A97Fadc91327e2B42eC6838F44C192a834": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xA0421df939dBE412815E94b309b2c984F1532D14": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x37c660DDcfBBC6c5A79757789Dc8d1CAE466A024": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xB6694a172888c067694ed44a5076C3EF8C975f5d": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xE7223c500A0346c0D1848EaaAdC9b6F20828F7A3": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x6355905b07A740Fbb76e31846C06B7F3333F4C55": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2774201Dc99af7Ec8fc914093eAD8Da4d2448B6D": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xBab8a67bDe21A3B4Cce8213046E54938F8f95a54": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x4aa1f613e40272266dC1c376518a8A17A5fffc5F": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xf526521d5516D842656103bf00Ad918bF1215A16": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x20571290Fb42f94a414d35ae8Ec8348B2D73BD85": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xd5f7953334017b86C3869C9c0445e3FCbC311B7A": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xF0cB97201fB0b288fB2092B5dC9Ff3E45F9d1726": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x659eF21E4C2F393B00768a727262dCAA40646999": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xc6098128613c38dB25A09863Cc3792707aF82291": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x36DcDBb4813D4868cfa7771ee84F5221c648A716": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x23128Ea277964dF94d7b53f5a5f692535832af99": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xa1c39756804Ee7afF4E66CfD73b11196bAAC9f88": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x33d19466Ea420D114fE685f65b3A48edED9cB2a2": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xDE5277b00Be315f2152ac5D0d56EC2164afc95F2": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xbc39A124D833fDF62fA0C828fF5F8Fac816e65CB": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xfF9A186c822EE4c873b37e2226f218C46302CcDb": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x608A6364F7ADe82F37cC3d24451bc9262b432Ef0": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5A06B6CDcA3b3Fc486981b674B606c6490A9E792": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x299a94e8493E38c44f00b41E90ceF260e3898766": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x3956D586F27aC7e463Cc5De3a3aB40DEF676E5EA": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x8B881349c69fdA7E1121Ae397383aA2002f9f418": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xC0DB1b2FEA1Ab6Dd2e2f77D3da916c7A4021446F": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xADD62287c10d90F65fd3Bf8bf94183Df115C030a": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x838e21cac9b164172c342192E8B12b415D37e97f": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x414A46a6DDE5A9923E14D5C39BD97dB2C82920BA": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x2Af4b96fB69DC868eCd385865501460611AEaC4C": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1bCE0701F553594189BBeeD07a230Bf88A74e7a8": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5a2C8E3AE9354a3AdFcF23AfA3382FfE4A0Bf9F7": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x1809754df5Ac133A1Cc7d4EaF45ED38cf9b39ec8": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x5C13736B523513717C91BFd1C8fB1615bA1eEcCF": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0641D6bC3CE33abEB5E62F6fCb86D43851d28921": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xA3C277b8f35881CBdb017E52bcC376B3ce8F21dA": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x28891BB8D96e06Eb7106f443DC4003b13fD54ABb": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x29C93aA7B5cC11108E485D0E4C3d115354657CA4": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x6DB72ec9A85b5cD1Ab5a9B301110a232940b9bbB": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x748A38A386e5935aE4A428cf4333aff21c59280D": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xDBca93595233F2601f548e55ed44b4D8dd78e9AB": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1fa0E40c0D01Bc441a90B0f99fB90f39E5c693b9": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x97fB0bd83E5f9f16654cA36C6d6C090fDf0cDE0F": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1F102e888a437Be8B37485EeC3aa6F9EDE379D8F": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x8cF36bc7c164cAAd53914A085F87617732Bec41F": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6768050B4971f2FEa3F22CDb68E6cD0055B216B0": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x76E00e5FFD9f5cdB3eF1827c1cD716e9ba97FBda": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xA07e70f9Cf8a621BaF99EB355baFF02e67B49C00": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x6fbCC7d91edf295F7C724825eD0332e407632a33": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x837d31b2e33c03d7127A0B50a439dbd7D09ee950": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0F2bE05d61D9DBc2a74130A854897742b69B6714": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9b99341554cd5696D6C5D94da5ef5A6aa5408667": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x113fB81f962B8185f2Aa19D0a94D1B3a10130476": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xDDF51278890eB0CdE873fb7415979E8357d3b0Fb": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5866D07A1b9ac4fb62c732e27528206C4Ab78847": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x95A5C86621Bd135bCE76ecbc2D37d1ca195c8D7f": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x3DE52FC645A215D841c6891B9CBf193EBC728814": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x5614372795A94eBcFdF72a521345b4b148b8E5DE": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x560677aD1a39138A88F566aC200BFa89Fa5ddA6d": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xE562C57adABD2003e37d60a84Ab074C7a6D09Bcb": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xE3C45556E475BdaD68736aE12Dd9D31be935DC6e": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x65a313fB7fCD48f28d9574C5F237E0f2C967E18f": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xaDb31d302Fa994D61F0CBE20832FA609dFB836F9": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x20574C8E055B21f0Fd18B7d9bD49Ebb0c9734722": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x54f207807D7eAa11303EdA5a285098D4b3fcB0BA": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5293c6003C6ea4b20195aE293D567C18f8eC8dab": {
+    "rare": {
+      "genesis": 1
+    },
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xEc8A675289BEb9cbEDBE5E8c91059668E2192Df8": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x02E2e82BF6F79d92E0D776e85A56739d223A4914": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x7E5e83215DfEc4cE07dE2b6E97659a8992146a62": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2Bbe2d18a9bBF0C1a0C12b06a01b3844632c0155": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xDc583a3D6aCFaf7F69F11E6c2D97B150b29D8752": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x91CC0411b304c324d79aec45a594C8Cf4Bf83Ef2": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xd671422bdDC48942f8C1F8f5C8662Efb6aB0afF4": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x4b339b45F3E499C949c2e9c0865710415FB9B541": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xa0Db55584558a16765a94dB4F2CACF5f76836a05": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xd10F04387d0Cfb7c46b46632F4507ab6B0450974": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x788E6F9D17e60E47D6d05424Cb8608613Ff07dE7": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x5d81adBf9D6EE10f82B71f4c851435FEF52Ffec0": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xE924d019972948C906B18044E05d48e58AAA1455": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x128b16CF53b7Ea103F244e7F79b656fE6761f84F": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0A389C8C7101409831E81C82DCc9cdB13dfB4E39": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x4b2d66ec3EA4eD02Ad4558648B52361171848ACD": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x773c0AdF8fa4e72909bF9204898d5e02Ac4fF0Ec": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xf596e977116c9964055FfA47d192F8d50aB8C51B": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xE0E82A8D34232f518B46b73cdA6978D8F852D97f": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xf51CE4614232337920AD06Bb718dAFB6103BdE02": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xd2534BcDE3efE1ab5f22e454A153Bdc37053806d": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x558A2A21FEF7E25721def06b663B77dfF70Ae4b0": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xff3bC0dEC190997c4AA79686596779547aAC416d": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x54c4b52C6f0cBfE97eB3E7187D380F9B875b3F1B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x63653aeDC693BAFA591A38C75856efa271Daa568": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x82C23FC25424f582021387267721BE080547beA3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x50c568b5892E04Ef6189e9789328b5d424ECd052": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x20064f4882b10cb50d9245cFb8540AAa1723AdE3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x3eDa2c9f3dDbd216574dF5962425C63DAB0B9642": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x232832F88e98e4680A12c03D12eF1FDA22ED7122": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x96cFA97Cd9D7c078E1bd1273D2FAFB543E5e113d": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x933F01eAc4eC65F4F35af6fD9F5e8bd64757Ad68": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xB4240c712B07BdF03f7D078631a447e2D66AE3F7": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x100da4222Cfbe6e8dEb8Cdb8C15899986CB188D9": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x9D86CE4eA939Ba71BB97383B85aFd12D3b3bBcaf": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x79607211CA0411440b7b727CCf67F74a74DE47E5": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x7EC2F0c6256079b8B456621b7CcC52454d3E4931": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9595822157e2335BC86Cd73f827b8d9Eb862e5Ed": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x8B8412ac6a842A376C9757bf0A3461857AfE3571": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9d0a4aFC0521BeA3983ebd1C1DdC7ae894144B43": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xAF673C06Bf664B10F8a62F526a8224DA64639097": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xdE88741DA8d45E1DD0F1269c37ed60371E4CdaCd": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x403Aaf19c255f33048cf596BAfc4D3151b40A958": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x269cbfe467DCbC832A660fb95bd513E2a4C344f1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xeC5bB597F6F7B13a01D5e48129ca6B7a89eBd1Cf": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x2bB69d0023CaB7F3D88ddCE042281E30cf8966D6": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x273004A359e87a72D21f3093C200310a76Db2684": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x49240B844ebf349B84e0626dC9d6521eBd1F4379": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xf9e1D1e9F22c96752356AdFd377231528c7E851E": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x086e52D2a3C00feeccb2475a537480dd5A276F7B": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x8e0e3D4a18AA44904ebda87C5B42545d1cEC2e5f": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x0E6866169dcc0f0a40Cf0c1ef1bfc98807B508b2": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x392F0bd0eFf2B3667C7EE64E0d111b3885Cc062f": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xA946CAc469f96014535D3705e886Aa179169bD27": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x072b788F4461f8266AA60F76E597990f22948e38": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xEeE7B03A48c2138a6AEE0C8b4A03F100c61fcfaF": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x318122d51DCf99A3C7f4de129544E6Ad604c4833": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x98D19D68d4bd9b6D8fdb16C3B7C6730Ba9d1772F": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x1235b736567d6ca7E9f75511e6CA7Ca643694B67": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xFaf36318baE92D18941A535a839771Db3c074cC9": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0xcc0E6D05981d000BC8987C443ea909256bD1C8C7": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xaf310Ce1C06128d1d0Cf6f5808e830eAc2FC9f8E": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x7e25E6fF9A3a62FfD64C9D7375efD2A1Ec178aE0": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x7A747d27d69Aac725C1b0Ba1Cc6B18768F991A4A": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x74dD6d2CF36e26c1d140cf4099Aba0c487B96bb8": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x0cE636B2129c7611803668c7d056D76e7a7ab9eC": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xEe7d2069269aA17557Ad07D43e7b83Ad356545CE": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x01a0f471541c31e394Ec5150371294dcA3BD71d7": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x797f1ff177Bc38d0195D542F49980cc958C6A76a": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x8Dec089A4e947309Ad09a97f6f6484022421Ccf2": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x9079B8a0D7148F1F832C557EADC9daE9c46e56E4": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0xCB2530D9dEDAC19d76Bad9F78a0C2911d0bb66d1": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x1b50070725b5d0844dD12946e32c045A65437C25": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x55EC0220975fF00A30484a76e125F76C248338c1": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x17648D62F219569413E56BE71E86ED37CE51de29": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xB6667481F9688E4AdEAA456705627De6AD87Fe07": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x33a0ff60233B802d61c392e5F20D8956700E04F3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x881335Ad76128d4CF92FAf18773eD656f2B7a857": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xE538B5D7a04b13778779bF05EC09E404e3057fAf": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x058AcD614C5D5CC99534620e283e0331A18db31F": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x0Dc3a48511Eb63213F12109dCa755a5dCD9cc6A3": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x90EF1278b021b7363E173a1D30C9c89dee1f47F1": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x48B6b3aa48a95803a59747Db5B6c5a8e88D8e047": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xF2337A412942df4839F76016CC678391397EBBAf": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x23aDb6F5FDc7707D01d7DaBC814b2A3732933Be1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xbaf6e824F281281572D4435861a0f40001aD0910": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xEF47B75615a0304dE69eA3e3630B2Ed12083f44d": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xb5bB4645E5af51D7776A0A6E116cCdF74F0Ffb82": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xDb24B411D779FA68C9BDa3491fa1FCbfD9964a34": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1B8134e1864f34933D2Fac905cb4C637082282c4": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x522fEb1112F33b68776FD5A22b8025fFB295F5a0": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xDc1cc4c84FF6e1872f5f966cAfFDE4D361496e5a": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xe3F1aFbB60EfC7d02cB2822aF7ed5B3358Dee9D7": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xa868cE8442Cc4A582C0DeC00A9d10455276835f9": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xb1f6e04481161072df55b124f4Bb1a0e6cc6DF65": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x1666DF4981d2E27757c0831a3D421a0dC12D8c53": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x8cb8F810541dd69d180208A4135F36bF9B5A5fd1": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x94d490aD18943e81D4B2398F98d54ADE55b1ffc0": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x95718bc72d39D136CF96fF74E832497200584801": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xA4c3ef51a075dcf457870299B84d8bED1C6Ba31F": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x86D463Ec7b6128973923cD784a60125A085157cd": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xFCD8CCD8d4fA4f6fE27EB1F9D6f15aaAe83461ca": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x7e8F46f0e84bE9875544a21fDB69e40661229963": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xF4019EE39c7b6E0702Dbe7c6C54CE0606B3B0F8f": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xd152926BEEFd40cAef59040A2144980e481A59e3": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xF25DE98fEf7558710c325d5fA232a3f96059d2bF": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x66a88c08F7d49D8b193Dfa8D5787a05703289402": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xf85b64c9c38C180EBF8dE85eEaf1Fa98262C2218": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xFb04447f71CCE3451B487BF77bF6dFd601f6A342": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x027F2616909E909094B3d5415807846c95609CD6": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xe1fB848607Cb6D4891d81973D36ce15F26627c65": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xD9D836EBC67Abeec65b29E586F89816Dab991F69": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xe2F184241cDDD9f2235d861eFF25c37b7529746e": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x200B8319c8E962326771fc557d3c3e77063656eb": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x352044A506292c5d4AFF772306EFc215A38aFb37": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x8E90E0ABc6fA3176c010662327F8A47CD1fE3e29": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x975243bE3E33e562DBdCe84704B2eFf0edefd742": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xF7979Edf3139e557022c827aB08530a6838259B5": {
+    "ancient": {
+      "genesis": 1
+    }
+  },
+  "0x4a03731625b66E2Aa6bBB0681d3764794f6b0389": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x7dF1319C2870650ac652d50Ed38D26d9783cb510": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x3A8D77Dc3796782Fb82a326bDb1140AE9656B939": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x21E0FDaC2Ad66F98D5B5Af630A570a6f119c087b": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xE363adb87d5F28c3A31Fdfe63461D2A527dc3485": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xbCd97AF9EeCC57e082650e4b888E9890F39d1633": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x8d1509e0240EbA23CCCD58941Fa2b5D7fF1fc70f": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xeCF427852CA882EA8E21C1805E84e994e8f00670": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0xcB41c6b030F15c635F2d7E7B34fF3d294f6B27b8": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xBD5aA4840A73C483D542C3F9F147a09D954F7bfC": {
+    "epic": {
+      "genesis": 1
+    }
+  },
+  "0x1BFDB1E3e5B575c3eFFc46b39CCE39fa06eC9937": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x713AA0891b17DCB54208502518e4665A4affC40b": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x5Bc2bA17bfe2c848007E9D57480bfB460ee6CB85": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0x10f4a5A20C6FB069EcFFD42Bc2FE1C07a2F560f1": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xC12884bE873661fD05F2e3331E28BDD2eC7216E3": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xD22003C6ef7eF5295978207e64452f7E43B2aD78": {
+    "legendary": {
+      "genesis": 1
+    }
+  },
+  "0xc58E2f566D76C63720a8fE11f59A696b3db2dED9": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0xB6cbEddAf5185DCAf8Fb80B2ffE179f42BFbA5a7": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x638b18e4C719a7AD4731209B8D0730B05b82BD5B": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0xDB67162198Df8234B580E7Ca086e84C808Ef19A7": {
+    "rare": {
+      "genesis": 1
+    }
+  },
+  "0x3443CC227887E595238923d80b9875EE6287be88": {
+    "common": {
+      "genesis": 1
+    }
+  },
+  "0x908b19B02b07BcF9cB4e0BC8473B1c9D89F5A030": {
+    "common": {
+      "genesis": 1
+    }
+  }
+}
