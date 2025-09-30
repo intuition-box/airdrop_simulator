@@ -21,6 +21,13 @@ const DEFAULT_GENESIS_MULTIPLIERS: Record<Rarity, number> = {
 };
 
 const PRESET_IQ_PER_TRUST = [400, 500, 600];
+const FDV_MIN = 50_000_000;
+const FDV_MAX = 1_000_000_000;
+const FDV_MULTIPLIERS = [1, 2, 4, 8, 16, 32];
+const FDV_PRESETS = [50_000_000, 500_000_000, 1_000_000_000];
+const TOTAL_SUPPLY = 1_000_000_000;
+const VESTING_TGE = new Date('2025-10-15T00:00:00Z');
+const VESTING_MONTHS = 24;
 
 const RARITY_COLORS: Record<Rarity, string> = {
   common: "#d1d5db",
@@ -43,10 +50,38 @@ const formatThousands = (value: number): string =>
         .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
     : '';
 
-const formatUsd = (value: number): string =>
-  Number.isFinite(value)
-    ? value.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})
-    : '—';
+const formatNumber = (value: number, decimals = 2, trim = true): string => {
+  if (!Number.isFinite(value)) {
+    return '—';
+  }
+  const fixed = value.toFixed(decimals);
+  const [integerPart, fractionalPartRaw = ''] = fixed.split('.');
+  const spacedInt = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  if (!fractionalPartRaw) {
+    return spacedInt;
+  }
+  const fractionalPart = trim ? fractionalPartRaw.replace(/0+$/, '') : fractionalPartRaw;
+  return fractionalPart ? `${spacedInt}.${fractionalPart}` : spacedInt;
+};
+
+const formatUsd = (value: number): string => formatNumber(value, 2, true);
+
+const formatFdvShort = (value: number): string => {
+  if (!Number.isFinite(value)) {
+    return '—';
+  }
+  if (value >= 1_000_000_000) {
+    return `${formatNumber(value / 1_000_000_000, 2, true)}B`;
+  }
+  return `${formatNumber(value / 1_000_000, 2, true)}M`;
+};
+
+const formatDate = (date: Date): string =>
+  date.toLocaleDateString(undefined, {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  });
 
 function RelicFrame({
   children,
@@ -91,7 +126,7 @@ export default function TrustAirdropCalculator() {
   const [iqPerTrust, setIqPerTrust] = useState<number>(500);
   const clampIqPerTrust = (v: number) => Math.max(1, Math.floor(v || 1));
 
-  const [trustUsd, setTrustUsd] = useState<number>(0.15);
+  const [fdvUsd, setFdvUsd] = useState<number>(150_000_000);
 
   const [isRelicHolder, setIsRelicHolder] = useState<boolean>(false);
 
@@ -124,6 +159,7 @@ export default function TrustAirdropCalculator() {
   };
 
   const trustBefore = useMemo(() => (iqPerTrust > 0 ? iq / iqPerTrust : 0), [iq, iqPerTrust]);
+  const trustPrice = fdvUsd / TOTAL_SUPPLY;
 
   const totalMultiplier = useMemo(() => {
     if (!isRelicHolder) return 1;
@@ -139,7 +175,29 @@ export default function TrustAirdropCalculator() {
   }, [isRelicHolder, normalCounts, genesisCounts, multN, multG]);
 
   const trustAfter = useMemo(() => Math.max(0, trustBefore * totalMultiplier), [trustBefore, totalMultiplier]);
-  const usdAfter = useMemo(() => Math.max(0, trustAfter * Math.max(0, trustUsd)), [trustAfter, trustUsd]);
+  const usdAfter = useMemo(() => Math.max(0, trustAfter * Math.max(0, trustPrice)), [trustAfter, trustPrice]);
+
+  const vestingSchedule = useMemo(() => {
+    const schedule: Array<{date: Date; amount: number; label: string}> = [];
+    if (!Number.isFinite(trustAfter) || trustAfter <= 0) {
+      return schedule;
+    }
+
+    const immediateAmount = trustAfter * 0.5;
+    schedule.push({date: VESTING_TGE, amount: immediateAmount, label: 'TGE unlock (50%)'});
+
+    const monthlyAmount = (trustAfter * 0.5) / VESTING_MONTHS;
+    for (let i = 1; i <= VESTING_MONTHS; i += 1) {
+      const date = new Date(VESTING_TGE);
+      date.setMonth(date.getMonth() + i);
+      schedule.push({
+        date,
+        amount: monthlyAmount,
+        label: `Month ${i}`,
+      });
+    }
+    return schedule;
+  }, [trustAfter]);
 
   const beforePct = trustAfter > 0 ? Math.min(100, (trustBefore / trustAfter) * 100) : 0;
   const effectiveRatio = useMemo(
@@ -228,45 +286,51 @@ export default function TrustAirdropCalculator() {
           </label>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 items-stretch">
+        <div className="grid md:grid-cols-3 gap-6 items-stretch">
           <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] h-full flex flex-col">
-            <div className="mb-6">
-              <div className="flex items-center justify-between mb-2">
+            <div className="mb-6 space-y-3">
+              <div className="flex items-center justify-between gap-3">
                 <span className="text-sm font-medium">IQ per 1 $TRUST</span>
-                <div className="flex gap-2">
-                  {PRESET_IQ_PER_TRUST.map((p) => (
-                    <button
-                      key={p}
-                      type="button"
-                      onClick={() => setIqPerTrust(p)}
-                      className={`text-xs px-3 py-1.5 rounded-full border transition ${
-                        iqPerTrust === p ? "bg-white text-black border-white" : "bg-white/10 text-white border-white/10 hover:bg-white/20"
-                      }`}
-                      title={`1 $TRUST = ${p} IQ`}
-                    >
-                      1:{p.toLocaleString()}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
                 <input
-                  type="range"
-                  min={400}
-                  max={600}
-                  step={1}
-                  value={iqPerTrust}
-                  onChange={(e) => setIqPerTrust(clampIqPerTrust(parseInt(e.target.value, 10)))}
-                  className="w-full accent-white"
-                />
-                <input
-                  type="number"
-                  value={iqPerTrust}
-                  onChange={(e) => setIqPerTrust(clampIqPerTrust(parseInt(e.target.value || "1", 10)))}
-                  className="w-28 border border-white/10 rounded-2xl px-2 py-2 bg-white/10 text-white text-right placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                  type="text"
+                  inputMode="numeric"
+                  value={formatThousands(iqPerTrust)}
+                  onChange={(e) => {
+                    const clean = e.currentTarget.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
+                    const next = clean === '' ? 0 : Math.max(1, parseInt(clean, 10));
+                    setIqPerTrust(next);
+                  }}
+                  className="w-28 border border-white/15 rounded-2xl px-3 py-2 bg-black/70 text-white text-right placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 shadow-[0_14px_35px_rgba(0,0,0,0.45)]"
+                  placeholder="500"
                 />
               </div>
-              <p className="text-xs text-white/60 mt-1">
+              <input
+                type="range"
+                min={400}
+                max={600}
+                step={1}
+                value={Math.min(Math.max(iqPerTrust, 400), 600)}
+                onChange={(e) => setIqPerTrust(clampIqPerTrust(parseInt(e.target.value, 10)))}
+                className="w-full accent-white"
+              />
+              <div className="flex items-center justify-between gap-2">
+                {PRESET_IQ_PER_TRUST.map((p) => (
+                  <button
+                    key={p}
+                    type="button"
+                    onClick={() => setIqPerTrust(p)}
+                    className={`flex-1 text-xs px-3 py-1.5 rounded-full border transition ${
+                      iqPerTrust === p
+                        ? 'bg-white text-black border-white'
+                        : 'bg-white/10 text-white border-white/10 hover:bg-white/20'
+                    }`}
+                    title={`1 $TRUST = ${p} IQ`}
+                  >
+                    1:{p.toLocaleString()}
+                  </button>
+                ))}
+              </div>
+              <p className="text-xs text-white/60">
                 1 $TRUST = <span className="text-white font-semibold">{iqPerTrust.toLocaleString()} IQ</span>
               </p>
             </div>
@@ -287,39 +351,152 @@ export default function TrustAirdropCalculator() {
             </div>
           </div>
 
-          <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] h-full flex flex-col">
-            <div className="mb-6">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-green-400 to-emerald-400"></div>
-                <div className="text-[11px] tracking-wider uppercase text-white/60 font-medium">TRUST price</div>
+          <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+            <div className="mb-6 space-y-3">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-sm font-medium">$TRUST FDV</span>
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={formatThousands(Math.trunc(fdvUsd))}
+                  onChange={(e) => {
+                    const clean = e.currentTarget.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
+                    const next = clean === '' ? 0 : parseInt(clean, 10);
+                    setFdvUsd(next);
+                  }}
+                  className="w-44 border border-white/15 rounded-2xl px-4 py-2 bg-black/70 text-white text-right placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 shadow-[0_14px_35px_rgba(0,0,0,0.45)]"
+                  placeholder="500 000 000"
+                />
               </div>
-              <div className="text-4xl md:text-5xl font-extrabold tabular-nums bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 mb-1">
-                ${formatUsd(usdAfter)}
-              </div>
-              <div className="text-[11px] text-white/60 font-medium mb-3">USD @ ${trustUsd.toFixed(2)}</div>
-              <div className="text-[11px] text-white/60">
-                Without relic: <span className="text-white font-medium">${formatUsd(trustBefore * trustUsd)}</span>
+              <input
+                type="range"
+                min={FDV_MIN}
+                max={FDV_MAX}
+                step={1_000_000}
+                value={Math.min(Math.max(fdvUsd, FDV_MIN), FDV_MAX)}
+                onChange={(e) => setFdvUsd(Math.max(FDV_MIN, Math.min(FDV_MAX, parseInt(e.target.value, 10) || FDV_MIN)))}
+                className="w-full accent-white"
+              />
+              <div className="flex items-center justify-between gap-2">
+                {FDV_PRESETS.map((preset) => {
+                  const isActive = Math.abs(fdvUsd - preset) < 1e-3;
+                  return (
+                    <button
+                      key={preset}
+                      type="button"
+                      onClick={() => setFdvUsd(preset)}
+                      className={`flex-1 text-xs px-3 py-1.5 rounded-full border transition ${
+                        isActive
+                          ? 'bg-white text-black border-white'
+                          : 'bg-white/10 text-white border-white/10 hover:bg-white/20'
+                      }`}
+                    >
+                      {formatFdvShort(preset)}
+                    </button>
+                  );
+                })}
               </div>
             </div>
-            <div className="mt-auto">
+
+            <div className="space-y-2 mt-4">
+              {FDV_MULTIPLIERS.map((multiplier, idx) => {
+                  const valuation = fdvUsd * multiplier;
+                  const price = valuation / TOTAL_SUPPLY;
+                  const usdValue = trustAfter * price;
+                  const isCurrent = multiplier === 1;
+                  const isWithinRange = valuation <= FDV_MAX;
+                  const colors = ['text-sky-300', 'text-emerald-300', 'text-amber-300', 'text-purple-300', 'text-lime-300'];
+                  const colorClass = colors[idx % colors.length];
+                  const baseClasses = `w-full text-left px-4 py-3 rounded-2xl border transition flex items-center justify-between gap-4 ${
+                    isCurrent ? 'bg-white/12 border-white/40 shadow-[0_14px_35px_rgba(0,0,0,0.4)]' : 'bg-black/25 border-white/10'
+                  }`;
+                  const interactiveClasses = isWithinRange && !isCurrent ? ' hover:bg-black/35 hover:border-white/25 cursor-pointer' : ' opacity-80';
+
+                  return (
+                    <div
+                      key={multiplier}
+                      className={baseClasses + interactiveClasses}
+                      onClick={() => {
+                        if (isWithinRange) {
+                          setFdvUsd(Math.max(FDV_MIN, Math.min(FDV_MAX, valuation)));
+                        }
+                      }}
+                      role={isWithinRange ? 'button' : undefined}
+                      tabIndex={isWithinRange ? 0 : -1}
+                      onKeyDown={(e) => {
+                        if (isWithinRange && (e.key === 'Enter' || e.key === ' ')) {
+                          e.preventDefault();
+                          setFdvUsd(Math.max(FDV_MIN, Math.min(FDV_MAX, valuation)));
+                        }
+                      }}
+                    >
+                      <div>
+                        <div className={`text-sm font-semibold ${colorClass}`}>
+                          {formatFdvShort(valuation)}
+                        </div>
+                        <div className="text-[11px] text-white/45">1 $TRUST = {formatNumber(price, 2, false)}$</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="text-base font-semibold text-white">{formatUsd(usdValue)}</div>
+                        <div className="text-[10px] text-white/30">×{multiplier}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+
+            <div className="mt-4 text-[11px] text-white/50">
+              Custom FDV: <span className="text-white font-medium">{formatFdvShort(fdvUsd)}</span> (1 $TRUST = {formatNumber(trustPrice, 2, false)}$)
+            </div>
+
+            <div className="mt-6">
               <label className="block text-xs font-semibold uppercase text-white/50 tracking-widest mb-2">
-                TRUST price (USD)
+                Enter custom price
               </label>
               <div className="flex items-center gap-3">
                 <input
                   type="number"
-                  step="0.01"
+                  step="0.001"
                   min="0"
-                  value={trustUsd}
+                  value={trustPrice}
                   onChange={(e) => {
-                    const next = Math.max(0, parseFloat(e.target.value || '0') || 0);
-                    setTrustUsd(next);
+                    const price = Math.max(0, parseFloat(e.target.value || '0') || 0);
+                    const nextFdv = Math.min(FDV_MAX, Math.max(FDV_MIN, price * TOTAL_SUPPLY));
+                    setFdvUsd(nextFdv);
                   }}
                   className="flex-1 border border-white/15 rounded-2xl px-4 py-3 bg-black/60 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 shadow-[0_14px_35px_rgba(0,0,0,0.45)]"
                   placeholder="0.00"
                 />
                 <span className="text-sm font-medium text-white/60">USD</span>
               </div>
+            </div>
+          </div>
+
+          <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] h-full flex flex-col min-h-0">
+            <div className="flex items-center justify-between mb-4 shrink-0">
+              <span className="text-sm font-medium">Token distribution</span>
+              {vestingSchedule.length > 0 && (
+                <span className="text-xs text-white/60">
+                  Ends {formatDate(vestingSchedule[vestingSchedule.length - 1].date)}
+                </span>
+              )}
+            </div>
+            <div className="flex-1 min-h-0 overflow-y-auto pr-1 space-y-2">
+              {vestingSchedule.map(({date, amount, label}, idx) => {
+                const usdValue = amount * trustPrice;
+                return (
+                  <div key={`${label}-${idx}`} className="flex items-center justify-between text-sm bg-black/30 border border-white/10 rounded-2xl px-4 py-3">
+                    <div>
+                      <div className="font-semibold text-white/85">{formatDate(date)}</div>
+                      <div className="text-[11px] text-white/45">{label}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-base font-semibold text-white">${formatUsd(usdValue)}</div>
+                      <div className="text-[11px] text-white/60">{formatNumber(amount, 0, true)} $TRUST</div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
