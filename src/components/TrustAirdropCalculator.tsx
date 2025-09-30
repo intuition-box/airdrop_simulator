@@ -13,11 +13,21 @@ const LABELS: Record<Rarity, string> = {
   mystic: "Mystic",
 };
 
-const DEFAULT_MULTIPLIERS: Record<Rarity, number> = {
-  common: 1.02, rare: 1.05, epic: 1.12, legendary: 1.25, ancient: 1.5, mystic: 2.0,
+const DEFAULT_NORMAL_BONUS: Record<Rarity, number> = {
+  common: 50_000,
+  rare: 125_000,
+  epic: 250_000,
+  legendary: 375_000,
+  ancient: 500_000,
+  mystic: 2_000_000,
 };
-const DEFAULT_GENESIS_MULTIPLIERS: Record<Rarity, number> = {
-  common: 1.02 * 1.05, rare: 1.05 * 1.08, epic: 1.12 * 1.06, legendary: 1.25 * 1.07, ancient: 1.5 * 1.08, mystic: 2.0 * 1.06,
+const DEFAULT_GENESIS_BONUS: Record<Rarity, number> = {
+  common: 100_000,
+  rare: 250_000,
+  epic: 500_000,
+  legendary: 750_000,
+  ancient: 1_000_000,
+  mystic: 4_000_000,
 };
 
 const PRESET_IQ_PER_TRUST = [400, 500, 600];
@@ -39,9 +49,6 @@ const RARITY_COLORS: Record<Rarity, string> = {
 };
 
 // Use Docusaurus baseUrl helper for static assets
-
-const fmt = (n: number, digits = 2) =>
-  Number.isFinite(n) ? n.toLocaleString(undefined, { maximumFractionDigits: digits }) : "—";
 
 const formatThousands = (value: number): string =>
   Number.isFinite(value)
@@ -127,7 +134,6 @@ export default function TrustAirdropCalculator() {
   const clampIqPerTrust = (v: number) => Math.max(1, Math.floor(v || 1));
 
   const [fdvUsd, setFdvUsd] = useState<number>(150_000_000);
-  const [fdvBaseUsd, setFdvBaseUsd] = useState<number>(150_000_000);
 
   const [isRelicHolder, setIsRelicHolder] = useState<boolean>(false);
 
@@ -138,8 +144,8 @@ export default function TrustAirdropCalculator() {
     common: 0, rare: 0, epic: 0, legendary: 0, ancient: 0, mystic: 0,
   });
 
-  const [multN, setMultN] = useState<Record<Rarity, number>>({ ...DEFAULT_MULTIPLIERS });
-  const [multG, setMultG] = useState<Record<Rarity, number>>({ ...DEFAULT_GENESIS_MULTIPLIERS });
+  const [bonusN, setBonusN] = useState<Record<Rarity, number>>({ ...DEFAULT_NORMAL_BONUS });
+  const [bonusG, setBonusG] = useState<Record<Rarity, number>>({ ...DEFAULT_GENESIS_BONUS });
 
   const [showAdvanced, setShowAdvanced] = useState<boolean>(false);
 
@@ -162,20 +168,24 @@ export default function TrustAirdropCalculator() {
   const trustBefore = useMemo(() => (iqPerTrust > 0 ? iq / iqPerTrust : 0), [iq, iqPerTrust]);
   const trustPrice = fdvUsd / TOTAL_SUPPLY;
 
-  const totalMultiplier = useMemo(() => {
-    if (!isRelicHolder) return 1;
-    let acc = 1;
-    (Object.keys(LABELS) as Rarity[]).forEach((r) => {
-      const n = Math.max(0, normalCounts[r] ?? 0);
-      const g = Math.max(0, genesisCounts[r] ?? 0);
-      const mN = Math.max(0, multN[r]);
-      const mG = Math.max(0, multG[r]);
-      acc *= Math.pow(mN, n) * Math.pow(mG, g);
-    });
-    return acc;
-  }, [isRelicHolder, normalCounts, genesisCounts, multN, multG]);
+  const relicBonusIq = useMemo(() => {
+    if (!isRelicHolder) {
+      return 0;
+    }
+    return (Object.keys(LABELS) as Rarity[]).reduce((acc, r) => {
+      const normalCount = Math.max(0, normalCounts[r] ?? 0);
+      const genesisCount = Math.max(0, genesisCounts[r] ?? 0);
+      const normalBonus = Math.max(0, bonusN[r] ?? 0);
+      const genesisBonus = Math.max(0, bonusG[r] ?? 0);
+      return acc + normalCount * normalBonus + genesisCount * genesisBonus;
+    }, 0);
+  }, [isRelicHolder, normalCounts, genesisCounts, bonusN, bonusG]);
 
-  const trustAfter = useMemo(() => Math.max(0, trustBefore * totalMultiplier), [trustBefore, totalMultiplier]);
+  const trustAfter = useMemo(() => {
+    const bonusTrust = relicBonusIq / iqPerTrust;
+    return Math.max(0, trustBefore + bonusTrust);
+  }, [trustBefore, relicBonusIq, iqPerTrust]);
+
   const usdAfter = useMemo(() => Math.max(0, trustAfter * Math.max(0, trustPrice)), [trustAfter, trustPrice]);
 
   const vestingSchedule = useMemo(() => {
@@ -201,45 +211,39 @@ export default function TrustAirdropCalculator() {
   }, [trustAfter]);
 
   const beforePct = trustAfter > 0 ? Math.min(100, (trustBefore / trustAfter) * 100) : 0;
-  const effectiveRatio = useMemo(
-    () => (totalMultiplier > 0 ? iqPerTrust / totalMultiplier : iqPerTrust),
-    [iqPerTrust, totalMultiplier]
-  );
+  const effectiveRatio = useMemo(() => (trustAfter > 0 ? iq / trustAfter : iqPerTrust), [iq, iqPerTrust, trustAfter]);
 
   const marginalByRarity = useMemo(() => {
-    const baseline = trustBefore;
     return (Object.keys(LABELS) as Rarity[]).map((r) => {
-      const mN = Math.max(0, multN[r]);
-      const mG = Math.max(0, multG[r]);
-      const normalDiff = Math.max(0, baseline * (mN - 1));
-      const normalPctVs1 = (mN - 1) * 100;
-      const genesisDiff = Math.max(0, baseline * (mG - 1));
-      const genesisPctVsNormal = (mG / (mN || 1) - 1) * 100;
+      const normalBonusIq = Math.max(0, bonusN[r]);
+      const genesisBonusIq = Math.max(0, bonusG[r]);
+      const normalTrust = normalBonusIq / iqPerTrust;
+      const genesisTrust = genesisBonusIq / iqPerTrust;
       return {
-        r, mN, mG,
-        normal: { diff: normalDiff, pctVs1: normalPctVs1 },
-        genesis: { diff: genesisDiff, pctVsNormal: genesisPctVsNormal },
+        r,
+        normal: { iq: normalBonusIq, trust: normalTrust },
+        genesis: { iq: genesisBonusIq, trust: genesisTrust },
       };
     });
-  }, [trustBefore, multN, multG]);
+  }, [bonusN, bonusG, iqPerTrust]);
 
   const stepNormal = (r: Rarity, delta: number) =>
     setNormalCounts((prev) => ({ ...prev, [r]: Math.max(0, (prev[r] ?? 0) + delta) }));
   const stepGenesis = (r: Rarity, delta: number) =>
     setGenesisCounts((prev) => ({ ...prev, [r]: Math.max(0, (prev[r] ?? 0) + delta) }));
 
-  const setMultiplierN = (r: Rarity, val: string) =>
-    setMultN((s) => ({ ...s, [r]: Math.max(0, parseFloat(val || "0") || 0) }));
-  const setMultiplierG = (r: Rarity, val: string) =>
-    setMultG((s) => ({ ...s, [r]: Math.max(0, parseFloat(val || "0") || 0) }));
+  const setBonusNormal = (r: Rarity, val: string) =>
+    setBonusN((s) => ({ ...s, [r]: Math.max(0, parseFloat(val || '0') || 0) }));
+  const setBonusGenesis = (r: Rarity, val: string) =>
+    setBonusG((s) => ({ ...s, [r]: Math.max(0, parseFloat(val || '0') || 0) }));
 
   const resetCounts = () => {
     setNormalCounts({ common: 0, rare: 0, epic: 0, legendary: 0, ancient: 0, mystic: 0 });
     setGenesisCounts({ common: 0, rare: 0, epic: 0, legendary: 0, ancient: 0, mystic: 0 });
   };
-  const resetMultipliers = () => {
-    setMultN({ ...DEFAULT_MULTIPLIERS });
-    setMultG({ ...DEFAULT_GENESIS_MULTIPLIERS });
+  const resetBonuses = () => {
+    setBonusN({ ...DEFAULT_NORMAL_BONUS });
+    setBonusG({ ...DEFAULT_GENESIS_BONUS });
   };
 
 
@@ -355,18 +359,18 @@ export default function TrustAirdropCalculator() {
           <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
             <div className="mb-6 space-y-3">
               <div className="flex items-center justify-between gap-3">
-                <span className="text-sm font-medium">$TRUST FDV</span>
+                <span className="text-sm font-medium">TRUST FDV</span>
                 <input
                   type="text"
                   inputMode="numeric"
-                  value={formatThousands(Math.trunc(fdvBaseUsd))}
+                  value={formatThousands(Math.trunc(fdvUsd))}
                   onChange={(e) => {
                     const clean = e.currentTarget.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
                     const next = clean === '' ? 0 : parseInt(clean, 10);
-                    setFdvBaseUsd(next);
                     setFdvUsd(next);
                   }}
-                  className="w-44 border border-white/15 rounded-2xl px-4 py-2 bg-black/70 text-white text-right placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 shadow-[0_14px_35px_rgba(0,0,0,0.45)]"
+                  max={99_999_999_999}
+                  className="w-40 border border-white/15 rounded-2xl px-4 py-2 bg-black/70 text-white text-right placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 shadow-[0_14px_35px_rgba(0,0,0,0.45)]"
                   placeholder="500 000 000"
                 />
               </div>
@@ -375,22 +379,21 @@ export default function TrustAirdropCalculator() {
                 min={FDV_MIN}
                 max={FDV_MAX}
                 step={1_000_000}
-                value={Math.min(Math.max(fdvBaseUsd, FDV_MIN), FDV_MAX)}
+                value={Math.min(Math.max(fdvUsd, FDV_MIN), FDV_MAX)}
                 onChange={(e) => {
                   const next = Math.max(FDV_MIN, Math.min(FDV_MAX, parseInt(e.target.value, 10) || FDV_MIN));
-                  setFdvBaseUsd(next);
                   setFdvUsd(next);
                 }}
                 className="w-full accent-white"
               />
               <div className="flex items-center justify-between gap-2">
                 {FDV_PRESETS.map((preset) => {
-                  const isActive = Math.abs(fdvBaseUsd - preset) < 1e-3;
+                  const isActive = Math.abs(fdvUsd - preset) < 1e-3;
                   return (
                     <button
                       key={preset}
                       type="button"
-                      onClick={() => { setFdvBaseUsd(preset); setFdvUsd(preset); }}
+                      onClick={() => setFdvUsd(preset)}
                       className={`flex-1 text-xs px-3 py-1.5 rounded-full border transition ${
                         isActive
                           ? 'bg-white text-black border-white'
@@ -406,10 +409,9 @@ export default function TrustAirdropCalculator() {
 
             <div className="space-y-2 mt-4">
               {FDV_MULTIPLIERS.map((multiplier, idx) => {
-                const valuation = fdvBaseUsd * multiplier;
+                const valuation = fdvUsd * multiplier;
                 const price = valuation / TOTAL_SUPPLY;
                 const usdValue = trustAfter * price;
-                const isWithinRange = valuation <= FDV_MAX;
                 const isSelected = Math.abs(fdvUsd - valuation) < 1e-6;
                 const colors = ['text-sky-300', 'text-emerald-300', 'text-amber-300', 'text-purple-300', 'text-lime-300'];
                 const colorClass = colors[idx % colors.length];
@@ -417,24 +419,18 @@ export default function TrustAirdropCalculator() {
                 const stateClasses = isSelected
                   ? 'bg-white/15 border-white/60 shadow-[0_14px_35px_rgba(0,0,0,0.5)] ring-2 ring-white/40'
                   : 'bg-black/25 border-white/10 hover:bg-black/35 hover:border-white/25';
-                const disabledClasses = isWithinRange ? '' : ' opacity-50 cursor-not-allowed';
 
                 return (
                   <button
                     key={multiplier}
                     type="button"
-                    disabled={!isWithinRange}
                     aria-pressed={isSelected}
-                    className={`${baseClasses} ${stateClasses}${disabledClasses}`}
-                    onClick={() => {
-                      if (isWithinRange) {
-                        setFdvUsd(Math.max(FDV_MIN, Math.min(FDV_MAX, valuation)));
-                      }
-                    }}
+                    className={`${baseClasses} ${stateClasses}`}
+                    onClick={() => setFdvUsd(valuation)}
                   >
                     <div>
                       <div className={`text-sm font-semibold ${colorClass}`}>{formatFdvShort(valuation)}</div>
-                      <div className="text-[11px] text-white/45">1 $TRUST = {formatNumber(price, 2, false)}$</div>
+                      <div className="text-[11px] text-white/45">{formatNumber(price, 2, false)}$ / $TRUST</div>
                     </div>
                     <div className="text-right">
                       <div className="text-base font-semibold text-white">${formatUsd(usdValue)}</div>
@@ -446,33 +442,11 @@ export default function TrustAirdropCalculator() {
             </div>
 
             <div className="mt-4 text-[11px] text-white/50">
-              Custom FDV: <span className="text-white font-medium">{formatFdvShort(fdvUsd)}</span> (1 $TRUST = {formatNumber(trustPrice, 2, false)}$)
-            </div>
-
-            <div className="mt-6">
-              <label className="block text-xs font-semibold uppercase text-white/50 tracking-widest mb-2">
-                Enter custom price
-              </label>
-              <div className="flex items-center gap-3">
-                <input
-                  type="number"
-                  step="0.001"
-                  min="0"
-                  value={trustPrice}
-                  onChange={(e) => {
-                    const price = Math.max(0, parseFloat(e.target.value || '0') || 0);
-                    const nextFdv = Math.min(FDV_MAX, Math.max(FDV_MIN, price * TOTAL_SUPPLY));
-                    setFdvUsd(nextFdv);
-                  }}
-                  className="flex-1 border border-white/15 rounded-2xl px-4 py-3 bg-black/60 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 shadow-[0_14px_35px_rgba(0,0,0,0.45)]"
-                  placeholder="0.00"
-                />
-                <span className="text-sm font-medium text-white/60">USD</span>
-              </div>
+              Selected FDV: <span className="text-white font-medium">{formatFdvShort(fdvUsd)}</span> (1 $TRUST = {formatNumber(trustPrice, 2, false)}$)
             </div>
           </div>
 
-          <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] h-full flex flex-col min-h-0">
+          <div className="rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.45)] h-full flex flex-col min-h-0 max-h-[520px] md:max-h-[560px] overflow-hidden">
             <div className="flex items-center justify-between mb-4 shrink-0">
               <span className="text-sm font-medium">Token distribution</span>
               {vestingSchedule.length > 0 && (
@@ -481,7 +455,7 @@ export default function TrustAirdropCalculator() {
                 </span>
               )}
             </div>
-            <div className="flex-1 min-h-0 overflow-y-auto pr-1 space-y-2">
+            <div className="flex-1 min-h-0 overflow-y-auto pr-1 space-y-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
               {vestingSchedule.map(({date, amount, label}, idx) => {
                 const usdValue = amount * trustPrice;
                 return (
@@ -532,9 +506,9 @@ export default function TrustAirdropCalculator() {
               <button
                 type="button"
                 className="text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10 hover:bg-white/20 transition"
-                onClick={resetMultipliers}
+                onClick={resetBonuses}
               >
-                Reset multipliers
+                Reset bonuses
               </button>
             </div>
           )}
@@ -577,10 +551,10 @@ export default function TrustAirdropCalculator() {
                                 genesisCounts={genesisCounts}
                                 stepNormal={stepNormal}
                                 stepGenesis={stepGenesis}
-                                multN={multN}
-                                multG={multG}
-                                setMultiplierN={setMultiplierN}
-                                setMultiplierG={setMultiplierG}
+                                bonusN={bonusN}
+                                bonusG={bonusG}
+                                setBonusNormal={setBonusNormal}
+                                setBonusGenesis={setBonusGenesis}
                                 showAdvanced={showAdvanced}
                                 marginalByRarity={marginalByRarity}
                               />
@@ -625,10 +599,10 @@ export default function TrustAirdropCalculator() {
                           genesisCounts={genesisCounts}
                           stepNormal={stepNormal}
                           stepGenesis={stepGenesis}
-                          multN={multN}
-                          multG={multG}
-                          setMultiplierN={setMultiplierN}
-                          setMultiplierG={setMultiplierG}
+                          bonusN={bonusN}
+                          bonusG={bonusG}
+                          setBonusNormal={setBonusNormal}
+                          setBonusGenesis={setBonusGenesis}
                           showAdvanced={showAdvanced}
                           marginalByRarity={marginalByRarity}
                         />
@@ -661,10 +635,10 @@ function RelicBody({
   genesisCounts,
   stepNormal,
   stepGenesis,
-  multN,
-  multG,
-  setMultiplierN,
-  setMultiplierG,
+  bonusN,
+  bonusG,
+  setBonusNormal,
+  setBonusGenesis,
   showAdvanced,
   marginalByRarity,
 }: {
@@ -673,21 +647,19 @@ function RelicBody({
   genesisCounts: Record<Rarity, number>;
   stepNormal: (r: Rarity, d: number) => void;
   stepGenesis: (r: Rarity, d: number) => void;
-  multN: Record<Rarity, number>;
-  multG: Record<Rarity, number>;
-  setMultiplierN: (r: Rarity, val: string) => void;
-  setMultiplierG: (r: Rarity, val: string) => void;
+  bonusN: Record<Rarity, number>;
+  bonusG: Record<Rarity, number>;
+  setBonusNormal: (r: Rarity, val: string) => void;
+  setBonusGenesis: (r: Rarity, val: string) => void;
   showAdvanced: boolean;
   marginalByRarity: Array<{
     r: Rarity;
-    mN: number;
-    mG: number;
-    normal: { diff: number; pctVs1: number };
-    genesis: { diff: number; pctVsNormal: number };
+    normal: { iq: number; trust: number };
+    genesis: { iq: number; trust: number };
   }>;
 }) {
-  const mN = multN[rarity];
-  const mG = multG[rarity];
+  const normalBonus = bonusN[rarity];
+  const genesisBonus = bonusG[rarity];
   const marg = marginalByRarity.find((x) => x.r === rarity)!;
 
   return (
@@ -702,14 +674,8 @@ function RelicBody({
           </div>
           <div className="mt-2 rounded-lg border border-white/10 bg-black/30 p-2">
             <div className="text-xs text-white/75 mb-1 font-medium">+1 Normal</div>
-            <div className="text-xs font-bold text-white">+{fmt(marg.normal.diff)} $TRUST</div>
-            <div className="relative group mt-1">
-              <div className="text-xs text-white/70 cursor-help hover:text-white transition-colors">?</div>
-              <div className="absolute bottom-full right-0 mb-2 px-2 py-1 bg-gray-900/95 text-white text-xs rounded border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap z-20 shadow-lg">
-                <div className="font-medium">{marg.normal.pctVs1.toFixed(2)}% bonus</div>
-                <div className="text-[10px] text-white/70 mt-0.5">vs baseline</div>
-              </div>
-            </div>
+            <div className="text-xs font-bold text-white">+{formatNumber(marg.normal.trust, 2, true)} $TRUST</div>
+            <div className="text-[11px] text-white/60">(+{formatNumber(marg.normal.iq, 0, true)} IQ)</div>
           </div>
         </div>
         <div className="rounded-xl border border-white/10 bg-black/40 p-3">
@@ -721,14 +687,8 @@ function RelicBody({
           </div>
           <div className="mt-2 rounded-lg border border-white/10 bg-black/30 p-2">
             <div className="text-xs text-white/75 mb-1 font-medium">+1 Genesis</div>
-            <div className="text-xs font-bold text-white">+{fmt(marg.genesis.diff)} $TRUST</div>
-            <div className="relative group mt-1">
-              <div className="text-xs text-white/70 cursor-help hover:text-white transition-colors">?</div>
-              <div className="absolute bottom-full right-0 mb-2 px-2 py-1 bg-gray-900/95 text-white text-xs rounded border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap z-20 shadow-lg">
-                <div className="font-medium">{marg.genesis.pctVsNormal.toFixed(2)}% bonus</div>
-                <div className="text-[10px] text-white/70 mt-0.5">vs Normal relic</div>
-              </div>
-            </div>
+            <div className="text-xs font-bold text-white">+{formatNumber(marg.genesis.trust, 2, true)} $TRUST</div>
+            <div className="text-[11px] text-white/60">(+{formatNumber(marg.genesis.iq, 0, true)} IQ)</div>
           </div>
         </div>
       </div>
@@ -736,18 +696,18 @@ function RelicBody({
       {showAdvanced && (
         <div className="grid grid-cols-2 gap-3">
           <label className="text-xs text-white/80">
-            Normal ×
+            Normal bonus IQ
             <input
-              type="number" min={0} step={0.001} value={mN}
-              onChange={(e) => setMultiplierN(rarity, e.target.value)}
+              type="number" min={0} step={1} value={normalBonus}
+              onChange={(e) => setBonusNormal(rarity, e.target.value)}
               className="mt-1 w-full border border-white/10 bg-black/40 rounded-lg px-2 py-1 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
             />
           </label>
           <label className="text-xs text-white/80">
-            Genesis ×
+            Genesis bonus IQ
             <input
-              type="number" min={0} step={0.001} value={mG}
-              onChange={(e) => setMultiplierG(rarity, e.target.value)}
+              type="number" min={0} step={1} value={genesisBonus}
+              onChange={(e) => setBonusGenesis(rarity, e.target.value)}
               className="mt-1 w-full border border-white/10 bg-black/40 rounded-lg px-2 py-1 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
             />
           </label>
