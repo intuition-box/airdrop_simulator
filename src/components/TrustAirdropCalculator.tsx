@@ -127,6 +127,7 @@ export default function TrustAirdropCalculator() {
   const clampIqPerTrust = (v: number) => Math.max(1, Math.floor(v || 1));
 
   const [fdvUsd, setFdvUsd] = useState<number>(150_000_000);
+  const [fdvBaseUsd, setFdvBaseUsd] = useState<number>(150_000_000);
 
   const [isRelicHolder, setIsRelicHolder] = useState<boolean>(false);
 
@@ -358,10 +359,11 @@ export default function TrustAirdropCalculator() {
                 <input
                   type="text"
                   inputMode="numeric"
-                  value={formatThousands(Math.trunc(fdvUsd))}
+                  value={formatThousands(Math.trunc(fdvBaseUsd))}
                   onChange={(e) => {
                     const clean = e.currentTarget.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
                     const next = clean === '' ? 0 : parseInt(clean, 10);
+                    setFdvBaseUsd(next);
                     setFdvUsd(next);
                   }}
                   className="w-44 border border-white/15 rounded-2xl px-4 py-2 bg-black/70 text-white text-right placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 shadow-[0_14px_35px_rgba(0,0,0,0.45)]"
@@ -373,18 +375,22 @@ export default function TrustAirdropCalculator() {
                 min={FDV_MIN}
                 max={FDV_MAX}
                 step={1_000_000}
-                value={Math.min(Math.max(fdvUsd, FDV_MIN), FDV_MAX)}
-                onChange={(e) => setFdvUsd(Math.max(FDV_MIN, Math.min(FDV_MAX, parseInt(e.target.value, 10) || FDV_MIN)))}
+                value={Math.min(Math.max(fdvBaseUsd, FDV_MIN), FDV_MAX)}
+                onChange={(e) => {
+                  const next = Math.max(FDV_MIN, Math.min(FDV_MAX, parseInt(e.target.value, 10) || FDV_MIN));
+                  setFdvBaseUsd(next);
+                  setFdvUsd(next);
+                }}
                 className="w-full accent-white"
               />
               <div className="flex items-center justify-between gap-2">
                 {FDV_PRESETS.map((preset) => {
-                  const isActive = Math.abs(fdvUsd - preset) < 1e-3;
+                  const isActive = Math.abs(fdvBaseUsd - preset) < 1e-3;
                   return (
                     <button
                       key={preset}
                       type="button"
-                      onClick={() => setFdvUsd(preset)}
+                      onClick={() => { setFdvBaseUsd(preset); setFdvUsd(preset); }}
                       className={`flex-1 text-xs px-3 py-1.5 rounded-full border transition ${
                         isActive
                           ? 'bg-white text-black border-white'
@@ -400,49 +406,43 @@ export default function TrustAirdropCalculator() {
 
             <div className="space-y-2 mt-4">
               {FDV_MULTIPLIERS.map((multiplier, idx) => {
-                  const valuation = fdvUsd * multiplier;
-                  const price = valuation / TOTAL_SUPPLY;
-                  const usdValue = trustAfter * price;
-                  const isCurrent = multiplier === 1;
-                  const isWithinRange = valuation <= FDV_MAX;
-                  const colors = ['text-sky-300', 'text-emerald-300', 'text-amber-300', 'text-purple-300', 'text-lime-300'];
-                  const colorClass = colors[idx % colors.length];
-                  const baseClasses = `w-full text-left px-4 py-3 rounded-2xl border transition flex items-center justify-between gap-4 ${
-                    isCurrent ? 'bg-white/12 border-white/40 shadow-[0_14px_35px_rgba(0,0,0,0.4)]' : 'bg-black/25 border-white/10'
-                  }`;
-                  const interactiveClasses = isWithinRange && !isCurrent ? ' hover:bg-black/35 hover:border-white/25 cursor-pointer' : ' opacity-80';
+                const valuation = fdvBaseUsd * multiplier;
+                const price = valuation / TOTAL_SUPPLY;
+                const usdValue = trustAfter * price;
+                const isWithinRange = valuation <= FDV_MAX;
+                const isSelected = Math.abs(fdvUsd - valuation) < 1e-6;
+                const colors = ['text-sky-300', 'text-emerald-300', 'text-amber-300', 'text-purple-300', 'text-lime-300'];
+                const colorClass = colors[idx % colors.length];
+                const baseClasses = 'w-full text-left px-4 py-3 rounded-2xl border transition flex items-center justify-between gap-4';
+                const stateClasses = isSelected
+                  ? 'bg-white/15 border-white/60 shadow-[0_14px_35px_rgba(0,0,0,0.5)] ring-2 ring-white/40'
+                  : 'bg-black/25 border-white/10 hover:bg-black/35 hover:border-white/25';
+                const disabledClasses = isWithinRange ? '' : ' opacity-50 cursor-not-allowed';
 
-                  return (
-                    <div
-                      key={multiplier}
-                      className={baseClasses + interactiveClasses}
-                      onClick={() => {
-                        if (isWithinRange) {
-                          setFdvUsd(Math.max(FDV_MIN, Math.min(FDV_MAX, valuation)));
-                        }
-                      }}
-                      role={isWithinRange ? 'button' : undefined}
-                      tabIndex={isWithinRange ? 0 : -1}
-                      onKeyDown={(e) => {
-                        if (isWithinRange && (e.key === 'Enter' || e.key === ' ')) {
-                          e.preventDefault();
-                          setFdvUsd(Math.max(FDV_MIN, Math.min(FDV_MAX, valuation)));
-                        }
-                      }}
-                    >
-                      <div>
-                        <div className={`text-sm font-semibold ${colorClass}`}>
-                          {formatFdvShort(valuation)}
-                        </div>
-                        <div className="text-[11px] text-white/45">1 $TRUST = {formatNumber(price, 2, false)}$</div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-base font-semibold text-white">{formatUsd(usdValue)}</div>
-                        <div className="text-[10px] text-white/30">×{multiplier}</div>
-                      </div>
+                return (
+                  <button
+                    key={multiplier}
+                    type="button"
+                    disabled={!isWithinRange}
+                    aria-pressed={isSelected}
+                    className={`${baseClasses} ${stateClasses}${disabledClasses}`}
+                    onClick={() => {
+                      if (isWithinRange) {
+                        setFdvUsd(Math.max(FDV_MIN, Math.min(FDV_MAX, valuation)));
+                      }
+                    }}
+                  >
+                    <div>
+                      <div className={`text-sm font-semibold ${colorClass}`}>{formatFdvShort(valuation)}</div>
+                      <div className="text-[11px] text-white/45">1 $TRUST = {formatNumber(price, 2, false)}$</div>
                     </div>
-                  );
-                })}
+                    <div className="text-right">
+                      <div className="text-base font-semibold text-white">${formatUsd(usdValue)}</div>
+                      <div className="text-[10px] text-white/30">×{multiplier}</div>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
 
             <div className="mt-4 text-[11px] text-white/50">
