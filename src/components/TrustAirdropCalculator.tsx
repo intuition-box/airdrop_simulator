@@ -22,20 +22,20 @@ const LABELS: Record<Rarity, string> = {
 const RARITY_LIST = Object.keys(LABELS) as Rarity[];
 
 const DEFAULT_NORMAL_BONUS: Record<Rarity, number> = {
-  common: 50_000,
-  rare: 125_000,
-  epic: 250_000,
-  legendary: 375_000,
-  ancient: 500_000,
-  mystic: 2_000_000,
+  common: 500_000,
+  rare: 750_000,
+  epic: 1_000_000,
+  legendary: 2_000_000,
+  ancient: 4_000_000,
+  mystic: 25_000_000,
 };
 const DEFAULT_GENESIS_BONUS: Record<Rarity, number> = {
-  common: 100_000,
-  rare: 250_000,
-  epic: 500_000,
-  legendary: 750_000,
-  ancient: 1_000_000,
-  mystic: 4_000_000,
+  common: 1_000_000,
+  rare: 1_500_000,
+  epic: 2_000_000,
+  legendary: 4_000_000,
+  ancient: 8_000_000,
+  mystic: 50_000_000,
 };
 
 const PRESET_IQ_PER_TRUST = [400, 500, 600];
