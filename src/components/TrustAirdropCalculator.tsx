@@ -629,12 +629,23 @@ export default function TrustAirdropCalculator() {
           {/* <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 mb-2">
             Simulate your airdrop rewards based on IQ points and relic multipliers
           </h1> */}
-            <p className="text-white/60 text-sm md:text-base">
+            <p className="text-white/120 text-xxl md:text-base">
               Simulate your $TRUST airdrop rewards based on IQ points and Relic
             </p>
-            <p className="text-white/40 text-xs md:text-sm mt-2 back">
-              ⚠️ This is an unofficial simulator -- for fun only! ⚠️
+            <br />
+            <p className="text-xs md:text-sm">
+              <span className="inline-block rounded-2xl bg-[#3a1010]/70 border border-[#ff8b8b]/40 px-4 py-2 text-[#ffb3b3] shadow-[0_12px_30px_rgba(56,0,0,0.35)]">
+                ⚠️ This is an unofficial, collectively, community built simulator -- for fun only! ⚠️
+              </span>
             </p>
+             <div className="mt-3 rounded-2xl bg-black/50 border border-white/10 px-4 py-3 shadow-[0_12px_30px_rgba(0,0,0,0.35)] ">
+              <p className="text-white/60 text-xs md:text-sm">
+                Thanks to all the <a href="/showcase" className="text-white underline hover:text-white/80">48 awesome contributors</a> who made this simulator possible by answering <a href="/blog/intuition-airdrop-simulator" className="text-white underline hover:text-white/80">this builder call</a>.
+              </p>
+              <p className="text-white/55 text-xs md:text-sm">
+                If you like this simulator, let the Intuition crew know— <b>give them a follow on X.</b>
+              </p>
+            </div>
       </div>
 
       {/* Wallet address input moved inside Relics section */}
