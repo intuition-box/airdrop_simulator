@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Airdrop Simulator',
-  tagline: 'Dinosaurs are cool',
+  title: '$TRUST Airdrop Simulator',
+  tagline: 'Relics are cool, $TRUST your Intuituion',
   favicon: 'img/favicon.jpg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
