@@ -123,6 +123,17 @@ const createEmptyCounts = (): Record<Rarity, number> =>
     return acc;
   }, {} as Record<Rarity, number>);
 
+// Helper: convert hex color (e.g. #ffcc00) to rgb tuple
+function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
+  const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  if (!m) return null;
+  return {
+    r: parseInt(m[1], 16),
+    g: parseInt(m[2], 16),
+    b: parseInt(m[3], 16),
+  };
+}
+
 function RelicFrame({
   children,
   rarity,
@@ -263,6 +274,38 @@ export default function TrustAirdropCalculator() {
   const portalIqAfterMultiplier = useMemo(() => {
     return Math.max(0, iq * finalMultiplierFactor);
   }, [iq, finalMultiplierFactor]);
+
+  const multiplierGlowStyle = useMemo((): CSSProperties => {
+    if (!effectiveSelectedFinal || finalMultiplierFactor <= 1) return {};
+    const rarityColor = RARITY_COLORS[effectiveSelectedFinal.rarity];
+    const rgb = hexToRgb(rarityColor) || { r: 255, g: 255, b: 255 };
+    const base = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b},`;
+    const isGenesis = effectiveSelectedFinal.isGenesis;
+    return {
+      boxShadow: isGenesis
+        ? `0 0 0 2px ${base} 0.75), 0 0 200px ${base} 0.4), 0 0 60px ${base} 0.75)`
+        : `0 0 0 1px ${base} 0.25), 0 0 14px ${base} 0.25)`,
+      background: isGenesis
+        ? `radial-gradient(120% 120% at 50% 0%, ${base} 0.12) 0), rgba(255,255,255,0) 40%)`
+        : undefined,
+      transition: 'box-shadow 200ms ease, background 200ms ease',
+      animation: isGenesis ? 'pulseGlow 5s ease-in-out infinite' : undefined,
+    };
+  }, [effectiveSelectedFinal, finalMultiplierFactor]);
+
+  const multiplierBadgeStyle = useMemo((): CSSProperties => {
+    if (!effectiveSelectedFinal || finalMultiplierFactor <= 1) return {};
+    const hex = RARITY_COLORS[effectiveSelectedFinal.rarity];
+    const rgb = hexToRgb(hex) || { r: 255, g: 255, b: 255 };
+    const border = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.6)`;
+    const bg = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${effectiveSelectedFinal.isGenesis ? 0.22 : 0.14})`;
+    const glow = `0 0 20px rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${effectiveSelectedFinal.isGenesis ? 0.5 : 0.3})`;
+    return {
+      borderColor: border,
+      background: bg,
+      boxShadow: glow,
+    };
+  }, [effectiveSelectedFinal, finalMultiplierFactor]);
 
   const totalIq = useMemo(() => {
     const portalWithMultiplier = Math.max(0, iq * finalMultiplierFactor);
@@ -862,7 +905,10 @@ export default function TrustAirdropCalculator() {
               <span className="text-sm font-medium flex items-center gap-2">
                 Portal IQ
                 {finalMultiplierFactor > 1 && (
-                  <span className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-full border border-white/20 bg-gradient-to-r from-yellow-200/20 to-amber-400/20 text-amber-200 shadow-[0_0_20px_rgba(251,191,36,0.35)]">
+                  <span
+                    className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-full border text-white"
+                    style={multiplierBadgeStyle}
+                  >
                     <span className="font-semibold">{displayMultiplier}×</span>
                   </span>
                 )}
@@ -876,6 +922,7 @@ export default function TrustAirdropCalculator() {
                   const next = clean === '' ? 0 : Math.max(0, parseInt(clean, 10) || 0);
                   setIq(next);
                 }}
+                style={multiplierGlowStyle}
                 className={`rounded-2xl px-4 py-3 text-white placeholder-white/40 focus:outline-none transition ${
                   finalMultiplierFactor > 1
                     ? 'border border-amber-300/60 bg-gradient-to-r from-yellow-200/10 to-amber-400/10 focus:ring-2 focus:ring-amber-300/50 shadow-[0_0_30px_rgba(251,191,36,0.35)]'
