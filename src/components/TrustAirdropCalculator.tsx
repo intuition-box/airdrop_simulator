@@ -57,6 +57,24 @@ const RARITY_COLORS: Record<Rarity, string> = {
   mystic: "#c4b5fd",
 };
 
+// Final IQ multiplier (as PERCENT values from spec). We'll convert to factor later.
+const GENESIS_FINAL_MULTIPLIER_PERCENT: Partial<Record<Rarity, number>> = {
+  common: 50,
+  rare: 75,
+  epic: 125,
+  legendary: 200,
+  ancient: 300,
+  mystic: 300, // treat Mystic as Ancient unless otherwise specified
+};
+const NORMAL_FINAL_MULTIPLIER_PERCENT: Partial<Record<Rarity, number>> = {
+  common: 12.5,
+  rare: 18.5,
+  epic: 31.25,
+  legendary: 50,
+  ancient: 75,
+  mystic: 75, // treat Mystic as Ancient unless otherwise specified
+};
+
 // Use Docusaurus baseUrl helper for static assets
 
 const formatThousands = (value: number): string =>
@@ -109,19 +127,24 @@ function RelicFrame({
   children,
   rarity,
   radius = 20,
+  highlighted = false,
 }: {
   children: ReactNode;
   rarity: Rarity;
   radius?: number;
+  highlighted?: boolean;
 }) {
   const rarityColor = RARITY_COLORS[rarity];
   
   const cardStyle: CSSProperties = {
     borderRadius: radius,
     background: "rgba(0, 0, 0, 0.8)",
-    border: "1px solid rgba(255, 255, 255, 0.1)",
+    border: highlighted ? "1px solid rgba(255, 255, 255, 0.3)" : "1px solid rgba(255, 255, 255, 0.1)",
     position: "relative",
     overflow: "hidden",
+    boxShadow: highlighted
+      ? "0 0 0 2px rgba(255,255,255,0.15), 0 20px 60px rgba(0,0,0,0.5)"
+      : "0 20px 60px rgba(0,0,0,0.45)",
   };
 
   const topBorderStyle: CSSProperties = {
@@ -129,7 +152,7 @@ function RelicFrame({
     top: 0,
     left: 0,
     right: 0,
-    height: "3px",
+    height: highlighted ? "4px" : "3px",
     background: rarity === "mystic" 
       ? "linear-gradient(90deg, #7dd3fc, #c4b5fd, #fbb6ce, #fcd34d, #d9f99d, #60a5fa)"
       : rarityColor,
@@ -163,6 +186,7 @@ export default function TrustAirdropCalculator() {
   const [bonusG, setBonusG] = useState<Record<Rarity, number>>({ ...DEFAULT_GENESIS_BONUS });
 
   const [showAdvanced, setShowAdvanced] = useState<boolean>(false);
+  const [selectedFinalMultiplier, setSelectedFinalMultiplier] = useState<{ rarity: Rarity; isGenesis: boolean } | null>(null);
 
   // Resolve asset URLs unconditionally to respect hooks rules
   const commonUrl = useBaseUrl('/images/relics/common.png');
@@ -198,7 +222,45 @@ export default function TrustAirdropCalculator() {
     }, 0);
   }, [isRelicHolder, normalCounts, genesisCounts, bonusN, bonusG]);
 
-  const totalIq = useMemo(() => Math.max(0, iq + relicBonusIq), [iq, relicBonusIq]);
+  const highestRarity = useMemo(() => {
+    // Determine highest rarity present, preferring genesis over normal when both exist for a given rarity
+    const order: Rarity[] = ['mystic', 'ancient', 'legendary', 'epic', 'rare', 'common'];
+    for (const r of order) {
+      const hasGenesis = (genesisCounts[r] ?? 0) > 0;
+      const hasNormal = (normalCounts[r] ?? 0) > 0;
+      if (hasGenesis || hasNormal) {
+        return { r, isGenesis: hasGenesis };
+      }
+    }
+    return null;
+  }, [normalCounts, genesisCounts]);
+
+  const effectiveSelectedFinal = useMemo(() => {
+    if (!isRelicHolder) return null;
+    // If user explicitly selected a global multiplier, use it as-is
+    if (selectedFinalMultiplier) {
+      return { rarity: selectedFinalMultiplier.rarity, isGenesis: selectedFinalMultiplier.isGenesis } as const;
+    }
+    // Fallback: choose best available on highest rarity: prefer genesis
+    if (!highestRarity) return null;
+    const highest = highestRarity.r;
+    if ((genesisCounts[highest] ?? 0) > 0) return { rarity: highest, isGenesis: true } as const;
+    if ((normalCounts[highest] ?? 0) > 0) return { rarity: highest, isGenesis: false } as const;
+    return null;
+  }, [isRelicHolder, highestRarity, selectedFinalMultiplier, genesisCounts, normalCounts]);
+
+  const finalIqMultiplier = useMemo(() => {
+    if (!effectiveSelectedFinal) return 0;
+    const table = effectiveSelectedFinal.isGenesis ? GENESIS_FINAL_MULTIPLIER_PERCENT : NORMAL_FINAL_MULTIPLIER_PERCENT;
+    const pct = Math.max(0, table[effectiveSelectedFinal.rarity] ?? 0);
+    return pct / 100;
+  }, [effectiveSelectedFinal]);
+
+  const totalIq = useMemo(() => {
+    const portalWithMultiplier = Math.max(0, iq * (1 + finalIqMultiplier));
+    const total = portalWithMultiplier + Math.max(0, relicBonusIq);
+    return Math.max(0, total);
+  }, [iq, relicBonusIq, finalIqMultiplier]);
 
   const trustAfter = useMemo(() => {
     return iqPerTrust > 0 ? Math.max(0, totalIq / iqPerTrust) : 0;
@@ -589,7 +651,7 @@ export default function TrustAirdropCalculator() {
                 disabled
                 className="border border-white/10 rounded-2xl px-4 py-3 bg-black/40 text-white/90 placeholder-white/40 focus:outline-none shadow-[0_14px_35px_rgba(0,0,0,0.45)] transition"
               />
-              <span className="text-xs text-white/60">Portal IQ + Relics bonus</span>
+              <span className="text-xs text-white/60">(Portal IQ × (1 + final multiplier)) + Relics bonus</span>
             </label>
           </div>
         </div>
@@ -865,6 +927,46 @@ export default function TrustAirdropCalculator() {
                                 showAdvanced={showAdvanced}
                                 marginalByRarity={marginalByRarity}
                               />
+
+                              {/* Final multiplier radio for mobile (expose on every rarity except Mystic) */}
+                              {(() => {
+                                const order: Rarity[] = ['mystic', 'ancient', 'legendary', 'epic', 'rare', 'common'];
+                                if (r === 'mystic') return null;
+                                const hasG = (genesisCounts[r] ?? 0) > 0;
+                                const hasN = (normalCounts[r] ?? 0) > 0;
+                                const activeKey = effectiveSelectedFinal ? `${effectiveSelectedFinal.rarity}-${effectiveSelectedFinal.isGenesis ? 'G' : 'N'}` : '';
+                                const percentNormal = NORMAL_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
+                                const percentGenesis = GENESIS_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
+                                return (
+                                  <div className="mt-3">
+                                    <div className="text-[11px] text-white/60 mb-2">Relic Mint+HODL Multiplier</div>
+                                    <div className="flex items-center gap-2">
+                                      <label className="inline-flex items-center gap-1 text-[11px]">
+                                        <input
+                                          type="radio"
+                                          name={`final-multiplier-mobile-${r}`}
+                                          checked={activeKey === `${r}-N`}
+                                          onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: false })}
+                                        />
+                                        <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
+                                          Normal (+{formatNumber(percentNormal, 2, true)}%)
+                                        </span>
+                                      </label>
+                                      <label className="inline-flex items-center gap-1 text-[11px]">
+                                        <input
+                                          type="radio"
+                                          name={`final-multiplier-mobile-${r}`}
+                                          checked={activeKey === `${r}-G`}
+                                          onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: true })}
+                                        />
+                                        <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
+                                          Genesis (+{formatNumber(percentGenesis, 2, true)}%)
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </div>
+                                );
+                              })()}
                             </div>
                           </RelicFrame>
                     </div>
@@ -913,6 +1015,45 @@ export default function TrustAirdropCalculator() {
                           showAdvanced={showAdvanced}
                           marginalByRarity={marginalByRarity}
                         />
+
+                        {/* Final multiplier radio selection (expose on every rarity) */}
+                        {(() => {
+                          if (r === 'mystic') return null; // Mystic has no multiplier
+                          const hasG = (genesisCounts[r] ?? 0) > 0;
+                          const hasN = (normalCounts[r] ?? 0) > 0;
+                          const activeKey = effectiveSelectedFinal ? `${effectiveSelectedFinal.rarity}-${effectiveSelectedFinal.isGenesis ? 'G' : 'N'}` : '';
+                          const percentNormal = NORMAL_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
+                          const percentGenesis = GENESIS_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
+                          return (
+                            <div className="mt-4">
+                              <div className="text-xs text-white/60 mb-2">Relic Mint+HODL Multiplier</div>
+                              <div className="flex flex-wrap items-center gap-3">
+                                <label className="inline-flex items-center gap-1 text-xs">
+                                  <input
+                                    type="radio"
+                                    name={`final-multiplier-${r}`}
+                                    checked={activeKey === `${r}-N`}
+                                    onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: false })}
+                                  />
+                                  <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
+                                    Normal (+{formatNumber(percentNormal, 2, true)}%)
+                                  </span>
+                                </label>
+                                <label className="inline-flex items-center gap-1 text-xs">
+                                  <input
+                                    type="radio"
+                                    name={`final-multiplier-${r}`}
+                                    checked={activeKey === `${r}-G`}
+                                    onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: true })}
+                                  />
+                                  <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
+                                    Genesis (+{formatNumber(percentGenesis, 2, true)}%)
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          );
+                        })()}
                       </div>
                     </RelicFrame>
                 );
