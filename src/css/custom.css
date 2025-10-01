@@ -1,3 +1,12 @@
+@keyframes toastSlideUp {
+  0% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.toast {
+  animation: toastSlideUp 240ms ease forwards;
+}
+
 @keyframes pulseGlow {
   0% { filter: brightness(1); }
   50% { filter: brightness(1.2); }

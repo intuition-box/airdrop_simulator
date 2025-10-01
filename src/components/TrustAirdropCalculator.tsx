@@ -188,6 +188,7 @@ export default function TrustAirdropCalculator() {
   const [walletAddress, setWalletAddress] = useState<string>('');
   const [isFetchingWallet, setIsFetchingWallet] = useState<boolean>(false);
   const [walletError, setWalletError] = useState<string | null>(null);
+  const [toastMsg, setToastMsg] = useState<string | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
 
   const [normalCounts, setNormalCounts] = useState<Record<Rarity, number>>(createEmptyCounts);
@@ -319,6 +320,9 @@ export default function TrustAirdropCalculator() {
 
   const usdAfter = useMemo(() => Math.max(0, trustAfter * Math.max(0, trustPrice)), [trustAfter, trustPrice]);
 
+
+  const normalizedWallet = walletAddress.trim().toLowerCase();
+  const showWalletClear = normalizedWallet.length > 0 && (normalizedWallet.startsWith('0x') || normalizedWallet.includes('.'));
   const vestingSchedule = useMemo(() => {
     const schedule: Array<{date: Date; amount: number; label: string}> = [];
     if (!Number.isFinite(trustAfter) || trustAfter <= 0) {
@@ -431,27 +435,27 @@ export default function TrustAirdropCalculator() {
         // ignore snapshot errors
       }
       if (!iqLoadedFromLocal) {
-        try {
-          const pointsResp = await fetch(
+      try {
+        const pointsResp = await fetch(
             `https://v0-airdrop-checker-design.vercel.app/api/get-points?address=${encodeURIComponent(raw)}&accountId=${encodeURIComponent(raw)}`,
-            {
-              signal: controller.signal,
-              headers: {accept: 'application/json'},
-            },
-          );
-          if (pointsResp.ok) {
-            const pointsData = await pointsResp.json();
-            const totalPoints =
-              pointsData?.points?.total_points ?? pointsData?.points?.totalPoints ?? pointsData?.total_points ?? 0;
-            if (Number.isFinite(totalPoints)) {
-              setIq(Math.max(0, Number(totalPoints)));
-            }
-          } else if (pointsResp.status !== 404) {
-            throw new Error('Failed to fetch IQ points');
+          {
+            signal: controller.signal,
+            headers: {accept: 'application/json'},
+          },
+        );
+        if (pointsResp.ok) {
+          const pointsData = await pointsResp.json();
+          const totalPoints =
+            pointsData?.points?.total_points ?? pointsData?.points?.totalPoints ?? pointsData?.total_points ?? 0;
+          if (Number.isFinite(totalPoints)) {
+            setIq(Math.max(0, Number(totalPoints)));
           }
-        } catch (err) {
-          if ((err as Error).name !== 'AbortError') {
-            setWalletError('Unable to fetch IQ points for this wallet');
+        } else if (pointsResp.status !== 404) {
+          throw new Error('Failed to fetch IQ points');
+        }
+      } catch (err) {
+        if ((err as Error).name !== 'AbortError') {
+          setWalletError('Unable to fetch IQ points for this wallet');
           }
         }
       }
@@ -494,6 +498,9 @@ export default function TrustAirdropCalculator() {
               RARITY_LIST.some((key) => (nextNormal[key] ?? 0) + (nextGenesis[key] ?? 0) > 0),
             );
             loadedFromLocal = true;
+          } else {
+            // not found in snapshot
+            setToastMsg('You were not a relic holder at snapshot time.\nYou have to enter your IQ points manually.');
           }
         }
       } catch (err) {
@@ -596,6 +603,28 @@ export default function TrustAirdropCalculator() {
     <div
       className="mx-auto max-w-6xl p-6 md:p-10 text-white rounded-3xl"
       style={shellStyle}>
+      {toastMsg && (
+        <div className="fixed left-1/2 top-6 -translate-x-1/2 z-[1000] px-3">
+          <div
+            role="alert"
+            aria-live="assertive"
+            className="toast max-w-xl rounded-2xl border border-white/15 bg-gradient-to-b from-rose-600/95 to-rose-500/95 backdrop-blur-sm px-5 py-4 shadow-[0_14px_45px_rgba(244,63,94,0.55)] ring-1 ring-white/10"
+          >
+            <div className="flex items-start gap-3">
+              <div className="text-lg leading-none">⚠️</div>
+              <div className="text-sm md:text-base font-medium text-white leading-snug whitespace-pre-line">{toastMsg}</div>
+            </div>
+            <div className="mt-3 flex justify-end">
+              <button
+                onClick={() => setToastMsg(null)}
+                className="text-xs md:text-[13px] text-white/90 hover:text-white underline underline-offset-2"
+              >
+                Dismiss
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="text-center mb-8">
           {/* <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 mb-2">
             Simulate your airdrop rewards based on IQ points and relic multipliers
@@ -608,58 +637,7 @@ export default function TrustAirdropCalculator() {
             </p>
       </div>
 
-      <form
-        className="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-4 md:p-6 shadow-[0_12px_40px_rgba(0,0,0,0.35)] mb-6"
-        onSubmit={(e) => {
-          e.preventDefault();
-          fetchWalletData();
-        }}
-      >
-        <div className="flex flex-col md:flex-row md:items-end gap-4">
-          <div className="flex-1">
-            <label className="block text-xs font-semibold uppercase text-white/60 tracking-widest mb-2">
-              Wallet address
-            </label>
-            <input
-              type="text"
-              autoComplete="off"
-              spellCheck={false}
-              value={walletAddress}
-              onChange={(e) => setWalletAddress(e.currentTarget.value)}
-              className="w-full border border-white/15 rounded-2xl px-4 py-3 bg-black/60 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 shadow-[0_14px_35px_rgba(0,0,0,0.45)]"
-              placeholder="0x..."
-            />
-          </div>
-          <div className="flex-shrink-0 flex items-center gap-2">
-            <button
-              type="submit"
-              disabled={isFetchingWallet}
-              className={`text-sm px-4 py-2 rounded-full border transition ${
-                isFetchingWallet
-                  ? 'border-white/20 bg-white/10 text-white/40 cursor-not-allowed'
-                  : 'border-white/20 bg-white/10 hover:bg-white/20 text-white'
-              }`}
-            >
-              {isFetchingWallet ? 'Fetching…' : 'Fetch data'}
-            </button>
-            <button
-              type="button"
-              disabled={isFetchingWallet}
-              onClick={() => {
-                setWalletAddress('');
-                setWalletError(null);
-                abortControllerRef.current?.abort();
-              }}
-              className="text-xs text-white/40 underline underline-offset-2 hover:text-white/70"
-            >
-              Clear
-            </button>
-          </div>
-        </div>
-        {walletError && (
-          <p className="mt-3 text-xs text-rose-300">{walletError}</p>
-        )}
-      </form>
+      {/* Wallet address input moved inside Relics section */}
 
       {/* Wallet → Relics → Calculator order */}
 
@@ -681,27 +659,73 @@ export default function TrustAirdropCalculator() {
             <span className="text-sm font-medium">Relic holder</span>
           </label>
 
+          <form
+            className="flex items-end gap-2 md:gap-3"
+            onSubmit={(e) => {
+              e.preventDefault();
+              fetchWalletData();
+            }}
+          >
+            <label className="sr-only">Relics holder address (0x or ENS)</label>
+            <div className="relative w-64 md:w-[32rem]">
+              <input
+                type="text"
+                autoComplete="off"
+                spellCheck={false}
+                value={walletAddress}
+                onChange={(e) => setWalletAddress(e.currentTarget.value)}
+                className="w-full border border-white/15 rounded-2xl px-4 pr-12 py-2.5 bg-black/60 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30 shadow-[0_10px_25px_rgba(0,0,0,0.35)]"
+                placeholder="0x... or name.eth"
+              />
+              {showWalletClear && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setWalletAddress('');
+                    setWalletError(null);
+                    abortControllerRef.current?.abort();
+                  }}
+                  className="absolute inset-y-0 right-2 flex items-center justify-center h-8 w-8 rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition"
+                  aria-label="Clear wallet address"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+            <button
+              type="submit"
+              disabled={isFetchingWallet}
+              className={`text-xs md:text-sm px-3 md:px-4 py-2 rounded-full border transition ${
+                isFetchingWallet
+                  ? 'border-white/20 bg-white/10 text-white/40 cursor-not-allowed'
+                  : 'border-white/20 bg-white/10 hover:bg-white/20 text-white'
+              }`}
+            >
+              {isFetchingWallet ? 'Fetching…' : 'Fetch data'}
+            </button>
+          </form>
+
           {isRelicHolder && (
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10">
                 <span className="text-white/70">Total relics</span>
                 <span className="font-semibold text-white">{totalRelicsOwned}</span>
               </span>
-              <button
+            <button
                 type="button"
                 className="text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10 hover:bg-white/20 transition"
                 onClick={resetCounts}
               >
                 Reset counts
-              </button>
-              <button
-                type="button"
+            </button>
+            <button
+              type="button"
                 className="text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10 hover:bg-white/20 transition"
                 onClick={resetBonuses}
               >
                 Reset bonuses
-              </button>
-            </div>
+            </button>
+          </div>
           )}
         </div>
 
@@ -901,7 +925,7 @@ export default function TrustAirdropCalculator() {
       <div className="mt-6 rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
         <div className="mb-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <label className="flex flex-col gap-2 ">
+          <label className="flex flex-col gap-2 ">
               <span className="text-sm font-medium flex items-center gap-2">
                 Portal IQ
                 {finalMultiplierFactor > 1 && (
@@ -913,23 +937,23 @@ export default function TrustAirdropCalculator() {
                   </span>
                 )}
               </span>
-              <input
-                type="text"
-                inputMode="numeric"
-                value={formatThousands(iq)}
-                onChange={(e) => {
-                  const clean = e.currentTarget.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
-                  const next = clean === '' ? 0 : Math.max(0, parseInt(clean, 10) || 0);
-                  setIq(next);
-                }}
+            <input
+              type="text"
+              inputMode="numeric"
+              value={formatThousands(iq)}
+              onChange={(e) => {
+                const clean = e.currentTarget.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
+                const next = clean === '' ? 0 : Math.max(0, parseInt(clean, 10) || 0);
+                setIq(next);
+              }}
                 style={multiplierGlowStyle}
                 className={`rounded-2xl px-4 py-3 text-white placeholder-white/40 focus:outline-none transition ${
                   finalMultiplierFactor > 1
                     ? 'border border-amber-300/60 bg-gradient-to-r from-yellow-200/10 to-amber-400/10 focus:ring-2 focus:ring-amber-300/50 shadow-[0_0_30px_rgba(251,191,36,0.35)]'
                     : 'border border-white/10 bg-black/60 focus:ring-2 focus:ring-white/30 focus:border-white/40 shadow-[0_14px_35px_rgba(0,0,0,0.45)]'
                 }`}
-                placeholder="e.g. 1200"
-              />
+              placeholder="e.g. 1200"
+            />
               {finalMultiplierFactor > 1 && (
                 <div className="text-[11px] text-white/60">
                   after multiplier: <span className="text-white font-medium">{formatThousands(Math.trunc(portalIqAfterMultiplier))}</span>
@@ -958,8 +982,8 @@ export default function TrustAirdropCalculator() {
                 disabled
                 className="border border-white/10 rounded-2xl px-4 py-3 bg-black/40 text-white/90 placeholder-white/40 focus:outline-none shadow-[0_14px_35px_rgba(0,0,0,0.45)] transition"
               />
-              <span className="text-xs text-white/60">(Portal IQ × (1 + final multiplier)) + Relics bonus</span>
-            </label>
+              <span className="text-xs text-white/60">(Portal IQ × Relic multiplier) + Relics bonus</span>
+          </label>
           </div>
         </div>
 
