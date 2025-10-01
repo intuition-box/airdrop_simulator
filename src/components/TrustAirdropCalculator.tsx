@@ -237,17 +237,12 @@ export default function TrustAirdropCalculator() {
 
   const effectiveSelectedFinal = useMemo(() => {
     if (!isRelicHolder) return null;
-    // If user explicitly selected a global multiplier, use it as-is
+    // Only apply if the user explicitly selected a global multiplier; otherwise none
     if (selectedFinalMultiplier) {
       return { rarity: selectedFinalMultiplier.rarity, isGenesis: selectedFinalMultiplier.isGenesis } as const;
     }
-    // Fallback: choose best available on highest rarity: prefer genesis
-    if (!highestRarity) return null;
-    const highest = highestRarity.r;
-    if ((genesisCounts[highest] ?? 0) > 0) return { rarity: highest, isGenesis: true } as const;
-    if ((normalCounts[highest] ?? 0) > 0) return { rarity: highest, isGenesis: false } as const;
     return null;
-  }, [isRelicHolder, highestRarity, selectedFinalMultiplier, genesisCounts, normalCounts]);
+  }, [isRelicHolder, selectedFinalMultiplier]);
 
   const finalIqMultiplier = useMemo(() => {
     if (!effectiveSelectedFinal) return 0;
@@ -256,11 +251,24 @@ export default function TrustAirdropCalculator() {
     return pct / 100;
   }, [effectiveSelectedFinal]);
 
+  const finalMultiplierFactor = useMemo(() => 1 + finalIqMultiplier, [finalIqMultiplier]);
+
+  const displayMultiplier = useMemo(() => {
+    if (finalMultiplierFactor <= 1) return '';
+    const rounded = Math.round(finalMultiplierFactor * 100) / 100;
+    const nearInt = Math.abs(rounded - Math.round(rounded)) < 1e-6;
+    return nearInt ? String(Math.round(rounded)) : formatNumber(rounded, 2, true);
+  }, [finalMultiplierFactor]);
+
+  const portalIqAfterMultiplier = useMemo(() => {
+    return Math.max(0, iq * finalMultiplierFactor);
+  }, [iq, finalMultiplierFactor]);
+
   const totalIq = useMemo(() => {
-    const portalWithMultiplier = Math.max(0, iq * (1 + finalIqMultiplier));
+    const portalWithMultiplier = Math.max(0, iq * finalMultiplierFactor);
     const total = portalWithMultiplier + Math.max(0, relicBonusIq);
     return Math.max(0, total);
-  }, [iq, relicBonusIq, finalIqMultiplier]);
+  }, [iq, relicBonusIq, finalMultiplierFactor]);
 
   const trustAfter = useMemo(() => {
     return iqPerTrust > 0 ? Math.max(0, totalIq / iqPerTrust) : 0;
@@ -610,11 +618,255 @@ export default function TrustAirdropCalculator() {
         )}
       </form>
 
-      <div className="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+      {/* Wallet → Relics → Calculator order */}
+
+      {/* Relic section moved above calculator */}
+      <div className="mt-8 mb-10">
+        <div className="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <label className="inline-flex items-center gap-3 cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={isRelicHolder}
+              onChange={(e) => setIsRelicHolder(e.target.checked)}
+              className="peer sr-only"
+              aria-label="Relic holder"
+            />
+            <span className={`relative inline-flex h-6 w-11 items-center rounded-full transition ${isRelicHolder ? "bg-white" : "bg-white/25"}`}>
+              <span className={`h-5 w-5 transform rounded-full bg-black transition ${isRelicHolder ? "translate-x-5" : "translate-x-1"}`} />
+            </span>
+            <span className="text-sm font-medium">Relic holder</span>
+          </label>
+
+          {isRelicHolder && (
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10">
+                <span className="text-white/70">Total relics</span>
+                <span className="font-semibold text-white">{totalRelicsOwned}</span>
+              </span>
+              <button
+                type="button"
+                className="text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10 hover:bg-white/20 transition"
+                onClick={resetCounts}
+              >
+                Reset counts
+              </button>
+              <button
+                type="button"
+                className="text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10 hover:bg-white/20 transition"
+                onClick={resetBonuses}
+              >
+                Reset bonuses
+              </button>
+            </div>
+          )}
+        </div>
+
+        {isRelicHolder && (
+          <>
+            <div className="mt-6 md:hidden -mx-1 px-1">
+              <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
+                {(Object.keys(LABELS) as Rarity[]).map((r) => {
+                  return (
+                    <div key={`mobile-${r}`} className="snap-start shrink-0 w-[85%]">
+                          <RelicFrame key={`mobile-frame-${r}`} rarity={r}>
+                          <div className="p-4">
+                              <div className="flex items-center gap-3 mb-4">
+                                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center overflow-hidden">
+                                  <img 
+                                    src={relicImageSrc[r]} 
+                                    alt={`${LABELS[r]} relic`}
+                                    className="w-full h-full object-cover"
+                                      onError={(e) => {
+                                        (e.currentTarget as HTMLImageElement).style.display = 'none';
+                                        const fallback = (e.currentTarget.nextElementSibling as HTMLElement);
+                                        if (fallback) fallback.style.display = 'block';
+                                      }}
+                                  />
+                                  <span className="text-2xl hidden">💎</span>
+                                </div>
+                                <div>
+                                  <div className="font-semibold text-lg text-white">{LABELS[r]}</div>
+                                  <div className="text-xs text-white/60">
+                                    {normalCounts[r]} Normal • {genesisCounts[r]} Genesis
+                                </div>
+                              </div>
+                            </div>
+
+                              <RelicBody
+                                rarity={r}
+                                normalCounts={normalCounts}
+                                genesisCounts={genesisCounts}
+                                stepNormal={stepNormal}
+                                stepGenesis={stepGenesis}
+                                bonusN={bonusN}
+                                bonusG={bonusG}
+                                setBonusNormal={setBonusNormal}
+                                setBonusGenesis={setBonusGenesis}
+                                showAdvanced={showAdvanced}
+                                marginalByRarity={marginalByRarity}
+                              />
+
+                              {/* Final multiplier radio for mobile (expose on every rarity except Mystic) */}
+                              {(() => {
+                                const order: Rarity[] = ['mystic', 'ancient', 'legendary', 'epic', 'rare', 'common'];
+                                if (r === 'mystic') return null;
+                                const hasG = (genesisCounts[r] ?? 0) > 0;
+                                const hasN = (normalCounts[r] ?? 0) > 0;
+                                const activeKey = effectiveSelectedFinal ? `${effectiveSelectedFinal.rarity}-${effectiveSelectedFinal.isGenesis ? 'G' : 'N'}` : '';
+                                const percentNormal = NORMAL_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
+                                const percentGenesis = GENESIS_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
+                                return (
+                                  <div className="mt-3">
+                                    <div className="text-[11px] text-white/60 mb-2">Relic Mint+HODL Multiplier</div>
+                                    <div className="flex items-center gap-2">
+                                      <label className="inline-flex items-center gap-1 text-[11px]">
+                                        <input
+                                          type="radio"
+                                          name={`final-multiplier-mobile-${r}`}
+                                          checked={activeKey === `${r}-N`}
+                                          onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: false })}
+                                        />
+                                        <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
+                                          Normal (+{formatNumber(percentNormal, 2, true)}%)
+                                        </span>
+                                      </label>
+                                      <label className="inline-flex items-center gap-1 text-[11px]">
+                                        <input
+                                          type="radio"
+                                          name={`final-multiplier-mobile-${r}`}
+                                          checked={activeKey === `${r}-G`}
+                                          onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: true })}
+                                        />
+                                        <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
+                                          Genesis (+{formatNumber(percentGenesis, 2, true)}%)
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </div>
+                                );
+                              })()}
+                            </div>
+                          </RelicFrame>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+
+            <div className="mt-6 hidden md:grid md:grid-cols-3 gap-4">
+              {(Object.keys(LABELS) as Rarity[]).map((r) => {
+                return (
+                    <RelicFrame key={`desktop-${r}`} rarity={r}>
+                      <div className="p-4">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center overflow-hidden">
+                            <img 
+                              src={relicImageSrc[r]} 
+                              alt={`${LABELS[r]} relic`}
+                              className="w-full h-full object-cover"
+                                      onError={(e) => {
+                                        (e.currentTarget as HTMLImageElement).style.display = 'none';
+                                        const fallback = (e.currentTarget.nextElementSibling as HTMLElement);
+                                        if (fallback) fallback.style.display = 'block';
+                                      }}
+                            />
+                            <span className="text-3xl hidden">💎</span>
+                          </div>
+                          <div>
+                            <div className="font-semibold text-lg text-white">{LABELS[r]}</div>
+                            <div className="text-xs text-white/60">
+                              {normalCounts[r]} Normal • {genesisCounts[r]} Genesis
+                            </div>
+                          </div>
+                        </div>
+
+                        <RelicBody
+                          rarity={r}
+                          normalCounts={normalCounts}
+                          genesisCounts={genesisCounts}
+                          stepNormal={stepNormal}
+                          stepGenesis={stepGenesis}
+                          bonusN={bonusN}
+                          bonusG={bonusG}
+                          setBonusNormal={setBonusNormal}
+                          setBonusGenesis={setBonusGenesis}
+                          showAdvanced={showAdvanced}
+                          marginalByRarity={marginalByRarity}
+                        />
+
+                        {/* Final multiplier radio selection (expose on every rarity) */}
+                        {(() => {
+                          if (r === 'mystic') return null;
+                          const hasG = (genesisCounts[r] ?? 0) > 0;
+                          const hasN = (normalCounts[r] ?? 0) > 0;
+                          const activeKey = effectiveSelectedFinal ? `${effectiveSelectedFinal.rarity}-${effectiveSelectedFinal.isGenesis ? 'G' : 'N'}` : '';
+                          const percentNormal = NORMAL_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
+                          const percentGenesis = GENESIS_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
+                          return (
+                            <div className="mt-4">
+                              <div className="text-xs text-white/60 mb-2">Relic Mint+HODL Multiplier</div>
+                              <div className="flex flex-wrap items-center gap-3">
+                                <label className="inline-flex items-center gap-1 text-xs">
+                                  <input
+                                    type="radio"
+                                    name={`final-multiplier-${r}`}
+                                    checked={activeKey === `${r}-N`}
+                                    onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: false })}
+                                  />
+                                  <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
+                                    Normal (+{formatNumber(percentNormal, 2, true)}%)
+                                  </span>
+                                </label>
+                                <label className="inline-flex items-center gap-1 text-xs">
+                                  <input
+                                    type="radio"
+                                    name={`final-multiplier-${r}`}
+                                    checked={activeKey === `${r}-G`}
+                                    onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: true })}
+                                  />
+                                  <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
+                                    Genesis (+{formatNumber(percentGenesis, 2, true)}%)
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          );
+                        })()}
+                      </div>
+                    </RelicFrame>
+                );
+              })}
+            </div>
+
+            <div className="mt-4 flex items-center justify-between">
+              <button
+                type="button"
+                onClick={() => setShowAdvanced((s) => !s)}
+                className="text-xs underline underline-offset-2 decoration-white/40 hover:decoration-white"
+              >
+                {showAdvanced ? "Hide Advanced" : "Advanced"}
+              </button>
+            </div>
+          </>
+        )}
+      </div>
+      </div>
+
+      {/* Calculator section moved below */}
+      <div className="mt-6 rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
         <div className="mb-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <label className="flex flex-col gap-2 ">
-              <span className="text-sm font-medium">Portal IQ</span>
+              <span className="text-sm font-medium flex items-center gap-2">
+                Portal IQ
+                {finalMultiplierFactor > 1 && (
+                  <span className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-full border border-white/20 bg-gradient-to-r from-yellow-200/20 to-amber-400/20 text-amber-200 shadow-[0_0_20px_rgba(251,191,36,0.35)]">
+                    <span className="font-semibold">{displayMultiplier}×</span>
+                  </span>
+                )}
+              </span>
               <input
                 type="text"
                 inputMode="numeric"
@@ -624,10 +876,18 @@ export default function TrustAirdropCalculator() {
                   const next = clean === '' ? 0 : Math.max(0, parseInt(clean, 10) || 0);
                   setIq(next);
                 }}
-                className="border border-white/10 rounded-2xl px-4 py-3 bg-black/60 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/40 shadow-[0_14px_35px_rgba(0,0,0,0.45)] transition"
+                className={`rounded-2xl px-4 py-3 text-white placeholder-white/40 focus:outline-none transition ${
+                  finalMultiplierFactor > 1
+                    ? 'border border-amber-300/60 bg-gradient-to-r from-yellow-200/10 to-amber-400/10 focus:ring-2 focus:ring-amber-300/50 shadow-[0_0_30px_rgba(251,191,36,0.35)]'
+                    : 'border border-white/10 bg-black/60 focus:ring-2 focus:ring-white/30 focus:border-white/40 shadow-[0_14px_35px_rgba(0,0,0,0.45)]'
+                }`}
                 placeholder="e.g. 1200"
               />
-              <span className="text-xs text-white/60">Fetched from Portal API (editable)</span>
+              {finalMultiplierFactor > 1 && (
+                <div className="text-[11px] text-white/60">
+                  after multiplier: <span className="text-white font-medium">{formatThousands(Math.trunc(portalIqAfterMultiplier))}</span>
+                </div>
+              )}
             </label>
             <label className="flex flex-col gap-2 ">
               <span className="text-sm font-medium">Relics bonus IQ</span>
@@ -842,237 +1102,7 @@ export default function TrustAirdropCalculator() {
 
       </div>
 
-      <div className="mt-8">
-        <div className="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-6 md:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-          <label className="inline-flex items-center gap-3 cursor-pointer select-none">
-            <input
-              type="checkbox"
-              checked={isRelicHolder}
-              onChange={(e) => setIsRelicHolder(e.target.checked)}
-              className="peer sr-only"
-              aria-label="Relic holder"
-            />
-            <span className={`relative inline-flex h-6 w-11 items-center rounded-full transition ${isRelicHolder ? "bg-white" : "bg-white/25"}`}>
-              <span className={`h-5 w-5 transform rounded-full bg-black transition ${isRelicHolder ? "translate-x-5" : "translate-x-1"}`} />
-            </span>
-            <span className="text-sm font-medium">Relic holder</span>
-          </label>
-
-          {isRelicHolder && (
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center gap-2 text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10">
-                <span className="text-white/70">Total relics</span>
-                <span className="font-semibold text-white">{totalRelicsOwned}</span>
-              </span>
-              <button
-                type="button"
-                className="text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10 hover:bg-white/20 transition"
-                onClick={resetCounts}
-              >
-                Reset counts
-              </button>
-              <button
-                type="button"
-                className="text-xs px-3 py-1.5 rounded-full border border-white/10 bg-white/10 hover:bg-white/20 transition"
-                onClick={resetBonuses}
-              >
-                Reset bonuses
-              </button>
-            </div>
-          )}
-        </div>
-
-        {isRelicHolder && (
-          <>
-            <div className="mt-6 md:hidden -mx-1 px-1">
-              <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2">
-                {(Object.keys(LABELS) as Rarity[]).map((r) => {
-                  return (
-                    <div key={`mobile-${r}`} className="snap-start shrink-0 w-[85%]">
-                          <RelicFrame key={`mobile-frame-${r}`} rarity={r}>
-                          <div className="p-4">
-                              <div className="flex items-center gap-3 mb-4">
-                                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center overflow-hidden">
-                                  <img 
-                                    src={relicImageSrc[r]} 
-                                    alt={`${LABELS[r]} relic`}
-                                    className="w-full h-full object-cover"
-                                      onError={(e) => {
-                                        (e.currentTarget as HTMLImageElement).style.display = 'none';
-                                        const fallback = (e.currentTarget.nextElementSibling as HTMLElement);
-                                        if (fallback) fallback.style.display = 'block';
-                                      }}
-                                  />
-                                  <span className="text-2xl hidden">💎</span>
-                                </div>
-                                <div>
-                                  <div className="font-semibold text-lg text-white">{LABELS[r]}</div>
-                                  <div className="text-xs text-white/60">
-                                    {normalCounts[r]} Normal • {genesisCounts[r]} Genesis
-                                </div>
-                              </div>
-                            </div>
-
-                              <RelicBody
-                                rarity={r}
-                                normalCounts={normalCounts}
-                                genesisCounts={genesisCounts}
-                                stepNormal={stepNormal}
-                                stepGenesis={stepGenesis}
-                                bonusN={bonusN}
-                                bonusG={bonusG}
-                                setBonusNormal={setBonusNormal}
-                                setBonusGenesis={setBonusGenesis}
-                                showAdvanced={showAdvanced}
-                                marginalByRarity={marginalByRarity}
-                              />
-
-                              {/* Final multiplier radio for mobile (expose on every rarity except Mystic) */}
-                              {(() => {
-                                const order: Rarity[] = ['mystic', 'ancient', 'legendary', 'epic', 'rare', 'common'];
-                                if (r === 'mystic') return null;
-                                const hasG = (genesisCounts[r] ?? 0) > 0;
-                                const hasN = (normalCounts[r] ?? 0) > 0;
-                                const activeKey = effectiveSelectedFinal ? `${effectiveSelectedFinal.rarity}-${effectiveSelectedFinal.isGenesis ? 'G' : 'N'}` : '';
-                                const percentNormal = NORMAL_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
-                                const percentGenesis = GENESIS_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
-                                return (
-                                  <div className="mt-3">
-                                    <div className="text-[11px] text-white/60 mb-2">Relic Mint+HODL Multiplier</div>
-                                    <div className="flex items-center gap-2">
-                                      <label className="inline-flex items-center gap-1 text-[11px]">
-                                        <input
-                                          type="radio"
-                                          name={`final-multiplier-mobile-${r}`}
-                                          checked={activeKey === `${r}-N`}
-                                          onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: false })}
-                                        />
-                                        <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
-                                          Normal (+{formatNumber(percentNormal, 2, true)}%)
-                                        </span>
-                                      </label>
-                                      <label className="inline-flex items-center gap-1 text-[11px]">
-                                        <input
-                                          type="radio"
-                                          name={`final-multiplier-mobile-${r}`}
-                                          checked={activeKey === `${r}-G`}
-                                          onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: true })}
-                                        />
-                                        <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
-                                          Genesis (+{formatNumber(percentGenesis, 2, true)}%)
-                                        </span>
-                                      </label>
-                                    </div>
-                                  </div>
-                                );
-                              })()}
-                            </div>
-                          </RelicFrame>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <div className="mt-6 hidden md:grid md:grid-cols-3 gap-4">
-              {(Object.keys(LABELS) as Rarity[]).map((r) => {
-                return (
-                    <RelicFrame key={`desktop-${r}`} rarity={r}>
-                      <div className="p-4">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center overflow-hidden">
-                            <img 
-                              src={relicImageSrc[r]} 
-                              alt={`${LABELS[r]} relic`}
-                              className="w-full h-full object-cover"
-                                      onError={(e) => {
-                                        (e.currentTarget as HTMLImageElement).style.display = 'none';
-                                        const fallback = (e.currentTarget.nextElementSibling as HTMLElement);
-                                        if (fallback) fallback.style.display = 'block';
-                                      }}
-                            />
-                            <span className="text-3xl hidden">💎</span>
-                          </div>
-                          <div>
-                            <div className="font-semibold text-lg text-white">{LABELS[r]}</div>
-                            <div className="text-xs text-white/60">
-                              {normalCounts[r]} Normal • {genesisCounts[r]} Genesis
-                            </div>
-                          </div>
-                        </div>
-
-                        <RelicBody
-                          rarity={r}
-                          normalCounts={normalCounts}
-                          genesisCounts={genesisCounts}
-                          stepNormal={stepNormal}
-                          stepGenesis={stepGenesis}
-                          bonusN={bonusN}
-                          bonusG={bonusG}
-                          setBonusNormal={setBonusNormal}
-                          setBonusGenesis={setBonusGenesis}
-                          showAdvanced={showAdvanced}
-                          marginalByRarity={marginalByRarity}
-                        />
-
-                        {/* Final multiplier radio selection (expose on every rarity) */}
-                        {(() => {
-                          if (r === 'mystic') return null; // Mystic has no multiplier
-                          const hasG = (genesisCounts[r] ?? 0) > 0;
-                          const hasN = (normalCounts[r] ?? 0) > 0;
-                          const activeKey = effectiveSelectedFinal ? `${effectiveSelectedFinal.rarity}-${effectiveSelectedFinal.isGenesis ? 'G' : 'N'}` : '';
-                          const percentNormal = NORMAL_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
-                          const percentGenesis = GENESIS_FINAL_MULTIPLIER_PERCENT[r] ?? 0;
-                          return (
-                            <div className="mt-4">
-                              <div className="text-xs text-white/60 mb-2">Relic Mint+HODL Multiplier</div>
-                              <div className="flex flex-wrap items-center gap-3">
-                                <label className="inline-flex items-center gap-1 text-xs">
-                                  <input
-                                    type="radio"
-                                    name={`final-multiplier-${r}`}
-                                    checked={activeKey === `${r}-N`}
-                                    onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: false })}
-                                  />
-                                  <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
-                                    Normal (+{formatNumber(percentNormal, 2, true)}%)
-                                  </span>
-                                </label>
-                                <label className="inline-flex items-center gap-1 text-xs">
-                                  <input
-                                    type="radio"
-                                    name={`final-multiplier-${r}`}
-                                    checked={activeKey === `${r}-G`}
-                                    onChange={() => setSelectedFinalMultiplier({ rarity: r, isGenesis: true })}
-                                  />
-                                  <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">
-                                    Genesis (+{formatNumber(percentGenesis, 2, true)}%)
-                                  </span>
-                                </label>
-                              </div>
-                            </div>
-                          );
-                        })()}
-                      </div>
-                    </RelicFrame>
-                );
-              })}
-            </div>
-
-            <div className="mt-4 flex items-center justify-between">
-              <button
-                type="button"
-                onClick={() => setShowAdvanced((s) => !s)}
-                className="text-xs underline underline-offset-2 decoration-white/40 hover:decoration-white"
-              >
-                {showAdvanced ? "Hide Advanced" : "Advanced"}
-              </button>
-            </div>
-          </>
-        )}
-      </div>
-      </div>
+      
     </div>
   );
 }
